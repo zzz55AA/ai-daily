@@ -2,14 +2,22 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+      "id": "issue-12-2026-11-16",
       "date": "2026-11-16",
       "year": 2026,
       "month": 11,
       "day": 16,
+      "label": "16",
+      "kicker": "第 12 期",
       "weekday": "星期一",
       "issue": 12,
+      "kind": "daily",
       "count": 66,
-      "window": "2026-11-15 05:30 – 2026-11-16 08:00（北京时间）",
+      "coverage": "2026年11月16日",
+      "window": "2026年11月16日",
+      "jump": [
+        "2026-11-16"
+      ],
       "title": "2026年11月16日 星期一",
       "path": "2026/11/16.html",
       "summary": "周日资讯偏少：OpenAI 新开科学博客并发首篇客座文，Anthropic 等其余头部公司官方站点窗内无新稿。英伟达黄仁勋风波继续发酵；古尔曼披露苹果智能眼镜 N50 细节；华为上线 openPangu-2.1-Pro，谷歌 Project Zero 收紧漏洞披露期限。本期另设「前期遗漏补充」板块，补收前几期漏掉的官方稿。",
@@ -57,14 +65,22 @@
       ]
     },
     {
+      "id": "issue-11-2026-11-15",
       "date": "2026-11-15",
       "year": 2026,
       "month": 11,
       "day": 15,
+      "label": "15",
+      "kicker": "第 11 期",
       "weekday": "星期日",
       "issue": 11,
+      "kind": "daily",
       "count": 71,
-      "window": "2026-11-14 05:30 – 2026-11-15 08:00（北京时间）",
+      "coverage": "2026年11月15日",
+      "window": "2026年11月15日",
+      "jump": [
+        "2026-11-15"
+      ],
       "title": "2026年11月15日 星期日",
       "path": "2026/11/15.html",
       "summary": "周末资讯偏少：OpenAI、Anthropic 官网窗内均无新稿。英伟达黄仁勋离任风波继续发酵，请愿签名超 11.5 万；Cursor 公布遭入侵与恶意 Claude Code 扩展的调查结果；星舰第 15 次试飞飞船首次被塔臂接住。意大利对 Meta 罚款 8.05 亿欧元，特斯拉开放 Cybercab 个人预订，华为继续公开麒麟 9050 细节。",
@@ -110,6 +126,782 @@
           "title": "NVIDIA cuBLAS 新增 Ozaki-II 与 2M 算法，用整数 Tensor Core 模拟 FP64 计算。"
         }
       ]
+    },
+    {
+      "id": "issue-10-2026-11-14",
+      "date": "2026-11-14",
+      "year": 2026,
+      "month": 11,
+      "day": 14,
+      "label": "14",
+      "kicker": "第 10 期",
+      "weekday": "星期六",
+      "issue": 10,
+      "kind": "daily",
+      "count": 69,
+      "coverage": "2026年11月14日",
+      "window": "2026年11月14日",
+      "jump": [
+        "2026-11-14"
+      ],
+      "title": "2026年11月14日 星期六",
+      "path": "2026/11/14.html",
+      "summary": "OpenAI 推出 ChatGPT Wallet，并确认解散独立机器人团队；Anthropic 发布安全评测指南和 Anvil 自动红队，彭博称其 IPO 认购约 6 倍、目标估值约 1.4 万亿美元。谷歌介绍 Antigravity /teamwork，DeepMind 开放 WeatherNext 数据集；英伟达发布 GR00T 2，董事会称尚未选定 CEO 猎头。苹果 HomeView 开售，标价 299 美元。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e9",
+          "title": "OpenAI 推出 ChatGPT Wallet：智能体经用户生物识别批准后代付，先向美国 ChatGPT Pro 的 dots 开放。"
+        },
+        {
+          "n": "02",
+          "id": "item-e1",
+          "title": "Anthropic 发表安全评测实践指南，并介绍内部自动红队系统 Anvil。"
+        },
+        {
+          "n": "03",
+          "id": "item-e4",
+          "title": "谷歌介绍 Antigravity /teamwork 多代理系统，称在数学形式化和系统工程上取得多项结果。"
+        },
+        {
+          "n": "04",
+          "id": "item-e3",
+          "title": "谷歌 DeepMind 开放 WeatherNext 3 所用数据集 SatWeave 与 PARDIG。"
+        },
+        {
+          "n": "05",
+          "id": "item-e11",
+          "title": "彭博：Anthropic IPO 认购约 6 倍，完全稀释估值目标约 1.4 万亿美元。"
+        },
+        {
+          "n": "06",
+          "id": "item-e10",
+          "title": "OpenAI 向《财富》确认解散独立机器人团队，研究人员并入核心研究，应用与硬件并入 Applied。"
+        },
+        {
+          "n": "07",
+          "id": "item-e17",
+          "title": "苹果 HomeView 即日起开售，标价 299 美元；因 Siri AI 暂不可用，欧盟未上市。"
+        },
+        {
+          "n": "08",
+          "id": "item-e19",
+          "title": "英伟达发布开放的机器人世界-动作模型 GR00T 2，强调技能可迁移到不同本体。"
+        }
+      ]
+    },
+    {
+      "id": "issue-09-2026-11-13",
+      "date": "2026-11-13",
+      "year": 2026,
+      "month": 11,
+      "day": 13,
+      "label": "13",
+      "kicker": "第 9 期",
+      "weekday": "星期五",
+      "issue": 9,
+      "kind": "daily",
+      "count": 89,
+      "coverage": "2026年11月13日",
+      "window": "2026年11月13日",
+      "jump": [
+        "2026-11-13"
+      ],
+      "title": "2026年11月13日 星期五",
+      "path": "2026/11/13.html",
+      "summary": "英伟达宣布黄仁勋辞去总裁、CEO 及董事职务，CFO 科莱特·克雷斯出任临时 CEO；谷歌发布 Gemini 4 Hydrogen，并与三星等推出 Gemini 智能眼镜。OpenAI 推出 Daybreak 网络安全产品；CNBC 称其此轮融资约 150 亿美元、估值 1.25 万亿美元（官方尚未发稿）。SpaceX 宣布投入超 740 亿美元建设两座 AI 超算设施；百度世界上线「词元所」并发布天池超节点规划。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e1",
+          "title": "英伟达宣布黄仁勋辞去总裁、CEO 及董事职务，CFO 科莱特·克雷斯出任临时 CEO，哈维·琼斯任首任董事长。"
+        },
+        {
+          "n": "02",
+          "id": "item-e2",
+          "title": "谷歌发布 Gemini 4 Hydrogen，主打日常编程与智能体，并在 Antigravity 上线 Orchestrator。"
+        },
+        {
+          "n": "03",
+          "id": "item-e13",
+          "title": "OpenAI 推出 Daybreak Defense Factory 与 Red Team，用智能体做漏洞修复和渗透测试。"
+        },
+        {
+          "n": "04",
+          "id": "item-z5",
+          "title": "SpaceX 宣布在得州与亚利桑那州投入超 740 亿美元，建设两座面向 AI 的超级计算设施。"
+        },
+        {
+          "n": "05",
+          "id": "item-e7",
+          "title": "谷歌与三星、Gentle Monster、Warby Parker 推出 Gemini 智能眼镜，12 月 10 日开卖，395 美元起。"
+        },
+        {
+          "n": "06",
+          "id": "item-e10",
+          "title": "CNBC 称 OpenAI 此轮融资约 150 亿美元、估值 1.25 万亿美元；官方本窗口无对应稿，交割进度未说明。"
+        },
+        {
+          "n": "07",
+          "id": "item-z21",
+          "title": "百度世界上线大模型交易平台「词元所」，并发布天池 1024 卡超节点与昆仑芯 M300 规划。"
+        },
+        {
+          "n": "08",
+          "id": "item-e8",
+          "title": "Fireworks AI 遭入侵波及客户数据，Notion 称约 1% 工作区的 AI 对话记录被取走。"
+        }
+      ]
+    },
+    {
+      "id": "issue-08-2026-11-12",
+      "date": "2026-11-12",
+      "year": 2026,
+      "month": 11,
+      "day": 12,
+      "label": "12",
+      "kicker": "第 8 期",
+      "weekday": "星期四",
+      "issue": 8,
+      "kind": "daily",
+      "count": 98,
+      "coverage": "2026年11月12日",
+      "window": "2026年11月12日",
+      "jump": [
+        "2026-11-12"
+      ],
+      "title": "2026年11月12日 星期四",
+      "path": "2026/11/12.html",
+      "summary": "英伟达风波升级，《华尔街日报》称董事会准备罢免黄仁勋；DeepMind 发布 AlphaGenome 2，谷歌推出 Gemini Decisions API。阿里官宣 Qwen4、百度发布 ERNIE 5.5 Flash Preview；Anthropic IPO 据报拟上调定价，台积电拟认购其股票；彭博称 OpenAI 季度收入破 100 亿美元。终端侧，华为详解麒麟 9050 NPU，苹果将给 Apple Intelligence 云端功能设用量上限。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e1",
+          "title": "《华尔街日报》称英伟达董事会准备罢免黄仁勋 CEO 职务，《纽约时报》再曝新情况，英伟达股价盘后下跌。"
+        },
+        {
+          "n": "02",
+          "id": "item-e3",
+          "title": "DeepMind 发布 AlphaGenome 2，可按具体细胞类型预测 DNA 变异效应，开放 API 供非商业研究。"
+        },
+        {
+          "n": "03",
+          "id": "item-e2",
+          "title": "谷歌推出 Gemini Decisions API，新模型 Gemini Decision 1 一次处理大量选择题判断，输出 token 免费。"
+        },
+        {
+          "n": "04",
+          "id": "item-z19",
+          "title": "阿里官宣 Qwen4 即将发布，Qwen4-Max 预览版先行上线；百度同日发布 ERNIE 5.5 Flash Preview，承诺 11 月 25 日前开源权重。"
+        },
+        {
+          "n": "05",
+          "id": "item-z2",
+          "title": "Anthropic IPO 新进展：据 FT，承销商拟上调发行价；台积电另拟以 IPO 价认购最多 5 亿美元 Anthropic 股票。"
+        },
+        {
+          "n": "06",
+          "id": "item-e6",
+          "title": "彭博称 OpenAI 季度收入首次突破 100 亿美元，年化收入约 500 亿美元。"
+        },
+        {
+          "n": "07",
+          "id": "item-z12",
+          "title": "华为详解麒麟 9050 NPU：称性能提升 140%、功耗降低 66%，可在端侧运行 30B MoE 模型。"
+        },
+        {
+          "n": "08",
+          "id": "item-z33",
+          "title": "苹果将限制 Apple Intelligence 云端功能用量，超出后可通过 iCloud+ 扩容。"
+        }
+      ]
+    },
+    {
+      "id": "issue-07-2026-11-11",
+      "date": "2026-11-11",
+      "year": 2026,
+      "month": 11,
+      "day": 11,
+      "label": "11",
+      "kicker": "第 7 期",
+      "weekday": "星期三",
+      "issue": 7,
+      "kind": "daily",
+      "count": 95,
+      "coverage": "2026年11月11日",
+      "window": "2026年11月11日",
+      "jump": [
+        "2026-11-11"
+      ],
+      "title": "2026年11月11日 星期三",
+      "path": "2026/11/11.html",
+      "summary": "谷歌全面开放 Gemini 4 Carbon，DeepMind 同日发布 AlphaProof Code 与 Gemini Robotics 2.5，英伟达开源 GR00T 2 与 Alpamayo 2 Edge。Anthropic 启动 IPO 路演，拟以“ANT”在纳斯达克上市，顶格估值约 1.4 万亿美元；OpenAI 推出 Businesses in ChatGPT 测试版，并宣布 12 月 11 日起 ChatGPT 语音统一改用 GPT-Live。英伟达因黄仁勋风波遭股东集体诉讼，董事会聘律所做独立调查；AMD 第六代 EPYC 上市。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e1",
+          "title": "谷歌全面开放最强模型 Gemini 4 Carbon，API 价格与 Argon 持平，并在 CursorBench 等多项智能体评测登顶。"
+        },
+        {
+          "n": "02",
+          "id": "item-e16",
+          "title": "Anthropic 启动 IPO 路演，拟以每股 70–78 美元发行 8.25 亿股、代码 ANT 登陆纳斯达克，顶格估值约 1.4 万亿美元。"
+        },
+        {
+          "n": "03",
+          "id": "item-e2",
+          "title": "DeepMind 发布 AlphaProof Code，用 AI 智能体对 Signal 协议真实代码完成形式化验证。"
+        },
+        {
+          "n": "04",
+          "id": "item-e25",
+          "title": "英伟达开源机器人世界-动作模型 GR00T 2，并放出 10 万小时人类视频数据，机器人具身模型与 DeepMind Gemini Robotics 2.5 同日更新。"
+        },
+        {
+          "n": "05",
+          "id": "item-e17",
+          "title": "OpenAI 推出 Businesses in ChatGPT 测试版，并宣布 12 月 11 日起语音全面切换到 GPT-Live、预告 Cyber at the Frontier 网安发布会。"
+        },
+        {
+          "n": "06",
+          "id": "item-e23",
+          "title": "黄仁勋风波升级：英伟达遭股东集体诉讼，董事会聘 Wachtell 律所和前联邦检察官做独立调查。"
+        },
+        {
+          "n": "07",
+          "id": "item-z31",
+          "title": "彭博称苹果新 CEO 特努斯闭门施压软件团队加速 AI，iOS 27.3 Beta 已出现本地处理部分 Siri 请求的 Skimmer 模块。"
+        },
+        {
+          "n": "08",
+          "id": "item-e12",
+          "title": "Grok Build 分享链接被批量枚举，约 3.5 万个应用遭公开，AI 编程工具的默认安全设置再成焦点。"
+        }
+      ]
+    },
+    {
+      "id": "issue-06-2026-11-10",
+      "date": "2026-11-10",
+      "year": 2026,
+      "month": 11,
+      "day": 10,
+      "label": "10",
+      "kicker": "第 6 期",
+      "weekday": "星期二",
+      "issue": 6,
+      "kind": "daily",
+      "count": 61,
+      "coverage": "2026年11月10日",
+      "window": "2026年11月10日",
+      "jump": [
+        "2026-11-10"
+      ],
+      "title": "2026年11月10日 星期二",
+      "path": "2026/11/10.html",
+      "summary": "今天的主线：Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2（同一底层模型，定价下调 20%），官方演示包括千级智能体 8 天做出可启动操作系统、约 30 小时完成费马大定理的 Lean 形式化；谷歌推出 TPU 8tx（机密推理）与 8i Max（超长上下文），一年内第四款八代系统；OpenAI 以 X @OpenAI 11月10日 06:01 对外介绍研究侧熔断系统 Control Room，约 35 秒内可切断模型输出；Meta 发布最小执行模型 Muse Ember。黄仁勋风波进入交易日：英伟达股价下跌逾 4%，特朗普称 FBI 在查并表态支持其留任；修订补入 Anthropic 官网研究：Fable 5.2 设计三款可工作电子原型。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-r1",
+          "title": "Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2：同一底层模型，定价下调 20%；官方演示包括千级智能体 8 天做出可启动的操作系统。"
+        },
+        {
+          "n": "02",
+          "id": "item-r10",
+          "title": "Anthropic 官网研究：Fable 5.2 设计三款可工作电子原型（与 Diode 合作，打样一次点亮）。"
+        },
+        {
+          "n": "03",
+          "id": "item-c1",
+          "title": "谷歌发布 TPU 8tx 与 8i Max，分别主打机密推理和超长上下文，这也是一年内第四款八代系统。"
+        },
+        {
+          "n": "04",
+          "id": "item-r8",
+          "title": "OpenAI 以 X @OpenAI 11月10日 06:01 对外介绍 Control Room：研究侧可在约 35 秒内切断模型输出，自身宕机则失败即关闭。"
+        },
+        {
+          "n": "05",
+          "id": "item-r2",
+          "title": "Meta 发布迄今最小、最便宜的执行模型 Muse Ember，定位「Wonder 做规划，Ember 扛量」。"
+        },
+        {
+          "n": "06",
+          "id": "item-c2",
+          "title": "黄仁勋风波进入交易日：英伟达股价下跌逾 4%；特朗普称 FBI 在查并表态支持其留任，公司发言人确认履职不中断。"
+        },
+        {
+          "n": "07",
+          "id": "item-i2",
+          "title": "ChatGPT Enterprise 上架 AWS Marketplace，企业可用已有 AWS 采购关系抵扣承诺消费。"
+        },
+        {
+          "n": "08",
+          "id": "item-r4",
+          "title": "字节跳动发布 Seedream 5.5：同一张图可改约 100 轮且非编辑区像素级保持，并原生输出透明背景。"
+        },
+        {
+          "n": "09",
+          "id": "item-d1",
+          "title": "iOS 27.3 代码曝光 Siri「个人记忆系统」：记忆图谱整理人际关系、地点、习惯和健康信息。"
+        }
+      ]
+    },
+    {
+      "id": "issue-05-2026-11-09",
+      "date": "2026-11-09",
+      "year": 2026,
+      "month": 11,
+      "day": 9,
+      "label": "9",
+      "kicker": "第 5 期",
+      "weekday": "星期一",
+      "issue": 5,
+      "kind": "daily",
+      "count": 64,
+      "coverage": "2026年11月9日",
+      "window": "2026年11月9日",
+      "jump": [
+        "2026-11-09"
+      ],
+      "title": "2026年11月9日 星期一",
+      "path": "2026/11/09.html",
+      "summary": "今天的主线：英伟达董事会就黄仁勋据报遭外国情报针对启动独立调查，黄仁勋向全员承认婚外情并承诺配合；苹果据古尔曼报道正加速把 Siri 做成可持续执行任务的智能体。Anthropic 一边推进感恩节前 IPO（估值预期继续下调），一边据报以约 34 亿美元采购 1.7GW 燃气发电机组。开发者侧，高盛将 Claude Code 与 GitHub 收回到工程师范围；研究侧上海交大 AutoDNA 登上《自然》。OpenAI 官网窗口内无新稿，仅 @OpenAIDevs 发「Tomorrow.」预告，未点名产品。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-c1",
+          "title": "英伟达董事会就黄仁勋据报遭外国情报针对启动独立调查；黄仁勋向全员承认婚外情并承诺配合。"
+        },
+        {
+          "n": "02",
+          "id": "item-d1",
+          "title": "古尔曼：苹果 CEO 特努斯敦促加快 Siri 路线图，目标做成可持续执行任务的智能体。"
+        },
+        {
+          "n": "03",
+          "id": "item-i2",
+          "title": "媒体：Anthropic 约以 34 亿美元接手 1.7GW 燃气发电机组订单，供应自身数据中心。"
+        },
+        {
+          "n": "04",
+          "id": "item-i1",
+          "title": "消息称 Anthropic 仍计划感恩节前上市，募资或 800–1000 亿美元，估值预期下调至约 1.25–1.75 万亿美元。"
+        },
+        {
+          "n": "05",
+          "id": "item-t1",
+          "title": "高盛将 Claude Code 与 GitHub 的使用限制在工程师范围内，交易员和银行家不再能直接用编码智能体。"
+        },
+        {
+          "n": "06",
+          "id": "item-r1",
+          "title": "上海交大 AutoDNA（思源一号）在《自然》发表：AI 原生实验室自主完成逾 1.1 万步核酸操作。"
+        },
+        {
+          "n": "07",
+          "id": "item-p1",
+          "title": "@OpenAIDevs 发布「Tomorrow.」预告并附视频，未点名产品；引用区猜测 GPT-6.2 Astra/Sol，官方未证实。"
+        },
+        {
+          "n": "08",
+          "id": "item-r3",
+          "title": "Menlo：企业 AI 部署支出一年增至 1770 亿美元，中国模型占开源支出约 89%。"
+        }
+      ]
+    },
+    {
+      "id": "issue-04-2026-11-08",
+      "date": "2026-11-08",
+      "year": 2026,
+      "month": 11,
+      "day": 8,
+      "label": "8",
+      "kicker": "第 4 期",
+      "weekday": "星期日",
+      "issue": 4,
+      "kind": "daily",
+      "count": 83,
+      "coverage": "2026年11月8日",
+      "window": "2026年11月8日",
+      "jump": [
+        "2026-11-08"
+      ],
+      "title": "2026年11月8日 星期日",
+      "path": "2026/11/08.html",
+      "summary": "今天的主线：METR 发布对 Anthropic 的独立评估，认为其模型能力进步速度约为过去两倍、多数源于用 AI 做研发；Anthropic 据报下周启动 IPO 路演，估值预期继续下修。开发者侧 GitHub 公布可承载 5000 个 Agent 并发的新存储架构，Claude Code 权限文件泄露密钥与 AGENTS.md 投毒两起安全问题值得注意。硬件侧英伟达据报出资扶持 CoWoS 封装产能；手机侧 iPhone Duo 首周销量与苹果 SynthID 水印、国行 Siri 线索。周末 OpenAI 官方无新文章，仅 @OpenAIDevs 发布 Showcase 标签页。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-r1",
+          "title": "METR 独立评估：Anthropic 能力进步速度约为过去 2 倍，约八成归因于 AI 参与研发，关键证据多被删节。"
+        },
+        {
+          "n": "02",
+          "id": "item-i1",
+          "title": "Anthropic 据报下周启动 IPO 路演、目标感恩节前上市，估值预期降至 1.5 万亿美元区间甚至更低。"
+        },
+        {
+          "n": "03",
+          "id": "item-t2",
+          "title": "GitHub Rubicon 存储架构单仓库撑住 5000 个 Agent、每秒 7200 次推送；OpenAI、Anthropic 转向自建代码托管。"
+        },
+        {
+          "n": "04",
+          "id": "item-t4",
+          "title": "Apiiro：Claude Code「不再询问」把密码写进 settings.local.json，GitHub 上 1122 份公开副本含密钥。"
+        },
+        {
+          "n": "05",
+          "id": "item-c1",
+          "title": "英伟达据报出资数十亿美元助矽品扩产 CoWoS，台积电或为英伟达造 3D DRAM。"
+        },
+        {
+          "n": "06",
+          "id": "item-r2",
+          "title": "PSI 借助未发布的 Anthropic 模型三天证明 Aaronson–Ambainis 量子猜想。"
+        },
+        {
+          "n": "07",
+          "id": "item-d1",
+          "title": "iPhone Duo 国内首周 3 天约 12.46 万台，苹果称超 10 万款应用已适配内屏。"
+        },
+        {
+          "n": "08",
+          "id": "item-i4",
+          "title": "中期选举后数据中心逆风：Anthropic 支持的监管派获胜，欧洲反数据中心抗议蔓延。"
+        }
+      ]
+    },
+    {
+      "id": "issue-03-2026-11-07",
+      "date": "2026-11-07",
+      "year": 2026,
+      "month": 11,
+      "day": 7,
+      "label": "7",
+      "kicker": "第 3 期",
+      "weekday": "星期六",
+      "issue": 3,
+      "kind": "daily",
+      "count": 87,
+      "coverage": "2026年11月7日",
+      "window": "2026年11月7日",
+      "jump": [
+        "2026-11-07"
+      ],
+      "title": "2026年11月7日 星期六",
+      "path": "2026/11/07.html",
+      "summary": "今天的主线：OpenAI 发布 BioBasicsBench 与 Hacktron 安全合作，并转发 FMF Jailbreak 评级框架；清晨 @OpenAIDevs 演示 GPT-Image-2.6 GIF。Meta Muse Wonder 专用模型与 Spaces 上线；DeepMind 用 agent 压力测试加密。端侧有淘宝 MNN 0.3B 手机模型；开发者侧 Amp Spaces 与 Cursor 语音协作同日更新。融资侧 OpenAI 据报新一轮已募约 110 亿美元。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-r1",
+          "title": "OpenAI 发布 BioBasicsBench：湿实验室日常分析 100 题，Astra xhigh 平均 66.7%。"
+        },
+        {
+          "n": "02",
+          "id": "item-r2",
+          "title": "OpenAI × Hacktron 合作挖洞，Daybreak Red 扩大模型访问；Cathedral 将参与冲刺。"
+        },
+        {
+          "n": "03",
+          "id": "item-r4",
+          "title": "@OpenAIDevs 07:46 连发 GPT-Image-2.6 GIF 演示：人人可做动图。"
+        },
+        {
+          "n": "04",
+          "id": "item-r5",
+          "title": "Meta Muse Wonder 专用模型上线（Active Memory/Focus）并推出 Spaces。"
+        },
+        {
+          "n": "05",
+          "id": "item-d1",
+          "title": "淘宝 MNN 开源 0.3B 手机模型，iPhone 18 Pro 离线约 350 token/s。"
+        },
+        {
+          "n": "06",
+          "id": "item-t2",
+          "title": "Amp Spaces + Cursor 语音协作：11-07 清晨开发者工具双更新。"
+        },
+        {
+          "n": "07",
+          "id": "item-i1",
+          "title": "OpenAI 据报新一轮已募约 110 亿美元、估值约 1.25 万亿美元。"
+        },
+        {
+          "n": "08",
+          "id": "item-c3",
+          "title": "消息称微软不再续签甲骨文 AI 算力租赁，重估超大额云合作。"
+        }
+      ]
+    },
+    {
+      "id": "issue-02-2026-11-06",
+      "date": "2026-11-06",
+      "year": 2026,
+      "month": 11,
+      "day": 6,
+      "label": "6",
+      "kicker": "第 2 期",
+      "weekday": "星期五",
+      "issue": 2,
+      "kind": "daily",
+      "count": 85,
+      "coverage": "2026年11月6日",
+      "window": "2026年11月6日",
+      "jump": [
+        "2026-11-06"
+      ],
+      "title": "2026年11月6日 星期五",
+      "path": "2026/11/06.html",
+      "summary": "今天的主线：OpenAI 发布 GPT-6 Cyber（ExploitGym 48.5%，已用于 Linux 948 LPE 与 Firefox 81 个高危），并公布社区算力园区契约；谷歌 Gemini Omni 1.2 Flash 原生 15 秒视频并降价 30%；英伟达 Vera CPU 给出智能体每瓦约 1.6× 的对比数据，GitHub 新存储架构单仓实测约 5000 并发智能体；本版另补 B 站 8 条窗口内视频。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-r1",
+          "title": "OpenAI 发布 GPT-6 Cyber：ExploitGym 48.5%，越权对齐近满分，已用于 Linux 948 LPE 与 Firefox 81 个高危。"
+        },
+        {
+          "n": "02",
+          "id": "item-r2",
+          "title": "谷歌 Gemini Omni 1.2 Flash：原生最长 15 秒视频，较 1.1 降价 30%，API 全面可用。"
+        },
+        {
+          "n": "03",
+          "id": "item-c1",
+          "title": "英伟达 Vera CPU：较最快 x86 每瓦约 1.6× 智能体；Daytona 10.8 秒拉起 1000 沙箱。"
+        },
+        {
+          "n": "04",
+          "id": "item-d1",
+          "title": "苹果触屏 MacBook Pro / M6 Mac / iPad mini 8 开售；华为擎云 HM650 宣称国产化率 100%。"
+        },
+        {
+          "n": "05",
+          "id": "item-t1",
+          "title": "GitHub 新 Git 存储架构单仓实测约 5000 并发智能体、7200 pushes/秒。"
+        },
+        {
+          "n": "06",
+          "id": "item-i1",
+          "title": "OpenAI 发社区契约：自担电费、公开水耗噪声；Agility 成美国人形机器人第一股。"
+        },
+        {
+          "n": "07",
+          "id": "item-r3",
+          "title": "百度开源文心 ERNIE 5.5 Flash Base（280B MoE）；DeepSeek Harness 日活 154 万。"
+        },
+        {
+          "n": "08",
+          "id": "item-v1",
+          "title": "Matthew Berman 字幕精讲：Kimi K3.1 Pro 权重放出，并盘点开源 computer use / 图像模型一周。"
+        }
+      ]
+    },
+    {
+      "id": "issue-01-2026-11-05",
+      "date": "2026-11-05",
+      "year": 2026,
+      "month": 11,
+      "day": 5,
+      "label": "5",
+      "kicker": "第 1 期",
+      "weekday": "星期四",
+      "issue": 1,
+      "kind": "daily",
+      "count": 88,
+      "coverage": "2026年11月5日",
+      "window": "2026年11月5日",
+      "jump": [
+        "2026-11-05"
+      ],
+      "title": "2026年11月5日 星期四",
+      "path": "2026/11/05.html",
+      "summary": "今天的主线：OpenAI 发布 Images 2.6；OpenAI 用 AI 批量挖出并修补 948 个 Linux 内核提权漏洞；Kimi K3.1 Pro 与混元 Hy4 两个大号国产模型同日开放；高通在手机下滑中押注数据中心，并拿下星链 5G 大单；苹果开始给员工的 AI 用量踩刹车。另外，ChatGPT 周活已达 12 亿；字节被曝封禁员工在 L4 代码库使用外部 AI；Claude Code 早期成员 Cat Wu 离开 Anthropic。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-r21",
+          "title": "OpenAI 发布 Images 2.6：支持 GIF，API 新增 Flare 与 Sunburst，生成快 50%。"
+        },
+        {
+          "n": "02",
+          "id": "item-r5",
+          "title": "OpenAI 用未发布的网络安全模型扫描 Linux 内核，验证出 948 个本地提权漏洞并生成补丁，全程 API 成本约 121 万美元。"
+        },
+        {
+          "n": "03",
+          "id": "item-r1",
+          "title": "月之暗面开放 Kimi K3.1 Pro 权重：2.8 万亿参数 MoE，Terminal-Bench 4.0 得 65.7，接近 Opus 5.5。"
+        },
+        {
+          "n": "04",
+          "id": "item-c1",
+          "title": "高通全年净利润增 146%，与苹果、华为续签授权，并目标 2029 年数据中心收入 150 亿美元。"
+        },
+        {
+          "n": "05",
+          "id": "item-c2",
+          "title": "SpaceX 选用高通平台建设星链移动全美 5G 网络，数万个基站，2027 年开始部署。"
+        },
+        {
+          "n": "06",
+          "id": "item-i20",
+          "title": "ChatGPT 周活达 12 亿，60 天新增 2 亿；搜索类查询量约为谷歌的五分之一。"
+        },
+        {
+          "n": "07",
+          "id": "item-d1",
+          "title": "苹果收紧员工 AI 预算：部分工程师日额度从 300 美元降到 200 美元，计划再降到 100 美元。"
+        },
+        {
+          "n": "08",
+          "id": "item-v1",
+          "title": "编程工具并购：OpenAI 收购 Codex 文件树与 Diff 组件的开发商 Pierre，Meta 收购并行编程智能体工具 Conductor。"
+        },
+        {
+          "n": "09",
+          "id": "item-r2",
+          "title": "腾讯混元 Hy4 正式版发布，首次具备视觉与电脑操作能力，已上线腾讯云和 OpenRouter，权重即将开源。"
+        },
+        {
+          "n": "10",
+          "id": "item-i1",
+          "title": "美国 9 个州 30 多个地方在选举中投票暂停或禁止建设数据中心。"
+        },
+        {
+          "n": "11",
+          "id": "item-i21",
+          "title": "曝字节封禁 L4 代码库与飞书文档的外部 AI 访问，员工自费的 Claude、Codex 账号不能再用。"
+        }
+      ]
+    },
+    {
+      "id": "trial-2026-11-03",
+      "date": "2026-11-04",
+      "year": 2026,
+      "month": 11,
+      "day": 4,
+      "label": "3–4",
+      "kicker": "试刊",
+      "weekday": "",
+      "issue": null,
+      "kind": "trial",
+      "count": 90,
+      "coverage": "2026-11-03 00:00 – 2026-11-04 08:00",
+      "window": "2026-11-03 00:00 – 2026-11-04 08:00",
+      "jump": [
+        "2026-11-03",
+        "2026-11-04"
+      ],
+      "title": "2026-11-03 00:00 – 2026-11-04 08:00（北京时间）",
+      "path": "2026/11/03-04.html",
+      "summary": "这 32 小时的主线：苹果交出特努斯上任后的首份财报并开测国行 Apple 智能；Anthropic 招股书承认可能「即将」触及 AI 加速研发门槛；「权重空间编程」引发复现热潮；OpenAI 加码安全赏金。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-d13",
+          "title": "苹果第四财季营收 1,145 亿美元增 12%，iPhone 与服务创纪录，但内存涨价让下季毛利率指引降到 45% 至 46%。"
+        },
+        {
+          "n": "02",
+          "id": "item-i2",
+          "title": "Anthropic 更新招股书：三季度收入 170 亿美元，并承认内部估计可能「即将」达到 AI 显著加速自身研发的门槛。"
+        },
+        {
+          "n": "03",
+          "id": "item-d1",
+          "title": "国行 Apple 智能随 iOS 27.3 beta 开测，千问接入 Siri、视觉智能与写作工具，正式版预计 12 月。"
+        },
+        {
+          "n": "04",
+          "id": "item-r2",
+          "title": "「权重空间编程」持续发酵：Astra 只改 0.016% 权重让小模型数学分数大涨，本地 Qwen 与 DeepSeek 也能部分复现。"
+        },
+        {
+          "n": "05",
+          "id": "item-v11",
+          "title": "OpenAI 把漏洞赏金提高到四倍以上，严重漏洞最高可拿 17.2 万美元，并拿出 10 亿美元额度资助防守方。"
+        },
+        {
+          "n": "06",
+          "id": "item-i17",
+          "title": "币安复盘 63 亿美元被盗案：假面试投毒加内部 AI 工具被滥用，约 28.5 亿美元已冻结或拦截。"
+        }
+      ]
+    },
+    {
+      "id": "legacy-incremental-2026-11-02",
+      "date": "2026-11-02",
+      "year": 2026,
+      "month": 11,
+      "day": 2,
+      "label": "2",
+      "kicker": "增量",
+      "weekday": "",
+      "issue": null,
+      "kind": "legacy_incremental",
+      "count": 37,
+      "coverage": "2026-11-01 20:51 – 2026-11-02 23:00",
+      "window": "2026-11-01 20:51 – 2026-11-02 23:00",
+      "jump": [
+        "2026-11-02"
+      ],
+      "title": "覆盖区间：2026-11-01 20:51 — 2026-11-02 23:00（北京时间 · 增量模式 + 1小时缓冲）｜生成时间：2026-11-02 23",
+      "path": "2026/11/02-incremental.html",
+      "summary": "覆盖区间：2026-11-01 20:51 — 2026-11-02 23:00（北京时间 · 增量模式 + 1小时缓冲）｜生成时间：2026-11-02 23:52",
+      "highlights": []
+    },
+    {
+      "id": "legacy-incremental-2026-11-01",
+      "date": "2026-11-01",
+      "year": 2026,
+      "month": 11,
+      "day": 1,
+      "label": "1",
+      "kicker": "增量",
+      "weekday": "",
+      "issue": null,
+      "kind": "legacy_incremental",
+      "count": 68,
+      "coverage": "2026-10-30 22:59 – 2026-11-01 21:51",
+      "window": "2026-10-30 22:59 – 2026-11-01 21:51",
+      "jump": [
+        "2026-11-01"
+      ],
+      "title": "覆盖区间：2026-10-30 22:59 → 2026-11-01 21:51（北京时间，增量更新 + 1 小时重叠缓冲）\n生成时间: 2026-11-01 ",
+      "path": "2026/11/01-incremental.html",
+      "summary": "覆盖区间：2026-10-30 22:59 → 2026-11-01 21:51（北京时间，增量更新 + 1 小时重叠缓冲）\n生成时间: 2026-11-01 22:18 | 共 68 条（深度详摘 15 · 速览 53）",
+      "highlights": []
+    },
+    {
+      "id": "legacy-weekly-2026-10-24",
+      "date": "2026-10-30",
+      "year": 2026,
+      "month": 10,
+      "day": 30,
+      "label": "24–30",
+      "kicker": "周报",
+      "weekday": "",
+      "issue": null,
+      "kind": "legacy_weekly",
+      "count": 162,
+      "coverage": "2026-10-24 – 2026-10-30",
+      "window": "2026-10-24 – 2026-10-30",
+      "jump": [
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "title": "覆盖区间：2026-10-24 00:00 至 2026-10-30 24:00（北京时间，7 天）",
+      "path": "2026/10/24-30.html",
+      "summary": "覆盖区间：2026-10-24 00:00 至 2026-10-30 24:00（北京时间，7 天）",
+      "highlights": []
     }
   ]
 }

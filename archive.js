@@ -40,7 +40,7 @@
     ".arc-year>summary{font-size:13px;letter-spacing:.12em;color:#57534e;padding:6px 0}",
     ".arc-month{margin:0 0 4px 2px}",
     ".arc-month>summary{font-size:14px;padding:6px 2px}",
-    ".arc-day{display:grid;grid-template-columns:2rem 2.4rem 1fr;gap:6px;align-items:baseline;padding:7px 8px;border-radius:8px;margin:1px 0}",
+    ".arc-day{display:grid;grid-template-columns:auto auto 1fr;gap:6px;align-items:baseline;padding:7px 8px;border-radius:8px;margin:1px 0}",
     ".arc-day[hidden],.arc-month[hidden],.arc-year[hidden],.arc-hit[hidden]{display:none !important}",
     ".arc-day:hover{background:#e8e4db}",
     ".arc-day.is-current{background:#1c1b19;color:#fbfaf7}",
@@ -104,6 +104,7 @@
     })
     .then(function (data) {
       var issues = (data.issues || []).slice().sort(function (a, b) {
+        if (a.date === b.date) return a.path < b.path ? 1 : -1;
         return a.date < b.date ? 1 : -1;
       });
       var path = location.pathname;
@@ -166,8 +167,13 @@
       dateInput.id = "arc-date";
       dateInput.type = "date";
       if (issues.length) {
-        dateInput.min = chrono[0].date;
-        dateInput.max = chrono[chrono.length - 1].date;
+        var span = [];
+        issues.forEach(function (issue) {
+          (issue.jump || [issue.date]).forEach(function (day) { span.push(day); });
+        });
+        span.sort();
+        dateInput.min = span[0];
+        dateInput.max = span[span.length - 1];
       }
       if (current) dateInput.value = current.date;
       dateInput.setAttribute("aria-label", "选择已发布的日期");
@@ -240,11 +246,11 @@
         group.items.forEach(function (issue) {
           var link = el("a", "arc-day");
           link.href = url(issue.path);
-          link.dataset.date = issue.date;
-          link.appendChild(el("span", "num", String(issue.day)));
-          link.appendChild(el("span", "wk", shortWeek(issue.weekday)));
-          link.appendChild(el("span", "no", "第" + issue.issue + "期"));
-          if (current && issue.date === current.date) {
+          link.dataset.id = issue.id || issue.date;
+          link.appendChild(el("span", "num", issue.label || String(issue.day)));
+          link.appendChild(el("span", "wk", issue.issue ? shortWeek(issue.weekday) : ""));
+          link.appendChild(el("span", "no", issue.issue ? ("第" + issue.issue + "期") : (issue.kicker || "")));
+          if (current && issue.path === current.path) {
             link.classList.add("is-current");
             link.setAttribute("aria-current", "page");
           }
@@ -266,12 +272,12 @@
         link.href = url(issue.path);
         link.rel = rel;
         link.appendChild(document.createTextNode(label));
-        link.appendChild(el("small", null, issue.month + "月" + issue.day + "日 · 第" + issue.issue + "期"));
+        link.appendChild(el("small", null, issue.coverage || (issue.month + "月" + issue.day + "日")));
         return link;
       }
 
       function haystack(issue) {
-        var parts = [issue.date, issue.title, issue.weekday, "第" + issue.issue + "期", issue.summary, issue.window];
+        var parts = [issue.date, issue.title, issue.weekday, issue.kicker, issue.coverage, issue.label, issue.issue ? ("第" + issue.issue + "期") : "", issue.summary, issue.window];
         (issue.highlights || []).forEach(function (item) {
           parts.push(item.n, item.title);
         });
@@ -285,7 +291,7 @@
         hits.textContent = "";
         issues.forEach(function (issue) {
           var matched = !q || haystack(issue).indexOf(q) !== -1;
-          var link = tree.querySelector('.arc-day[data-date="' + issue.date + '"]');
+          var link = tree.querySelector('.arc-day[data-id="' + (issue.id || issue.date) + '"]');
           if (link) link.hidden = !matched;
           if (matched) visibleIssues += 1;
           if (!q) return;
@@ -296,7 +302,7 @@
             hitCount += 1;
             var hit = el("a", "arc-hit");
             hit.href = url(issue.path) + "#" + item.id;
-            hit.appendChild(el("span", null, issue.month + "月" + issue.day + "日 · 第" + issue.issue + "期 · 要点 " + item.n));
+            hit.appendChild(el("span", null, (issue.coverage || (issue.month + "月" + issue.day + "日")) + " · 要点 " + item.n));
             hit.appendChild(el("b", null, item.title));
             hits.appendChild(hit);
           });
@@ -326,7 +332,8 @@
       function findDate(value) {
         var found = null;
         issues.forEach(function (issue) {
-          if (issue.date === value) found = issue;
+          var days = issue.jump || [issue.date];
+          if (days.indexOf(value) !== -1 && (!found || issue.date === value)) found = issue;
         });
         return found;
       }
