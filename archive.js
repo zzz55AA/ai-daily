@@ -11,7 +11,7 @@
     ".arc-nav *{box-sizing:border-box}",
     ".arc-nav a{color:inherit;text-decoration:none}",
     ".arc-backdrop{position:fixed;inset:0;background:rgba(28,27,25,.42);z-index:35;border:0;padding:0}",
-    ".arc-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;position:sticky;top:0;z-index:15;background:rgba(251,250,247,.94);border-bottom:1px solid #e4e1da;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC','WenQuanYi Micro Hei',sans-serif}",
+    ".arc-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px 0;position:static;background:transparent;border:0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC','WenQuanYi Micro Hei',sans-serif}",
     ".arc-toggle,.arc-close,.arc-go{font:inherit;color:#1c1b19;background:#fff;border:1px solid #d6d2c9;border-radius:8px;min-height:44px;padding:8px 12px;cursor:pointer}",
     ".arc-toggle{font-weight:600}",
     ".arc-close{padding:6px 10px;min-height:36px}",
