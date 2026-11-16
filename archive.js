@@ -61,20 +61,48 @@
     ".arc-open,.arc-close,.arc-backdrop{display:none !important}",
     ".arc-bar.arc-home{display:none}",
     "}",
+    "article.issue{cursor:pointer}",
+    "article.issue .points,article.issue .points a,article.issue .points summary{cursor:auto}",
+    "article.issue .points a,article.issue .points summary{cursor:pointer}",
+    ".arc-end{display:flex;gap:8px;margin:28px 18px 8px;padding-top:14px;border-top:1px solid #e4e1da}",
+    ".arc-end a,.arc-end .arc-edge{flex:1}",
     "@media (max-width:959px){",
     "body.arc-open .arc-nav{transform:none;pointer-events:auto}",
+    ".arc-bar{position:static;top:auto;z-index:auto;background:transparent;border:0;padding:8px 14px 0;box-shadow:none}",
+    ".arc-bar .arc-pager small{display:none}",
+    ".arc-bar .arc-open,.arc-bar .arc-pager a,.arc-bar .arc-edge{min-height:36px;padding:4px 10px}",
+    ".arc-bar .arc-pager a,.arc-bar .arc-edge{flex-direction:row;align-items:center}",
     "}",
-    "@media (max-width:420px){",
-    ".arc-bar{flex-wrap:wrap;padding:8px 10px}",
-    ".arc-pager{width:100%;margin-left:0}",
-    ".arc-pager a,.arc-edge{flex:1}",
-    "}",
-    "@media print{.arc-nav,.arc-bar,.arc-backdrop{display:none !important}body.arc-on{padding-left:0}}",
+    "@media print{.arc-nav,.arc-bar,.arc-end,.arc-backdrop{display:none !important}body.arc-on{padding-left:0}}",
     "html.arc-lock,html.arc-lock body{overflow:hidden}"
   ].join("");
   document.head.appendChild(css);
   document.body.classList.add("arc-on");
 
+  function bindCards() {
+    var cards = document.querySelectorAll("article.issue");
+    Array.prototype.forEach.call(cards, function (card) {
+      var dest = card.getAttribute("data-href");
+      if (!dest) {
+        var title = card.querySelector("h2 a");
+        dest = title ? title.getAttribute("href") : "";
+        if (dest) card.setAttribute("data-href", dest);
+      }
+      if (!dest || card.getAttribute("data-card-bound")) return;
+      card.setAttribute("data-card-bound", "1");
+      card.addEventListener("click", function (event) {
+        var selected = window.getSelection ? String(window.getSelection()) : "";
+        if (selected) return;
+        var node = event.target;
+        while (node && node !== card) {
+          var tag = node.tagName;
+          if (tag === "A" || tag === "BUTTON" || tag === "SUMMARY" || tag === "INPUT" || tag === "LABEL") return;
+          node = node.parentNode;
+        }
+        if (node === card) location.href = new URL(dest, location.href).href;
+      });
+    });
+  }
   function el(tag, cls, text) {
     var node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -217,6 +245,13 @@
       }
       bar.appendChild(pager);
       document.body.insertBefore(bar, document.body.firstChild);
+      if (current) {
+        var endPager = pager.cloneNode(true);
+        endPager.classList.add("arc-end");
+        var content = document.getElementById("content") || document.querySelector(".wrap");
+        if (content) content.appendChild(endPager);
+      }
+      bindCards();
 
       var groups = {};
       var yearOrder = [];

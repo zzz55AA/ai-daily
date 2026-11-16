@@ -21,7 +21,8 @@ a{color:inherit}
 h1{margin:4px 0 0;font-size:34px;line-height:1.2;font-weight:650;letter-spacing:-.02em}
 .lede{margin:10px 0 0;max-width:40em;color:var(--text2)}
 .month-h{margin:26px 0 0;font-size:13px;letter-spacing:.12em;color:var(--text3);font-weight:650}
-.issue{display:grid;grid-template-columns:104px 1fr;gap:8px 16px;padding:18px 0;border-bottom:1px solid var(--border)}
+.issue{display:grid;grid-template-columns:104px 1fr;gap:8px 16px;padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.issue .points,.issue .points a,.issue .points summary{cursor:pointer}
 .dateblock{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;padding-top:2px}
 .dateblock:hover .big{text-decoration:underline;text-underline-offset:3px}
 .big{font-size:40px;line-height:.95;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
@@ -60,7 +61,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
 </header>
 <main id="archive-list">
   <p class="month-h">2026年11月</p>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/16.html">
     <a class="dateblock" href="2026/11/16.html"><span class="big">16</span><span class="sub">周一</span></a>
     <div>
       <p class="kicker">第 12 期 · 66 条</p>
@@ -81,7 +82,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/15.html">
     <a class="dateblock" href="2026/11/15.html"><span class="big">15</span><span class="sub">周日</span></a>
     <div>
       <p class="kicker">第 11 期 · 71 条</p>
@@ -102,7 +103,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/14.html">
     <a class="dateblock" href="2026/11/14.html"><span class="big">14</span><span class="sub">周六</span></a>
     <div>
       <p class="kicker">第 10 期 · 69 条</p>
@@ -123,7 +124,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/13.html">
     <a class="dateblock" href="2026/11/13.html"><span class="big">13</span><span class="sub">周五</span></a>
     <div>
       <p class="kicker">第 9 期 · 89 条</p>
@@ -144,7 +145,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/12.html">
     <a class="dateblock" href="2026/11/12.html"><span class="big">12</span><span class="sub">周四</span></a>
     <div>
       <p class="kicker">第 8 期 · 98 条</p>
@@ -165,7 +166,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/11.html">
     <a class="dateblock" href="2026/11/11.html"><span class="big">11</span><span class="sub">周三</span></a>
     <div>
       <p class="kicker">第 7 期 · 95 条</p>
@@ -186,7 +187,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/10.html">
     <a class="dateblock" href="2026/11/10.html"><span class="big">10</span><span class="sub">周二</span></a>
     <div>
       <p class="kicker">第 6 期 · 61 条</p>
@@ -208,7 +209,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/09.html">
     <a class="dateblock" href="2026/11/09.html"><span class="big">9</span><span class="sub">周一</span></a>
     <div>
       <p class="kicker">第 5 期 · 64 条</p>
@@ -229,7 +230,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/08.html">
     <a class="dateblock" href="2026/11/08.html"><span class="big">8</span><span class="sub">周日</span></a>
     <div>
       <p class="kicker">第 4 期 · 83 条</p>
@@ -250,7 +251,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/07.html">
     <a class="dateblock" href="2026/11/07.html"><span class="big">7</span><span class="sub">周六</span></a>
     <div>
       <p class="kicker">第 3 期 · 87 条</p>
@@ -271,7 +272,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/06.html">
     <a class="dateblock" href="2026/11/06.html"><span class="big">6</span><span class="sub">周五</span></a>
     <div>
       <p class="kicker">第 2 期 · 85 条</p>
@@ -292,7 +293,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/05.html">
     <a class="dateblock" href="2026/11/05.html"><span class="big">5</span><span class="sub">周四</span></a>
     <div>
       <p class="kicker">第 1 期 · 88 条</p>
@@ -316,7 +317,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/03-04.html">
     <a class="dateblock" href="2026/11/03-04.html"><span class="big range">3–4</span><span class="sub">试刊</span></a>
     <div>
       <p class="kicker">试刊 · 90 条</p>
@@ -335,7 +336,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       </details>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/02-incremental.html">
     <a class="dateblock" href="2026/11/02-incremental.html"><span class="big">2</span><span class="sub">增量</span></a>
     <div>
       <p class="kicker">增量 · 37 条</p>
@@ -343,7 +344,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
       <p class="summary">覆盖区间：2026-11-01 20:51 — 2026-11-02 23:00（北京时间 · 增量模式 + 1小时缓冲）｜生成时间：2026-11-02 23:52</p>
     </div>
   </article>
-  <article class="issue">
+  <article class="issue" data-href="2026/11/01-incremental.html">
     <a class="dateblock" href="2026/11/01-incremental.html"><span class="big">1</span><span class="sub">增量</span></a>
     <div>
       <p class="kicker">增量 · 68 条</p>
@@ -353,7 +354,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
     </div>
   </article>
   <p class="month-h">2026年10月</p>
-  <article class="issue">
+  <article class="issue" data-href="2026/10/24-30.html">
     <a class="dateblock" href="2026/10/24-30.html"><span class="big range">24–30</span><span class="sub">周报</span></a>
     <div>
       <p class="kicker">周报 · 162 条</p>
