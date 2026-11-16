@@ -187,7 +187,7 @@ def render_homepage(issues: list[dict]) -> None:
         window = f'\n      <p class="meta">{escape(issue["window"])}</p>' if issue["window"] else ""
         summary = f'\n      <p class="summary">{escape(issue["summary"])}</p>' if issue["summary"] else ""
         blocks.append(
-            "  <article class=\"issue\">\n"
+            f'  <article class="issue" data-href="{href}">\n'
             f'    <a class="dateblock" href="{href}"><span class="big">{issue["day"]}</span>'
             f'<span class="sub">{escape(short_week(issue["weekday"]))}</span></a>\n'
             "    <div>\n"
