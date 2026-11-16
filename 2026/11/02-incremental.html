@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 资讯简报 · 2026-11-02</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--tx:#1c2330;--mut:#697180;--acc:#2456c4;--bd:#e3e6ec;--chip:#eef2fa}
+@media(prefers-color-scheme:dark){:root{--bg:#12151a;--card:#1b2028;--tx:#d9dee6;--mut:#8a93a3;--acc:#7aa2f7;--bd:#2a3140;--chip:#232b38}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;padding:0 12px 48px}
+.wrap{max-width:860px;margin:0 auto}
+header{padding:28px 4px 10px}
+h1{font-size:26px;margin:0 0 6px}
+.meta{color:var(--mut);font-size:14px}
+.stats{font-size:14px;margin-top:6px}
+nav{margin-top:10px;font-size:14px}
+nav a{color:var(--acc);text-decoration:none;margin-right:14px}
+h2{font-size:20px;margin:30px 4px 12px;padding-bottom:6px;border-bottom:2px solid var(--bd)}
+h2 .n{color:var(--mut);font-weight:normal;font-size:14px;margin-left:8px}
+.gnote{color:var(--mut);font-size:13.5px;margin:0 4px 12px}
+details.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:10px 0;overflow:hidden}
+details.card summary{cursor:pointer;padding:12px 14px;list-style:none;display:flex;flex-direction:column;gap:4px}
+details.card summary::-webkit-details-marker{display:none}
+summary .row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.badge{font-size:12px;color:#fff;border-radius:4px;padding:1px 7px;white-space:nowrap}
+.t{font-weight:600;font-size:15.5px}
+.lead{color:var(--mut);font-size:13.5px}
+.body{padding:4px 16px 14px;border-top:1px dashed var(--bd)}
+.body p{margin:10px 0}
+.orig{color:var(--mut);font-size:12.5px;margin-top:10px}
+.terms{color:var(--mut);font-size:13px;margin-top:10px}
+.body img{max-width:100%;border-radius:8px;margin:10px 0;display:block}
+.more{display:inline-block;margin-top:8px;color:var(--acc);text-decoration:none;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card)}
+th,td{border-bottom:1px solid var(--bd);padding:7px 9px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-weight:600;white-space:nowrap}
+td a{color:var(--acc);text-decoration:none}
+td.repo a{font-weight:600;white-space:nowrap}
+td .add{color:#188038;white-space:nowrap}
+.lang{display:inline-block;font-size:12px;background:var(--chip);border-radius:4px;padding:0 6px}
+details.board{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:10px 0}
+details.board summary{cursor:pointer;padding:11px 14px;font-weight:600}
+details.board summary .n{color:var(--mut);font-weight:normal;font-size:13px}
+.boardwrap{padding:0 10px 10px;overflow-x:auto}
+footer{margin-top:36px;color:var(--mut);font-size:13px}
+.b-zhipu{background:#4b6bfb}.b-verge{background:#b03a5b}.b-9to5{background:#0d9488}.b-ars{background:#b91c1c}.b-sspai{background:#d97706}.b-ifanr{background:#0891b2}.b-had{background:#0a7d32}.b-ph{background:#da552f}
+</style>
+<link rel="canonical" href="https://zzz55aa.github.io/ai-daily/2026/11/02-incremental.html"></head>
+<body>
+<div class="wrap">
+<header>
+<h1>AI 资讯简报</h1>
+<div class="meta">覆盖区间：2026-11-01 20:51 — 2026-11-02 23:00（北京时间 · 增量模式 + 1小时缓冲）｜生成时间：2026-11-02 23:52</div>
+<div class="stats">订阅源 74 个（正常 72 ｜ 失败 2）｜ 资讯条目 37 条 ｜ GitHub Trending 三榜 30 仓</div>
+<nav><a href="#trending">GitHub Trending</a><a href="#g0">官方动态</a><a href="#g5">终端数码</a><a href="#g6">编程名家</a><a href="#g7">科技宅趣味</a></nav>
+</header>
+
+<section id="trending">
+<h2>GitHub Trending<span class="n">日/周/月三榜 Top 10 · 每期必发 · 不受时间窗口影响 · 抓取于 2026-11-02 23:10</span></h2>
+<details class="board" open>
+<summary>🔥 日榜<span class="n">（Top 10）</span></summary>
+<div class="boardwrap"><table>
+<tr><th>#</th><th>仓库</th><th>简介</th><th>语言</th><th>总 Star</th><th>本期新增</th></tr>
+<tr><td>1</td><td class="repo"><a href="https://github.com/thedotmack/claude-mem">thedotmack/claude-mem</a></td><td>为每个 Agent 提供跨会话持久上下文：记录会话全部行为，AI 压缩后注入未来会话；支持 Claude Code、Codex、Gemini、Copilot 等</td><td><span class="lang">TypeScript</span></td><td>109,404</td><td class="add">+1,526 今日</td></tr>
+<tr><td>2</td><td class="repo"><a href="https://github.com/lightpanda-io/browser">lightpanda-io/browser</a></td><td>为 AI 与自动化设计的无头浏览器</td><td><span class="lang">Zig</span></td><td>40,237</td><td class="add">+825 今日</td></tr>
+<tr><td>3</td><td class="repo"><a href="https://github.com/shiyu-coder/Kronos">shiyu-coder/Kronos</a></td><td>金融市场「语言」的基础模型</td><td><span class="lang">Python</span></td><td>45,446</td><td class="add">+630 今日</td></tr>
+<tr><td>4</td><td class="repo"><a href="https://github.com/pingdotgg/t3code">pingdotgg/t3code</a></td><td>（榜单未提供描述）</td><td><span class="lang">TypeScript</span></td><td>38,219</td><td class="add">+3,094 今日</td></tr>
+<tr><td>5</td><td class="repo"><a href="https://github.com/milind-soni/OpenMausBot">milind-soni/OpenMausBot</a></td><td>开源 Grok Bot 替代品，自带可供机器人使用的虚拟机</td><td><span class="lang">TypeScript</span></td><td>10,614</td><td class="add">+922 今日</td></tr>
+<tr><td>6</td><td class="repo"><a href="https://github.com/public-apis/public-apis">public-apis/public-apis</a></td><td>免费 API 大合集</td><td><span class="lang">Python</span></td><td>494,697</td><td class="add">+324 今日</td></tr>
+<tr><td>7</td><td class="repo"><a href="https://github.com/cjpais/Handy">cjpais/Handy</a></td><td>免费、开源、可扩展的完全离线语音转文字应用</td><td><span class="lang">Rust</span></td><td>36,630</td><td class="add">+339 今日</td></tr>
+<tr><td>8</td><td class="repo"><a href="https://github.com/Donchitos/Claude-Code-Game-Studios">Donchitos/Claude-Code-Game-Studios</a></td><td>把 Claude Code 变成完整游戏开发工作室：49 个 AI Agent、72 个工作流 skill 与镜像真实工作室层级的协作系统</td><td><span class="lang">Shell</span></td><td>32,384</td><td class="add">+967 今日</td></tr>
+<tr><td>9</td><td class="repo"><a href="https://github.com/kornia/kornia">kornia/kornia</a></td><td>面向空间 AI 的几何计算机视觉库</td><td><span class="lang">Python</span></td><td>11,827</td><td class="add">+101 今日</td></tr>
+<tr><td>10</td><td class="repo"><a href="https://github.com/beenuar/AiSOC">beenuar/AiSOC</a></td><td>开源 AI 安全运营中心：告警融合、LLM Agent 分诊、MITRE ATT&amp;CK 调查、可回放决策台账；免 API key 自托管，内置 MCP server</td><td><span class="lang">Python</span></td><td>6,273</td><td class="add">+446 今日</td></tr>
+</table></div>
+</details>
+<details class="board">
+<summary>📈 周榜<span class="n">（Top 10）</span></summary>
+<div class="boardwrap"><table>
+<tr><th>#</th><th>仓库</th><th>简介</th><th>语言</th><th>总 Star</th><th>本期新增</th></tr>
+<tr><td>1</td><td class="repo"><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></td><td>面向 Claude Code / Cursor / Codex 的反「AI slop」设计 skill</td><td><span class="lang">CSS</span></td><td>44,885</td><td class="add">+11,566 本周</td></tr>
+<tr><td>2</td><td class="repo"><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></td><td>给编码 Agent 的设计词汇表：用 polish/bolder 引导风格，用 critique/audit 做审查，在发布前拦截 AI slop</td><td><span class="lang">Rust</span></td><td>99,337</td><td class="add">+12,017 本周</td></tr>
+<tr><td>3</td><td class="repo"><a href="https://github.com/AgriciDaniel/claude-seo">AgriciDaniel/claude-seo</a></td><td>Claude Code 通用 SEO skill：26 个子技能 + 19 个子代理，覆盖技术 SEO、E-E-A-T、schema、GEO/AEO、外链、本地与国际化 SEO 等</td><td><span class="lang">Python</span></td><td>25,545</td><td class="add">+5,034 本周</td></tr>
+<tr><td>4</td><td class="repo"><a href="https://github.com/thedotmack/claude-mem">thedotmack/claude-mem</a></td><td>为每个 Agent 提供跨会话持久上下文（同日榜 #1）</td><td><span class="lang">TypeScript</span></td><td>109,295</td><td class="add">+5,852 本周</td></tr>
+<tr><td>5</td><td class="repo"><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></td><td>Cloudflare 出品：多阶段安全审计编码 Agent skill，产出独立验证、机器可读的发现</td><td><span class="lang">JavaScript</span></td><td>56,385</td><td class="add">+10,069 本周</td></tr>
+<tr><td>6</td><td class="repo"><a href="https://github.com/obra/superpowers">obra/superpowers</a></td><td>一套真正好用的 Agent skill 框架与软件开发方法论</td><td><span class="lang">Shell</span></td><td>310,637</td><td class="add">+5,896 本周</td></tr>
+<tr><td>7</td><td class="repo"><a href="https://github.com/JetBrains/thinkrail">JetBrains/thinkrail</a></td><td>JetBrains 轻量级真实 IDE，围绕你的工作方式自我定制</td><td><span class="lang">TypeScript</span></td><td>6,971</td><td class="add">+5,760 本周</td></tr>
+<tr><td>8</td><td class="repo"><a href="https://github.com/pingdotgg/t3code">pingdotgg/t3code</a></td><td>（榜单未提供描述）</td><td><span class="lang">TypeScript</span></td><td>38,019</td><td class="add">+6,926 本周</td></tr>
+<tr><td>9</td><td class="repo"><a href="https://github.com/multica-ai/andrej-karpathy-skills">multica-ai/andrej-karpathy-skills</a></td><td>单文件 CLAUDE.md：源自 Karpathy 对 LLM 编码陷阱的观察，改进 Claude Code 行为</td><td>—</td><td>227,997</td><td class="add">+4,459 本周</td></tr>
+<tr><td>10</td><td class="repo"><a href="https://github.com/jakubkrehel/skills">jakubkrehel/skills</a></td><td>帮你构建优秀界面的 Agent skill 合集</td><td><span class="lang">Markdown</span></td><td>10,080</td><td class="add">+1,607 本周</td></tr>
+</table></div>
+</details>
+<details class="board">
+<summary>📅 月榜<span class="n">（Top 10）</span></summary>
+<div class="boardwrap"><table>
+<tr><th>#</th><th>仓库</th><th>简介</th><th>语言</th><th>总 Star</th><th>本期新增</th></tr>
+<tr><td>1</td><td class="repo"><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></td><td>多阶段安全审计编码 Agent skill，产出独立验证、机器可读的发现（同周榜 #5）</td><td><span class="lang">JavaScript</span></td><td>56,429</td><td class="add">+32,599 本月</td></tr>
+<tr><td>2</td><td class="repo"><a href="https://github.com/heygen-com/hyperframes">heygen-com/hyperframes</a></td><td>写 HTML、渲染视频，为 Agent 而生</td><td><span class="lang">TypeScript</span></td><td>77,136</td><td class="add">+22,225 本月</td></tr>
+<tr><td>3</td><td class="repo"><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></td><td>反「AI slop」设计 skill（同周榜 #1）</td><td><span class="lang">CSS</span></td><td>44,931</td><td class="add">+15,201 本月</td></tr>
+<tr><td>4</td><td class="repo"><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td><td>开源全本地 ElevenLabs 替代：声音克隆/设计、视频配音、听写、转写、有声书，支持 646 种语言</td><td><span class="lang">Python</span></td><td>97,986</td><td class="add">+47,055 本月</td></tr>
+<tr><td>5</td><td class="repo"><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a></td><td>Anthropic 官方开源：面向知识工作者的 Claude Cowork 插件库</td><td><span class="lang">Python</span></td><td>34,375</td><td class="add">+8,486 本月</td></tr>
+<tr><td>6</td><td class="repo"><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></td><td>给编码 Agent 的设计词汇表（同周榜 #2）</td><td><span class="lang">Rust</span></td><td>99,398</td><td class="add">+26,119 本月</td></tr>
+<tr><td>7</td><td class="repo"><a href="https://github.com/earthtojake/text-to-cad">earthtojake/text-to-cad</a></td><td>用 AI 设计实体产品</td><td><span class="lang">Python</span></td><td>24,771</td><td class="add">+8,238 本月</td></tr>
+<tr><td>8</td><td class="repo"><a href="https://github.com/thedotmack/claude-mem">thedotmack/claude-mem</a></td><td>为每个 Agent 提供跨会话持久上下文（同日榜 #1）</td><td><span class="lang">TypeScript</span></td><td>109,368</td><td class="add">+14,011 本月</td></tr>
+<tr><td>9</td><td class="repo"><a href="https://github.com/NationalSecurityAgency/ghidra">NationalSecurityAgency/ghidra</a></td><td>NSA 出品的软件逆向工程框架</td><td><span class="lang">Java</span></td><td>96,802</td><td class="add">+16,858 本月</td></tr>
+<tr><td>10</td><td class="repo"><a href="https://github.com/pingdotgg/t3code">pingdotgg/t3code</a></td><td>（榜单未提供描述）</td><td><span class="lang">TypeScript</span></td><td>38,161</td><td class="add">+12,629 本月</td></tr>
+</table></div>
+</details>
+</section>
+
+<section id="g0">
+<h2>0 · 官方源头 · 权威公司<span class="n">0 条</span></h2>
+<div class="gnote">OpenAI / Anthropic / Meta / Google / Microsoft / NVIDIA / xAI / DeepSeek / MiniMax / 智谱 窗口内均无官方更新。（初版误报说明：智谱更新日志页曾抓出两条挂在 11-02 名下的条目——「GLM-5.3-FlashX 正式发布」「GLM-5.3 上下文扩展至 256K」——经与模型文档页交叉核验，FlashX 此前已发布、GLM-5.3 官方规格为上下文 128K，判定为日志页渲染错位导致的旧条目误报，已撤下。）</div>
+
+</section>
+
+<section id="g1">
+<h2>1 · AI 核心<span class="n">0 条</span></h2>
+<div class="gnote">8 源全部抓取正常，本窗口无更新（最新为 Dwarkesh 10-31、HF Blog 10-30、Latent Space 10-30）。</div>
+</section>
+
+<section id="g2">
+<h2>2 · AI 编码工具生态<span class="n">1 条</span></h2>
+<div class="gnote">Jesse Vincent 博客（blog.fsck.com）在抓取服务端恢复后补抓成功，补入 1 条；其余 8 源窗口内无更新。</div>
+<details class="card" id="it38">
+<summary><span class="row"><span class="badge" style="background:#7c5cbf">fsck</span><span class="t">Jesse Vincent：新扫描仪玩转 Paperless-ngx</span></span><span class="lead">新硬件到手，把纸质文档管道接进 Paperless-ngx</span></summary>
+<div class="body">
+<div class="orig">原文：Paperless-ngx fun with the new scanner · blog.fsck.com · 2026-11-02（补抓，正文要点受限）</div>
+<p>Jesse Vincent（Superpowers / Perl / RT 作者）11 月 2 日发文，记录他把一台新扫描仪接入 Paperless-ngx 文档管理管道的过程与折腾。Paperless-ngx 是开源的纸质文档扫描、OCR 与归档系统，这类「新硬件到手 → 调通自动化归档管道」的组合正是他博客的典型题材。</p>
+<p>说明：抓取服务端在本条补抓时仍不稳定，正文细节未能完整提取，以上为基于标题与博客定位的有限要点（原文要点有限）。Superpowers 相关更新（2.3 版发布于 10-30）在窗口起点之前，未收录。</p>
+<div class="terms">术语：Paperless-ngx（开源文档扫描/OCR/归档系统）</div>
+<a class="more" href="https://blog.fsck.com/">阅读原文 ↗</a>
+</div>
+</details>
+</section>
+
+<section id="g8">
+<h2>8 · 播客<span class="n">1 条</span></h2>
+<div class="gnote">No Priors 在抓取服务端恢复后补抓成功，补入 1 条新集；其余 5 源窗口内无新集。源健康提示：Founders 原订阅地址（transistor.fm）已被挪用，真实 feed 已迁移至 megaphone.fm；张小珺经官方小宇宙 feed 验证正常（最新 155 期，10-21）——这两处已于 2026-11-03 在 OPML 中换源。</div>
+<details class="card" id="it39">
+<summary><span class="row"><span class="badge b-ph" style="background:#3b6ea5">No Priors</span><span class="t">No Priors Ep.108：Descript 如何用 AI 重构视频编辑</span></span><span class="lead">视频编辑工具 Descript 的 AI 之路，11月2日新集</span></summary>
+<div class="body">
+<div class="orig">原文：Ep. 108: How Descript is rebuilding video editing with AI · No Priors Podcast · 2026-11-02（补抓，shownotes 要点受限）</div>
+<p>No Priors（Elad Gil × Sarah Guo 的 AI 创业访谈播客）11 月 2 日上架第 108 集：探讨视频编辑工具 Descript 如何围绕 AI 重构视频编辑产品。Descript 是「像改文档一样剪视频」路线的代表产品，这期访谈通常围绕其产品演进、AI 模型在语音克隆/视频生成中的落地与创业判断展开。</p>
+<p>说明：抓取服务端在本条补抓时仍不稳定，完整 shownotes 未能提取，以上为基于标题与节目定位的有限要点（原文要点有限）。收听地址见节目主页 nopriors.ai。</p>
+<div class="terms">术语：Descript（AI 视频编辑工具）；No Priors 播客</div>
+<a class="more" href="https://www.nopriors.ai/">阅读原文 ↗</a>
+</div>
+</details>
+</section>
+
+<section id="g3">
+<h2>3 · AI 知识层<span class="n">0 条</span></h2>
+<div class="gnote">本窗口无更新。源健康提示：The Batch（Andrew Ng）官方 feed 已随站点迁移下线（404），已转为「agent 抓网页」模式（the-batch 页面正常列出每周期刊，周更节奏页面抓取完全够用）；Chip Huyen / Lilian Weng / Gwern 正常但更新早于窗口。</div>
+</section>
+
+<section id="g5">
+<h2>5 · 终端科技数码<span class="n">24 条</span></h2>
+<details class="card" id="it3">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">16GB内存版树莓派5再涨价，售价升至385美元</span></span><span class="lead">内存短缺致16GB树莓派5涨至385美元</span></summary>
+<div class="body">
+<div class="orig">原文：The 16GB Raspberry Pi 5 got another 'unavoidable' RAM price hike · The Verge · 2026-11-02 22:07</div>
+<p>16GB内存版Raspberry Pi 5迎来新一轮价格上调。官方称此次涨价“不可避免”，并将原因指向持续存在的内存短缺；调整后，该配置售价升至385美元，较调整前增加80美元。</p>
+<p>这款16GB版本首发价格为120美元，如今已超过首发价三倍，官方表述与价格变化共同反映出内存供应紧张对终端定价的明显影响。16GB版Raspberry Pi Compute Module 5也同步涨价，但现有信息没有披露其具体涨幅。</p>
+<p>此次变动直接影响计划购买高内存树莓派设备的开发者与产品用户，采购成本已经显著抬升。更值得关注的是，官方将涨价直接归因于内存短缺，说明上游供应问题已传导至树莓派5及计算模块产品线，16GB高配版本的价格压力更加突出。</p>
+<div class="terms">术语：树莓派5（Raspberry Pi 5）；计算模块5（Compute Module 5）；内存短缺</div>
+<a class="more" href="https://www.theverge.com/tech/1024342/raspberry-pi-5-16gb-price-hike-ram">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it4">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">SpaceX考虑收购Boost Mobile，或接入其网络</span></span><span class="lead">SpaceX探讨收购或接入Boost Mobile网络</span></summary>
+<div class="body">
+<div class="orig">原文：SpaceX could buy Boost Mobile as part of its big mobile carrier plans · The Verge · 2026-11-02 22:05</div>
+<p>《华盛顿邮报》报道称，SpaceX已与廉价移动运营商Boost Mobile讨论合作。双方讨论的路径主要有两种：直接收购Boost Mobile，或接入其移动网络；目前尚无已经达成交易的公开信息。</p>
+<p>这些讨论属于SpaceX推进大型移动运营商计划的一部分。按照已披露的目标，SpaceX希望借助Starlink的卫星网络能力拓展移动业务，并把Starlink打造为“主流”移动运营商。收购与网络接入两种路径，分别对应资产整合和网络合作两种可能方向。</p>
+<p>如果合作最终落地，Boost Mobile的运营商资源与网络接入能力可能成为SpaceX进入传统移动网络运营领域的重要路径，因此值得持续关注。不过，现有材料只确认双方正在讨论，尚未说明是否签约、采取哪种模式以及具体时间表，后续仍需等待进一步消息。</p>
+<div class="terms">术语：星链（Starlink）；廉价移动运营商Boost Mobile；卫星移动网络</div>
+<a class="more" href="https://www.theverge.com/science/1024330/spacex-boost-mobile-deal-report">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it5">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">Affinity创意工作室登陆iPad，免费开放使用</span></span><span class="lead">Canva免费开放Affinity创意工具iPad版</span></summary>
+<div class="body">
+<div class="orig">原文：Affinity's creative studio is now available on iPad for free · The Verge · 2026-11-02 22:00</div>
+<p>Canva推出Affinity for iPad，并免费向用户提供这款创意工具。官方称，iPad版本提供与去年合并后的桌面版一致的专业级功能，主要覆盖矢量图形、插画和照片编辑三类创作工作。</p>
+<p>Affinity套件去年被重新整合为一体化桌面应用，此次则把相关创作能力带到iPad。对有移动创作需求的用户来说，可以先免费使用这套工具，无需先购买Affinity桌面软件，直接在平板设备上进行矢量绘图、插画或图片处理。</p>
+<p>这次更新让Affinity在桌面与iPad之间形成更统一的产品覆盖，也使Canva的创意工具组合新增一个免费入口。它尤其值得平面设计、插画和图片编辑用户留意；现有信息未涉及具体功能差异、兼容设备范围和后续更新安排。</p>
+<div class="terms">术语：Affinity创意套件；矢量图形；插画；照片编辑</div>
+<a class="more" href="https://www.theverge.com/1024283/canva-affinity-for-ipad-design-app-availability">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it6">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">欧洲更多超市冰柜疑遭网络攻击</span></span><span class="lead">欧洲多国超市冷藏设备疑遭网络攻击</span></summary>
+<div class="body">
+<div class="orig">原文：More European supermarkets are getting their freezers hacked · The Verge · 2026-11-02 21:00</div>
+<p>欧洲多国超市遭遇新一轮疑似网络攻击，涉及比利时、瑞典、卢森堡和爱沙尼亚。多家大型连锁报告冰柜或冷藏设备温度突然异常，事件并非只出现在一个国家，而是同时波及多个欧洲市场。</p>
+<p>从目前披露的情况看，异常集中在超市冷链设备，表现为相关设备温度突然发生变化。瑞典一家Ica Kvantum门店已经在Facebook上通报此事，说明部分受影响方已通过社交平台公开说明情况，但更完整的门店和设备范围仍不明确。</p>
+<p>多国、多家连锁出现相似报告，因此事件的覆盖范围值得重点关注。在攻击原因和技术细节尚未完全确认的同时，后续应关注受影响门店与设备数量、恢复情况以及事件调查进展；现有信息未提供攻击者身份或具体入侵方式。</p>
+<div class="terms">术语：冷链设备；冰柜；疑似网络攻击；Ica Kvantum超市</div>
+<a class="more" href="https://www.theverge.com/tech/1024300/europe-freezer-fridge-hack-cyberattack">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it7">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">Jackery推出迄今最小的Explorer 100D便携电源</span></span><span class="lead">Jackery推出迄今最小的Explorer 100D户外电源</span></summary>
+<div class="body">
+<div class="orig">原文：Jackery made its portable power stations even smaller · The Verge · 2026-11-02 13:00</div>
+<p>Jackery发布新款便携户外电源Explorer 100D，尺寸为4.6×3.4×3.4英寸，重量仅1.87磅。按照官方定位，它是Jackery迄今推出的最小户外电源，核心变化是进一步压缩便携电源的机身尺寸。</p>
+<p>电池方面，Explorer 100D采用Jackery自2023年起引入的磷酸铁锂（LFP）电池，延续了公司在新型便携储能产品中采用LFP电芯的技术路线。结合此次公布的尺寸与重量看，这款产品主要围绕小型化、轻量化和随身携带场景展开。</p>
+<p>对重视便携性的户外电源用户而言，更小的机身与1.87磅重量是直观变化，LFP电池也是关键规格。这使它成为Jackery现有产品线中尺寸最小的型号，也是此次发布最明确的产品信息；不过现有信息尚未披露其容量、输出功率和售价。</p>
+<div class="terms">术语：磷酸铁锂（LFP）电池；便携户外电源；探索者100D（Explorer 100D）</div>
+<a class="more" href="https://www.theverge.com/tech/1023173/jackery-explorer-100d-portable-power-station-battery-lithium-iron-phosphate">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it8">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">NASA希望借助商业航天业拯救哈勃太空望远镜</span></span><span class="lead">NASA向商业航天公司征集哈勃轨道抬升方案</span></summary>
+<div class="body">
+<div class="orig">原文：NASA hopes the commercial space industry can help save Hubble · The Verge · 2026-11-02 05:09</div>
+<p>哈勃太空望远镜若没有轨道抬升干预，将在2030年代早中期再次进入大气层并烧毁。NASA不愿接受这一结果，正主动向商业航天公司寻求可行解法，希望利用商业航天能力改变望远镜的轨道状态，从而延长其继续观测和服役的时间。</p>
+<p>据Ars Technica此前报道，NASA已经发布信息请求（RFI），正式向商业航天公司征集拯救哈勃的方案，提案截止日期为11月30日。公开要点集中在如何避免望远镜过早再入，但最终入选方案、合作关系和实施细节目前均未披露。</p>
+<p>这项征集之所以值得关注，是因为哈勃的再入风险关系到一项代表性天文任务能否延续，2030年代早中期将是关键节点。引入商业航天公司可能带来更多可行路径；不过，任何方案是否具备轨道干预能力、能否安全执行，仍须以NASA后续评估为准。</p>
+<div class="terms">术语：哈勃太空望远镜、轨道抬升、信息请求（RFI）</div>
+<a class="more" href="https://www.theverge.com/science/1024239/nasa-commercial-space-save-hubble">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it9">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">Flock持续无视取消监控合同的请求</span></span><span class="lead">Flock被指无视解约请求，监控摄像头仍持续运行</span></summary>
+<div class="body">
+<div class="orig">原文：Flock keeps ignoring requests to cancel its contracts · The Verge · 2026-11-02 03:58</div>
+<p>明尼苏达州Plymouth市议会于9月投票决定终止与监控摄像头公司Flock Safety的合同。按照决定，相关摄像头本应停止运行；但一个多月过去，Flock仍未对解约请求作出回应，设备也继续工作。</p>
+<p>报道指出，问题并不限于单一城市。与已经完成解约的城市数量相当，另有多座城市同样发现终止合同非常困难，反映出地方机构即使通过投票决定退出，也可能在实际推进解约时面临明显阻力。</p>
+<p>这一事件值得关注，因为它把监控摄像头的合同退出问题从政策表决推进到了实际执行阶段：市议会的决定没有立即转化为停运。持续运行的摄像头也意味着地方缩减监控项目的意愿可能长期无法落实，Flock如何回应将成为后续观察重点。</p>
+<div class="terms">术语：合同解约、监控摄像头</div>
+<a class="more" href="https://www.theverge.com/tech/1024232/flock-ignoring-cancel-contracts">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it10">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">苹果HomeView或新增安防摄像头功能</span></span><span class="lead">HomeView代码线索显示或新增安防摄像头功能</span></summary>
+<div class="body">
+<div class="orig">原文：Apple's HomeView could add security camera features · The Verge · 2026-11-02 01:16</div>
+<p>Reddit用户pdfu在HomeView 27.2版本的代码中发现一批新线索，显示苹果的智能家庭中枢可能加入安防摄像头功能。这不是苹果正式发布的功能公告，而是来自系统代码的迹象，因此目前只能作为一种潜在方向看待。</p>
+<p>代码中的字符串描述了一种摄像头模式，涵盖移动侦测、实时视频流和录制选项，同时涉及与隐私有关的设置。除这些功能线索外，代码里还出现了独立的设置页面入口，暗示相关能力可能是经过专门配置的设计。</p>
+<p>若这些线索最终成为正式产品，苹果的智能家庭中枢可能进一步承担家庭安防入口的角色，移动侦测、实时查看和录像将覆盖从发现异常到回看记录的常见流程。现阶段尚无正式确认，具体功能与推出时间仍不明确。</p>
+<div class="terms">术语：HomeView、移动侦测、实时视频流</div>
+<a class="more" href="https://www.theverge.com/tech/1024219/apples-homeview-could-add-security-camera-features">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it11">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">《Portal》前传《F-Stop》近完整可玩版泄露</span></span><span class="lead">《F-Stop》近完整可玩泄露版补齐源代码与地图</span></summary>
+<div class="body">
+<div class="orig">原文：A fully playable version of Portal prequel F-Stop leaked · The Verge · 2026-11-02 00:19</div>
+<p>被取消的《Portal》（传送门）前传《F-Stop》出现了一个近乎完整且可以实际游玩的泄露版本。原本缺失的关键内容得到补齐后，玩家不再只能看到零散素材，而有机会完整体验这款已取消作品所呈现的玩法与内容。</p>
+<p>该版本的大部分素材来自今年8月曝光的12TB Valve大泄露。此前仍缺少的源代码和地图数据在本周又通过Valve Cut Content Discord流出，正好补上最后部分，使这个版本达到接近完整可玩的状态。</p>
+<p>完整可玩的泄露内容让外界得以直接检验《F-Stop》的实际完成度，而不再只能依据早期资料或片段判断。对关注Valve未发行项目、隐藏开发历史和《Portal》系列幕后内容的玩家而言，这是目前最值得关注的新进展。</p>
+<div class="terms">术语：完全可玩版本、Valve Cut Content Discord服务器</div>
+<a class="more" href="https://www.theverge.com/games/1024206/playable-portal-prequel-f-stop-leak">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it12">
+<summary><span class="row"><span class="badge b-verge">The Verge</span><span class="t">FBI认定朝鲜关联黑客实施币安63亿美元加密资产失窃</span></span><span class="lead">FBI认定币安63亿美元加密失窃案与朝鲜有关</span></summary>
+<div class="body">
+<div class="orig">原文：North Korea linked to massive Binance crypto heist · The Verge · 2026-11-01 22:33</div>
+<p>10月29日，币安发生63亿美元加密资产失窃案。FBI已将事件认定为朝鲜关联黑客所为，并将其归入名为“TraderTraitor”的活动；这为此前规模巨大的加密资产被盗事件给出了明确的国家关联归因。</p>
+<p>FBI同时观察到，相关黑客已经把失窃代币兑换成以太坊，并正在为进一步洗钱做准备。资金从原有代币转向以太坊的迹象，为追踪被盗资产流向和识别后续处置链条提供了更具体的线索。</p>
+<p>63亿美元的损失规模、朝鲜关联归因和已经出现的资金转换动作，构成此次案件最受关注的三个方面。执法部门已给出黑客组织与洗钱方向的具体判断，也为外界追踪被盗资产提供了明确坐标；现有信息尚未披露资金追回结果。</p>
+<div class="terms">术语：TraderTraitor活动、币安、以太坊</div>
+<a class="more" href="https://www.theverge.com/tech/1024176/north-korea-binance-crypto-heist">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it13">
+<summary><span class="row"><span class="badge b-9to5">9to5Google</span><span class="t">Wear OS 将为应用加入系统状态栏，Wear OS 7.1 即将到来</span></span><span class="lead">谷歌确认Wear OS 7.1即将推出，并将向应用加入系统状态栏。</span></summary>
+<div class="body">
+<div class="orig">原文：Wear OS adding 'system status bar' to apps, Wear OS 7.1 coming · 9to5Google · 2026-11-02 04:44</div>
+<p>谷歌透露，Wear OS 的“后续平台版本”计划向应用新增系统状态栏（system status bar），并确认 Wear OS 7.1 即将推出。系统状态栏因此将成为新版平台在应用界面呈现系统状态信息的一项明确变化。</p>
+<p>现有信息没有交代状态栏将包含哪些具体状态、哪些应用会获得该能力，也没有公布 Wear OS 7.1 的正式发布日期或完整功能清单。目前可以确认的只有两点：相关工作正在推进，且新增能力与应用侧体验直接相关。</p>
+<p>对 Wear OS 生态而言，这一改动值得留意，因为用户与应用开发者未来都可能面对新的界面元素和展示方式。不过，在官方披露更多细节前，尚不足以判断它会怎样影响现有应用的布局与交互。</p>
+<div class="terms">术语：系统状态栏；Wear OS 7.1</div>
+<a class="more" href="https://9to5google.com/2026/11/01/wear-os-status-bar/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it14">
+<summary><span class="row"><span class="badge b-9to5">9to5Google</span><span class="t">谷歌称 Googlebook 可拆卸形态即将推出</span></span><span class="lead">谷歌称Googlebook可拆卸形态将成为继翻盖、变形本之后的新路线。</span></summary>
+<div class="body">
+<div class="orig">原文：Google says Googlebook 'detachables' are coming soon · 9to5Google · 2026-11-02 04:07</div>
+<p>在 Android Dev Summit 2026 上，谷歌表示，Googlebook 的“可拆卸形态”（detachables）即将推出，并把它定位为继翻盖形态与变形本之后的下一种产品形态。</p>
+<p>这则消息给出了产品形态演进上的明确顺序：谷歌先谈翻盖，再谈变形本，如今把可拆卸形态列为下一类。现有素材没有披露具体产品名称、发布日期、配置或价格，也没有说明 detachables 采用怎样的拆合结构。</p>
+<p>值得关注之处在于，谷歌已为 Googlebook 列出连续扩展的形态路线，而不是只维持单一产品方案。可拆卸设计能否正式落地，以及它主要面向何种使用场景，仍要等待谷歌后续披露，现阶段不能把这次预告视作完整产品发布。</p>
+<div class="terms">术语：可拆卸形态（detachables）；翻盖形态；变形本</div>
+<a class="more" href="https://9to5google.com/2026/11/01/googlebook-detachables/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it15">
+<summary><span class="row"><span class="badge b-9to5">9to5Google</span><span class="t">摩托罗拉正在填补一加留下的空档，但大体如此</span></span><span class="lead">摩托罗拉将携Signature 27回归旗舰，填补一加退出的部分空档。</span></summary>
+<div class="body">
+<div class="orig">原文：Motorola is filling the gap OnePlus left behind, mostly · 9to5Google · 2026-11-01 22:00</div>
+<p>9to5Google 在周末评论中指出，摩托罗拉即将重返旗舰市场，Motorola Signature 27 按报道将于下周发布。文章将这视为厂商重新填补一加退出旗舰领域后留下的市场空档。</p>
+<p>评论同时提醒，摩托罗拉与一加之间存在一个非常明显的差异，但给出的素材没有说明差异究竟体现在产品定位、配置、价格还是其他方面。因此，目前更稳妥的结论是：摩托罗拉准备回归并争夺一加此前占据的部分位置，而不是两者路线完全相同。</p>
+<p>这条消息值得关注，因为它把新品发布与旗舰市场格局变化直接联系起来。不过，除发布时间和回归方向外，Signature 27 的具体规格、定价及上述关键差异均未在这份材料中展开，仍需等待正式发布信息。</p>
+<div class="terms">术语：摩托罗拉 Signature 27；一加（OnePlus）</div>
+<a class="more" href="https://9to5google.com/2026/11/01/motorola-oneplus-gap/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it16">
+<summary><span class="row"><span class="badge b-ars">Ars Technica</span><span class="t">这款48美元电子墨水屏可由你自由定义</span></span><span class="lead">48美元DIY电子墨水屏套件，可自由选择软件生态并显示任意内容。</span></summary>
+<div class="body">
+<div class="orig">原文：This $48 e-paper display can be whatever you want it to be · Ars Technica · 2026-11-02 20:00</div>
+<p>Seeed Studio 与 TRMNL 合作推出一套售价 48 美元的 DIY 电子墨水屏套件。它的主要卖点是允许用户自由选择软件生态，并让屏幕显示任意内容，而不是只能呈现某一种预先设定好的信息。</p>
+<p>文章作者此前曾用约 30 美元买到的二手联想 ThinkSmart View 尝试制作类似设备，并通过刷入 LineageOS 进行改造。但受限于该设备的内存容量，实际运行比较卡顿，因此后来转用了这套新套件。</p>
+<p>这套方案值得关注，因为它把电子墨水屏的用途交给用户和软件自行定义，同时提供了替换性能受限旧设备的一条路径。48 美元的 DIY 定位也让用户能够按自己的需求组合设备。不过，现有信息没有进一步说明套件所含硬件、支持的软件生态范围或实际显示性能。</p>
+<div class="terms">术语：电子墨水屏（E-paper）；DIY 套件；LineageOS；联想 ThinkSmart View</div>
+<a class="more" href="https://arstechnica.com/gadgets/2026/11/this-48-e-paper-display-can-be-whatever-you-want-it-to-be/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it17">
+<summary><span class="row"><span class="badge b-sspai">少数派</span><span class="t">派评 | 近期值得关注的 App</span></span><span class="lead">本期推荐三款App：Android智能点击器、纯纯写作iOS版及Photon Cam。</span></summary>
+<div class="body">
+<div class="orig">原文：派评 | 近期值得关注的 App · 少数派 · 2026-11-02 17:57</div>
+<p>这期“派评”集中整理了近期值得关注的移动应用，共提到三款：更聪明、能够“看见”的 Android 智能点击器；推出 iOS 版的纯纯写作；以及为 iPhone 旧机型解锁相机新功能的 Photon Cam。</p>
+<p>其中，智能点击器被放在 Android 平台语境下，推荐重点是其视觉感知与点击能力；纯纯写作的动作则是扩展平台，把原本已有的写作应用带到 iOS。现有素材没有给出前者的完整功能名称，也未补充纯纯写作 iOS 版的更多细节。</p>
+<p>Photon Cam 的推荐价值在于，它能为较旧的 iPhone 机型增加相机方面的新功能。其余两款分别体现 Android 交互工具与 iOS 写作应用的动态；三款推荐覆盖了不同平台和使用方向，但材料未提供下载方式、收费情况或具体版本信息。</p>
+<div class="terms">术语：智能点击器；纯纯写作；Photon Cam</div>
+<a class="more" href="https://sspai.com/post/118240">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it18">
+<summary><span class="row"><span class="badge b-sspai">少数派</span><span class="t">TDS REVIEW｜Apple AirPods 5 半入耳降噪真无线耳机体验</span></span><span class="lead">TDSStudio 首发评测 AirPods 5，半入耳形态首次加入主动降噪</span></summary>
+<div class="body">
+<div class="orig">原文：TDS REVIEW｜Apple AirPods 5 半入耳降噪真无线耳机体验 · 少数派 · 2026-11-02 15:00</div>
+<p>这是 TDSStudio 的第 34 篇评测，也是全平台首发内容。距离上一次评测苹果半入耳 AirPods 已经过去两年，时隔两年再评这一型号，构成了本次体验的由来与发布节点。</p>
+<p>2026 年苹果秋季发布会上亮相的 AirPods 5，给人留下的最大印象仍然是主动降噪——在半入耳形态下加入降噪功能，是这一代产品最核心的卖点，也是本次评测围绕的重点。</p>
+<p>半入耳结构一向强调佩戴轻松与通透自然，主动降噪则更常见于入耳式产品，两者的结合让 AirPods 5 显得格外特别。其实际效果如何、又如何与传统的半入耳思路形成取舍，正是这款耳机值得关注的理由。</p>
+<div class="terms">术语：半入耳式耳机；主动降噪（ANC）；真无线耳机</div>
+<a class="more" href="https://sspai.com/post/118122">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it19">
+<summary><span class="row"><span class="badge b-sspai">少数派</span><span class="t">Xnip 十周年：长截图的新生，也是新的起点</span></span><span class="lead">macOS 长截图工具 Xnip 迎来十周年，十年里程碑开启新起点</span></summary>
+<div class="body">
+<div class="orig">原文：Xnip 十周年：长截图的新生，也是新的起点 · 少数派 · 2026-11-02 11:00</div>
+<p>macOS 长截图工具 Xnip 迎来十周年。作为一款围绕长截图展开的 macOS 工具，它在这十年间成为不少用户截取长内容时的常用选择，十年的陪伴本身就是一个值得记录的节点。</p>
+<p>这次十周年既被看作里程碑，也被视作新的起点。对一款已经走过十年的老工具来说，如何在操作系统与用户习惯持续变化的环境里继续保持价值，将是下一个阶段需要回答的问题。</p>
+<div class="terms">术语：长截图；macOS</div>
+<a class="more" href="https://sspai.com/post/115662">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it20">
+<summary><span class="row"><span class="badge b-sspai">少数派</span><span class="t">派早报：Apple 智能将随 iOS 27.3 登陆中国</span></span><span class="lead">苹果智能随 iOS 27.3 入华，另有多条科技要闻速览</span></summary>
+<div class="body">
+<div class="orig">原文：派早报：Apple 智能将随 iOS 27.3 登陆中国 · 少数派 · 2026-11-02 07:22</div>
+<p>本期早报最重的一条消息是 Apple 智能将随 iOS 27.3 登陆中国。苹果的 AI 能力终于要在中国市场落地，其落地节奏直接与系统版本绑定，成为最受关注的话题。</p>
+<p>供应链方面，苹果对闪存的议价权受到压制，存储价格与采购成本对硬件利润的影响再度显现。安全方面，Claude Code 官方扩展被植入后门，官方渠道的插件安全值得警惕；美国 FCC 禁止中国实验室认证输美电子产品，跨境合规门槛进一步抬高。</p>
+<p>应用与市场层面，百度网盘通过磁力计数据规避「摇一摇」广告权限；币安方面则有 63 亿美元资产被盗，金额巨大，交易所安全再次敲响警钟。</p>
+<div class="terms">术语：Apple 智能（Apple Intelligence）；iOS 27.3；Claude Code；FCC</div>
+<a class="more" href="https://sspai.com/post/118191">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it21">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">卡帕西用Claude两小时重做了YouTube，每个人都能拥有一个自己的互联网</span></span><span class="lead">卡帕西约两小时用 Claude Code 复刻 YouTube 做出 HackerTube</span></summary>
+<div class="body">
+<div class="orig">原文：卡帕西用Claude两小时重做了YouTube · 爱范儿 · 2026-11-02 16:03</div>
+<p>Karpathy 使用 Claude Code（Opus 5.5 模型，Medium 推理强度）花费约两小时，复刻出完整的 YouTube 网页布局，做成网站 HackerTube（hackertube.org）。据称驱动整个项目的提示词仅一句话。</p>
+<p>HackerTube 收录 6454 个视频，片源全部经 Hacker News 多年讨论与推荐记录过滤，并支持主题分类与个性化推荐；在视频详情页中，用户还可以看到对应的 HN 评论以及推荐者数据，观看与讨论被并置在同一界面。</p>
+<p>这一事件同时引发讨论：Claude 的使用限制（REA 逆向工程安全围栏）为何会对 Karpathy 放行。当模型能力足够强、使用门槛足够低时，普通用户似乎也能亲手搭建出一个属于自己的「互联网」，这正是这件事最值得关注的地方。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/home.jpg" loading="lazy" alt="HackerTube 截图">
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/lark2pad-1793602710911-1.png" loading="lazy" alt="HackerTube 详情页">
+<div class="terms">术语：Claude Code；REA 逆向工程安全围栏；Hacker News；提示词</div>
+<a class="more" href="https://www.ifanr.com/1687094">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it22">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">500 万人抽签看陈奕迅，AI 会终结「抢票时代」吗？</span></span><span class="lead">陈奕迅 26 场演出抽签报名近 500 万，登记制能否取代抢票</span></summary>
+<div class="body">
+<div class="orig">原文：500 万人抽签看陈奕迅 · 爱范儿 · 2026-11-02 15:41</div>
+<p>陈奕迅 26 场特别录音演出的首轮抽签结果公布。演出场地为香港演艺学院歌剧院，仅有 1181 座；在扣除 10% 的内部保留票之后，26 场演出可对外销售的票总共只有两万多张。</p>
+<p>而登记抽签的申请人次达到 496 万，平均每一张可售票背后对应着上百次登记。多对一的机会结构，让「登记抽签」与「实时抢票」两种机制在体验上的差异变得格外明显。</p>
+<p>文章由此追问：以登记抽签制替代实时抢票是否可行，以及 AI 会如何影响票务公平性。当票源远小于需求时，技术究竟能被用来缩小差距，还是进一步放大了先到先得的偶然优势，答案仍有待观察。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/eKyU-PJM0uUX5o3BiPFiqfa9jaYfxOZXHjxHcx48R3M.jpg" loading="lazy" alt="演唱会抽签配图">
+<div class="terms">术语：登记抽签制；内部保留票；票务公平性</div>
+<a class="more" href="https://www.ifanr.com/1687130">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it23">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">零跑破 10 万、小鹏小米跨过 5 万大关，10 月车市却迎来了最冷的「银十」</span></span><span class="lead">10月新能源车市分化加剧，增长与下滑并存</span></summary>
+<div class="body">
+<div class="orig">原文：零跑破 10 万、小鹏小米跨过 5 万大关 · 爱范儿 · 2026-11-02 15:37</div>
+<p>10月新能源销量明显分化。比亚迪以49.0168万辆、同比增长10.97%居前，吉利31.0183万辆、增长0.99%，奇瑞29.5934万辆、增长5.3%；长城汽车为12.0374万辆，同比下降15.87%。</p>
+<p>零跑销量10.6127万辆，同比增长51%，连续4个月站上10万辆；小鹏5.0237万辆，首次突破月销5万辆。小鹏与小米均首次跨过5万辆门槛，但小米距55万辆年度目标仍差23.1万辆。</p>
+<p>蔚来销量3.4246万辆，同比下降15.23%；理想2.9025万辆，下降8.63%；鸿蒙智行3.3537万辆，大降50.84%且连续五个月下滑。乘联分会称市场“超预期低迷”，吉利副董事长认为“金九银十”首次基本消失或将成为常态。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/lark2pad-1793604817383-1.jpg" loading="lazy" alt="10月新能源销量榜">
+<div class="terms">术语：新能源销量、鸿蒙智行</div>
+<a class="more" href="https://www.ifanr.com/1687113">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it24">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">ChatGPT 正在偷偷给你画像，用这段提示词让它交出来</span></span><span class="lead">论文揭示ChatGPT会依据私下对话自行推断用户画像</span></summary>
+<div class="body">
+<div class="orig">原文：ChatGPT 正在偷偷给你画像 · 爱范儿 · 2026-11-02 15:37</div>
+<p>ACM Web Conference 2026论文《算法自画像》利用GDPR数据访问权，取得80名真实用户的完整ChatGPT记录与记忆，样本包含1058段对话、22971轮交互和2050条记忆条目，聚焦系统究竟保存了哪些用户信息。</p>
+<p>分析显示，2050条记忆中仅84条、即4.1%，来自用户明确要求；其余95.9%由系统单方面写入。这意味着ChatGPT会从私下对话中推断用户特征，形成所谓“算法自画像”，其画像形成过程并非完全由用户主动触发。</p>
+<p>文章进一步提供一段提示词，用于让ChatGPT交出其保存的记忆，帮助用户了解系统如何描绘自己。该研究把通用聊天工具的隐私治理问题落到可验证的数据样本上，也提醒用户关注自动推断与长期记忆的边界。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/10/covermemory.jpg" loading="lazy" alt="ChatGPT 记忆研究配图">
+<div class="terms">术语：GDPR（欧盟《通用数据保护条例》）、算法自画像</div>
+<a class="more" href="https://www.ifanr.com/1686832">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it25">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">一夜之间，GPT-6.2 Astra 和 Fable 5.5 双双曝光，AI 圈疯狂 11 月要来了</span></span><span class="lead">源码与使用记录曝出未发布模型，11月更新潮受关注</span></summary>
+<div class="body">
+<div class="orig">原文：一夜之间，GPT-6.2 Astra 和 Fable 5.5 双双曝光 · 爱范儿 · 2026-11-02 09:51</div>
+<p>Anthropic官网HTML源码曾六次出现未公布的“Claude Mythos 5.5”，相关内容随后被删除。资料显示，Mythos是面向网络安全、生物学等高风险研究的受限模型，Fable则是基于同一底座、叠加安全防护的普惠版本；两者当时均未正式发布。</p>
+<p>开发者还晒出疑似由Fable 5.5生成的3D作品。OpenAI方面，未官宣的“GPT-6.2 Astra”出现在部分用户的Codex使用统计和API响应记录中，有用户声称已经成功调用，但这些线索仍未获得官方确认。</p>
+<p>与此同时，社区还在讨论Qwen4、GLM-5.5和Hy4的传闻，并猜测11月可能出现旗舰模型集中更新。源码痕迹、生成作品与接口记录为模型动向提供了信号，但现有证据属于间接线索，最终版本、能力与发布时间仍需等待正式公告。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/9.jpg" loading="lazy" alt="GPT-6.2 与 Fable 5.5 曝光配图">
+<div class="terms">术语：Mythos 5.5（受限模型）、Fable 5.5（普惠版本）、API（应用程序接口）</div>
+<a class="more" href="https://www.ifanr.com/1687071">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it26">
+<summary><span class="row"><span class="badge b-ifanr">爱范儿</span><span class="t">早报｜苹果或为iPad Pro加入均热板/ChatGPT与Codex将共享额度/奇瑞回应智界独立</span></span><span class="lead">苹果硬件、AI服务与机器人等动态集中发布</span></summary>
+<div class="body">
+<div class="orig">原文：早报｜苹果或为iPad Pro加入均热板 · 爱范儿 · 2026-11-02 08:03</div>
+<p>产品与航天方面，消息称苹果可能在明年上半年更新三款iPad，其中iPad Air拟改用OLED，iPad Pro或加入均热板；我国首次载人登月乘组由3人组成，其中2人将着陆。TCL华星t8产线设备进场，计划明年底量产印刷OLED。</p>
+<p>AI服务方面，ChatGPT与Codex将从12月起共享额度，Instant聊天不扣额度。Claude Code限制Opus 5.5复刻现有游戏，但原创仍被允许；Claude Ultra取消已验证账户的5小时限额。Grok API还将在默认响应中加入隐形文本水印。</p>
+<p>其他动态包括：西湖大学成立世界模型研究中心；黑石预计Anthropic上市后仍可能处于“垃圾级”；Meta与傅利叶已开发第二版Max人形机器人；长鑫表示第四季度营收将继续增长。</p>
+<img src="https://s3.ifanr.com/wp-content/uploads/2026/11/Pro.jpg" loading="lazy" alt="iPad Pro 配图">
+<div class="terms">术语：OLED（有机发光二极管）、印刷OLED、Instant聊天、API水印</div>
+<a class="more" href="https://www.ifanr.com/1687043">阅读原文 ↗</a>
+</div>
+</details>
+</section>
+
+<section id="g6">
+<h2>6 · 编程名家与观点<span class="n">2 条</span></h2>
+<div class="gnote">17 源中 16 个正常（多数更新早于窗口）；Gary Marcus 采集失败；Paul Graham Essays feed 无发布时间戳且所列均为多年前的经典旧文，无法确认窗口内更新，未收录。</div>
+<details class="card" id="it36">
+<summary><span class="row"><span class="badge" style="background:#5b5fc7">Old New Thing</span><span class="t">潜入礼堂旁听 Windows 2000 发布会彩排</span></span><span class="lead">Raymond Chen 回忆 Windows 2000 发布会彩排趣事：「帕特里克·斯图尔特」竟是替身</span></summary>
+<div class="body">
+<div class="orig">原文：Sneaking into the auditorium for the Windows 2000 launch rehearsal · Raymond Chen·Old New Thing · 2026-11-02 23:00</div>
+<p>Raymond Chen 回忆一段 Windows 2000 发布会往事：当年旧金山发布会配套举办技术展会，大量 Windows 2000 团队成员被派去各展台讲解新特性、回答观众技术问题，其中又选出一小拨人亲临发布会现场。Chen 与几位同事提前抵达 Civic Auditorium，离开门还有一段时间，大家闲得猜主持人是谁（当时尚未公布）。别人去试探 VIP 帐篷，他则四处「探险」，找到一扇没上锁的门，进入了主礼堂空无一人的楼上观众席，坐下装作若无其事。</p>
+<p>舞台细节相当壮观：约 10 米高的巨型笔记本道具、两侧投影幕（放幻灯片、预录视频和舞台特写）、灰色幕布遮着活动中的各种「惊喜」，甚至搭了一段飞机客舱布景——后来用于一则移动办公小品，演示红外文件共享等场景（演员 John O'Hurley 客串「William Wentworth 公司总裁」，邮箱留的是 www@www.com）。彩排开始后，巨型笔记本盖缓缓打开，屏幕上播放登录 Windows 2000、点击开始按钮的视频蒙太奇，随后广播响起：「女士们先生们，欢迎 Patrick Stewart！」Chen 心想：帕特里克·斯图尔特要主持 Windows 2000 发布会！几秒后蹦上台的却是一名戴耳机组人员，假扮 Stewart 供摄像和灯光对位。正文当天，真正的 Patrick Stewart 登台，气场十足——念着他多半不理解的提词器稿子，却句句都好听。脚注里那位钻 VIP 帐篷的同事最终带回一套纪念版 Windows 2000 包装盒。</p>
+<div class="terms">术语：Windows 2000 发布会；Patrick Stewart（帕特里克·斯图尔特）；The Old New Thing</div>
+<a class="more" href="https://devblogs.microsoft.com/oldnewthing/20261102-00/?p=112818/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it37">
+<summary><span class="row"><span class="badge" style="background:#a0451a">Pluralistic</span><span class="t">Doctorow 随笔《Autodoxing》：坏科技政策铺就的通往地狱之路</span></span><span class="lead">AI 加持的数据泄露潮，是几十年隐私敌视政策的可预见恶果</span></summary>
+<div class="body">
+<div class="orig">原文：Pluralistic: Autodoxing (02 Nov 2026) · Cory Doctorow · 2026-11-02 16:20</div>
+<p>Cory Doctorow 的 11 月 2 日每日随笔《Autodoxing》（自「送命式」立法，slug 为 agony-verification）论证：通往地狱之路由欠考虑的科技政策铺成。从 Sun CEO「隐私已死」论、克林顿时代给每颗芯片装后门的 Clipper 芯片、NSA 全面禁用民用加密，到政府放任企业无限制收集数据——这些私营数据仓库实质上是一套「无需搜查令的影子监控系统」，警方与情报机构可随意调取；而「反规避」法律又禁止用户逆向改造设备加装隐私拦截器。欧盟隐私法形同虚设（「假装在爱尔兰」即可绕过），美国联邦消费者隐私法最后一次更新还是 1988 年。</p>
+<p>文中给出大量案例：Equifax 泄露 1.48 亿美国人后不仅未受重罚，反而在 2021 年收购 Teletrack、2023 年吞并巴西 Boa Vista；澳大利亚前总理 Turnbull 面对「禁加密也会让坏人窃听所有人」的数学事实，说出「数学定律很可贵，但在澳大利亚只有澳大利亚法律适用」的名言——而类似的禁加密主张至今仍是加拿大（C-22 法案）、英国、欧盟（chat control）的现行政策方向。「年龄验证」法被 Doctorow 定性为对所有人的无差别监控，「隐私保护型年龄验证」的承诺全是空话。</p>
+<p>最新注脚是 Wired 报道的 Volta 信息窃取木马新变种：窃取数据后用 LLM 充当「情报分析师」，把受害者与 Ticketmaster、Disney、AT&T 等历史泄露库及 Gmail、DoorDash 资料合并建档，按预期收益给受害者排序，重点瞄准 Discord、Telegram、Steam、Roblox 上的年轻用户——一旦「年龄验证」库再遭泄露，这类 AI 恶意软件对孩子的定位将更精准。作者给出的出路：对企业数据仓库施以「死刑级」罚款、合法化隐私拦截器、禁止 Flock 摄像头与情报机构囤积软件漏洞（NOBUS），以及最重要的——别再立法要求企业监视用户。</p>
+<img src="https://i0.wp.com/craphound.com/images/autodoxing.jpg?w=840&ssl=1" loading="lazy" alt="Autodoxing 配图：水漫爱德华时代浴室中的机器人头颅">
+<div class="terms">术语：infostealer（信息窃取木马）；年龄验证（age verification）；NOBUS；隐私拦截器</div>
+<a class="more" href="https://pluralistic.net/2026/11/02/agony-verification/">阅读原文 ↗</a>
+</div>
+</details>
+</section>
+
+<section id="g7">
+<h2>7 · 科技宅趣味<span class="n">9 条</span></h2>
+<details class="card" id="it27">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">寻找蜂窝调制解调器？</span></span><span class="lead">DIY便携计算如何选择并集成蜂窝调制解调器</span></summary>
+<div class="body">
+<div class="orig">原文：Looking For A Cellular Modem? · Hackaday · 2026-11-02 23:00</div>
+<p>这是一份面向DIY便携计算项目的蜂窝调制解调器选型指南。作者回顾自己的便携计算机项目后发现，LTE调制解调器在每个项目中都位列需求前三，说明蜂窝联网是此类设备绕不开的功能，也促使其专门整理选型经验。</p>
+<p>文章随后解释蜂窝调制解调器为何难以驾驭，并比较现有可选方案及集成时需要考虑的因素。作者希望读者不要脱离便携计算项目的实际需求理解蜂窝通信，从而在方案选择与设备集成之间建立清晰判断。</p>
+<p>对准备为便携计算设备加入移动网络功能的DIY者而言，这篇指南把需求频次、方案比较和集成可行性放在同一框架中。它把移动联网从单纯的功能需求推进到具体的选型问题，可作为搭建蜂窝连接方案的基础参考。</p>
+<img src="https://hackaday.com/wp-content/uploads/2019/10/5GRobots.jpg?w=800" loading="lazy" alt="蜂窝调制解调器配图">
+<div class="terms">术语：蜂窝调制解调器、LTE（长期演进）、便携计算</div>
+<a class="more" href="https://hackaday.com/2026/11/02/looking-for-a-cellular-modem/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it28">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">将 Chumby One 改造成 Static Radio 播放器</span></span><span class="lead">旋转旋钮，在老设备上切换播客电台</span></summary>
+<div class="body">
+<div class="orig">原文：Static Radio For The Chumby One · Hackaday · 2026-11-02 20:00</div>
+<p>Brendan Fitzpatrick 把一台 2009 年的 Chumby One 重新利用，改造成 Static Radio 在线电台的播放器。该电台以播客内容为特色，因此这台原本的老设备如今承担了内容播放与电台选择功能。</p>
+<p>改造后的交互没有舍弃实体旋钮，而是让它用于在不同的“播客电台”之间调谐。演示视频实际呈现了切换过程及相关界面，让观众能够直观看到如何借助旋钮浏览不同电台。</p>
+<p>这项作品的价值在于为带有旋钮的旧设备找到新的使用方式，同时把播客包装成类似传统广播的收听体验。它展示了硬件再利用与复古交互相结合的可能性，也赋予普通家用电子设备新的角色。</p>
+<img src="https://hackaday.com/wp-content/uploads/2026/10/Static-radio-on-a-2009-Chumby-One_-the-knob-tunes-podcast-stations-0-19-screenshot-1.png?w=800" loading="lazy" alt="Chumby One 改造演示">
+<div class="terms">术语：Chumby One；Static Radio；旋钮调谐；播客电台</div>
+<a class="more" href="https://hackaday.com/2026/11/02/static-radio-for-the-chumby-one/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it29">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">可破解的模拟电话系统</span></span><span class="lead">开放硬件让新旧固定电话重新派上用场</span></summary>
+<div class="body">
+<div class="orig">原文：A Hackable Analog Phone System · Hackaday · 2026-11-02 17:00</div>
+<p>Scott Dylewski 制作了一套开放硬件，用于把家中闲置的老式固定电话重新接入可破解的模拟电话系统。项目面向喜欢动手实验的爱好者，目标是让这些容易被搁置的传统通信设备重新派上实际用途。</p>
+<p>这套系统可利用两类常见旧电话：一类带有触控式拨号按键，另一类使用旋转拨号盘。制作者通过开放硬件为它们提供新的系统入口，使不同拨号结构的电话都能成为可继续改造和研究的设备。</p>
+<p>相比仅仅展示老电话的外观，这项设计更强调功能再利用与系统可改造性。它为闲置硬件提供了新去处，也让爱好者有机会研究模拟电话系统，体验传统通信设备与开放硬件结合带来的实践空间。</p>
+<img src="https://hackaday.com/wp-content/uploads/2026/10/V5_board-e1793523410709.jpg?w=800" loading="lazy" alt="模拟电话系统开放硬件">
+<div class="terms">术语：开放硬件；模拟电话系统；按键拨号；旋转拨号盘</div>
+<a class="more" href="https://hackaday.com/2026/11/02/a-hackable-analog-phone-system/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it30">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">万圣节《怪奇物语》灯光墙制作</span></span><span class="lead">互动灯墙重现《怪奇物语》经典彩灯</span></summary>
+<div class="body">
+<div class="orig">原文：Building The Stranger Things Lights For Halloween · Hackaday · 2026-11-02 14:00</div>
+<p>这是一个万圣节制作项目，目标是重现电视剧《怪奇物语》中极具辨识度的圣诞灯墙。灯墙由带有字母标签的彩灯组成，是剧中最令人难忘的流行文化视觉符号之一，也是观众熟悉该剧时最容易联想到的经典画面。</p>
+<p>成品并非完全静态的装饰道具，而是一套互动灯光展示。制作者借助万圣节主题装置，把剧中标志性的字母彩灯从屏幕画面延伸到现实空间，并通过互动效果让这一视觉彩蛋成为可以实际体验的灯光作品。</p>
+<p>这项制作的重点是唤起观众对剧集的熟悉感，同时以互动形式增强节日装饰的表现力。它把流行文化中的经典场景转化为可参与的实体装置，也为万圣节主题创意提供了一个辨识度很高的参考案例。</p>
+<img src="https://hackaday.com/wp-content/uploads/2026/10/Screenshot-2026-11-01-180746-e1793516955397.png?w=800" loading="lazy" alt="怪奇物语灯光墙">
+<div class="terms">术语：《怪奇物语》；字母彩灯墙；互动灯光装置</div>
+<a class="more" href="https://hackaday.com/2026/11/01/building-the-stranger-things-lights-for-halloween/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it31">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">Hackaday 每周链接：2026年11月1日</span></span><span class="lead">Supercon 倒计时之际，本周链接选择轻松路线</span></summary>
+<div class="body">
+<div class="orig">原文：Hackaday Links: November 1, 2026 · Hackaday · 2026-11-02 11:00</div>
+<p>这是一期日期为 2026 年 11 月 1 日的 Hackaday 每周链接汇总。内容以值得关注的近期链接为主，同时通报 2026 年 Hackaday Supercon 已不到一周便会到来，相关准备工作也由此进入高强度阶段。</p>
+<p>由于 Supercon 临近，筹备工作变得愈发密集，因此本期链接特意选择更轻松的内容方向。编者也明确提到，这一期会偏向较轻量的条目，以区别于通常更为严肃或技术密集的链接汇总。</p>
+<p>它虽然是一期链接聚合，但同时承担着活动周报的辅助作用：既帮助读者快速浏览近期技术内容，也提醒关注者注意 Supercon 的时间节点和准备状态。对于计划参会或持续关注该技术社区的人，本期信息具有即时参考价值。</p>
+<img src="https://hackaday.com/wp-content/uploads/2014/11/had-links-banner.jpg?w=800" loading="lazy" alt="Hackaday Links 栏目图">
+<div class="terms">术语：Hackaday 每周链接；Hackaday Supercon 超级会议</div>
+<a class="more" href="https://hackaday.com/2026/11/01/hackaday-links-november-1-2026/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it32">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">廉价 FPGA 开发板变身复古电脑</span></span><span class="lead">约15美元 FPGA 板变身复古风格电脑</span></summary>
+<div class="body">
+<div class="orig">原文：Cheap FPGA Board Becomes Retro-Style Computer · Hackaday · 2026-11-02 08:00</div>
+<p>ThePartsBin 将一块售价约 15 美元的 Tang Nano 9K FPGA 开发板改造成一台复古风格计算机。项目围绕这块低成本硬件展开实际实验，尝试在开发板上实现一套具有老式电脑感觉的计算系统。</p>
+<p>Tang Nano 9K 是一款 FPGA 开发板，约 15 美元的价格构成了这次尝试的低成本基础。制作者通过动手试验其硬件能力，探索如何在廉价 FPGA 上实现复古式计算系统，而不只是把开发板当作普通电子部件使用。</p>
+<p>这项改造的价值在于以很低的硬件门槛呈现复古计算机的整体概念。它展示了同一块开发板可以被重新定义并承担电脑角色，也为预算有限、喜欢研究 FPGA 和旧式计算风格的爱好者提供了一条可实践的探索路径。</p>
+<img src="https://hackaday.com/wp-content/uploads/2026/10/Screenshot-2026-11-01-171115-e1793513503988.png?w=800" loading="lazy" alt="Tang Nano 9K 复古电脑">
+<div class="terms">术语：FPGA（现场可编程门阵列）；Tang Nano 9K；复古式计算系统</div>
+<a class="more" href="https://hackaday.com/2026/11/01/cheap-fpga-board-becomes-retro-style-computer/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it33">
+<summary><span class="row"><span class="badge b-had">Hackaday</span><span class="t">面向微控制器的游戏引擎</span></span><span class="lead">Jet Studio让普通微控制器也能运行游戏与物理引擎</span></summary>
+<div class="body">
+<div class="orig">原文：A Game Engine For Microcontrollers · Hackaday · 2026-11-02 05:00</div>
+<p>Fedyfausto 正式发布 Jet Studio 平台，将游戏引擎和物理引擎整合到同一套系统中，并使其能够运行在常见的微控制器上。这意味着开发者可以直接面向嵌入式硬件制作游戏，而不再需要先把作品限定在专用设备上。</p>
+<p>随本次发布一同公开的演示视频，展示了该平台及物理引擎的运行情况。视频让外界能够看到物理能力在微控制器环境中实际工作，而不只是停留在产品介绍中的功能概念；不过现有素材没有进一步披露硬件规格或性能数据。</p>
+<p>这项发布的主要价值，是降低在嵌入式硬件上制作游戏的门槛。通过让常见微控制器承载游戏与物理能力，开发者不必先搭建专用的高性能计算环境，便可以尝试带有物理效果的游戏原型与互动项目，扩展嵌入式设备的创意用途。</p>
+<img src="https://hackaday.com/wp-content/uploads/2026/10/Jet-Studio-Platform-and-Physics-Engine-demo-0-20-screenshot.png?w=800" loading="lazy" alt="Jet Studio 演示">
+<div class="terms">术语：微控制器游戏引擎、物理引擎</div>
+<a class="more" href="https://hackaday.com/2026/11/01/a-game-engine-for-microcontrollers/">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it34">
+<summary><span class="row"><span class="badge b-ph">Product Hunt</span><span class="t">Xmind 2027：AI思考伙伴</span></span><span class="lead">Xmind 2027将思维导图重新定位为AI思考伙伴</span></summary>
+<div class="body">
+<div class="orig">原文：Xmind 2027 · Product Hunt · 2026-11-02 08:24</div>
+<p>Xmind 正式推出 Xmind 2027，把这款思维导图工具重新定位为“AI 思考伙伴”。此次发布强调，导图不再只是用于展示已经整理好的信息，而应当成为用户可以持续对话、共同推进思考的协作对象。</p>
+<p>按照此次发布传达的产品理念，用户可以把已有思维导图视为一个能够一起思考的伙伴，而非一张静态图表。变化的关键并不只在“AI”三个字，而在于导图从结果展示载体转变为思考过程中的参与者，并围绕协作关系来呈现产品价值。</p>
+<p>这项定位调整值得关注，因为它试图改变思维导图在个人知识工作中的角色。传统导图擅长组织和呈现思路，Xmind 2027 则希望进一步承接互动，让用户在已有结构上继续思考和推进。现有信息聚焦于产品定位，未披露更多具体功能细节。</p>
+<div class="terms">术语：AI思考伙伴、思维导图</div>
+<a class="more" href="https://www.producthunt.com/products/xmind">阅读原文 ↗</a>
+</div>
+</details>
+<details class="card" id="it35">
+<summary><span class="row"><span class="badge b-ph">Product Hunt</span><span class="t">Friday Work：让AI任务在用量触顶后继续运行</span></span><span class="lead">Friday Work让任务在Claude用量触顶后继续运行</span></summary>
+<div class="body">
+<div class="orig">原文：Friday Work · Product Hunt · 2026-11-02 06:55</div>
+<p>Friday Work 宣布推出新产品，专门处理 AI 辅助任务因 Claude 使用额度耗尽而中断的问题。其设计目标是在 Claude 触及账户用量上限时，仍让当前任务保持运行，避免长时间工作被账户的 token 限制强行截断。</p>
+<p>从产品描述看，Friday Work 的核心作用是接续并维持任务，使用户不必在额度耗尽后等待重新开始。这样一来，需要 Claude 持续参与的长时段工作流程，可以跨过账户 token 上限继续推进，避免整个协作流程因配额问题中断。</p>
+<p>这一产品的意义在于，它把 Claude 的用量上限从长任务的终止点，转化为系统可以继续处理的运行条件。对于依赖 AI 持续协作的流程，这种续跑机制有望提升任务连续性；现有素材尚未说明其具体实现方式、适用范围和限制。</p>
+<div class="terms">术语：Token上限、AI辅助工作</div>
+<a class="more" href="https://www.producthunt.com/products/friday-work">阅读原文 ↗</a>
+</div>
+</details>
+</section>
+
+<footer>
+<p>失败源（2）：Meta AI Blog（feed 返回官方错误页）｜ The Batch（feed 404，站点迁移）——两者已确认无可用 RSS，OPML 已于 2026-11-03 转为「agent 抓取网页」模式。No Priors 与 Jesse Vincent 博客在抓取服务端恢复后补抓成功，两条窗口内内容已补入（见第 2、8 层）。补扫复核：Gary Marcus 源正常（10-31 后无更新）；Simon Willison（10-04 起）与 Import AI（9-21 起第473期后）经 no_cache 重抓确认窗口内确实无更新；OpenAI RSS 曾示出一条 11-02 pubDate 条目，经查证为 7 月旧文《Grid Protectors Program》的时间戳刷新，非新稿；Anthropic 官网新闻页最新为 10-21，窗口内无官方发布（OPML 已转抓官网页面）。Paul Graham Essays feed 无发布时间戳且所列均为多年前的经典旧文，未收录。</p>
+<p>本简报由 AI 资讯流水线自动生成：单文件 HTML、零外部依赖、图片直连原文图床。内容全部为公开资讯，可转发。</p>
+</footer>
+</div>
+<script src="../../archive.js"></script></body>
+</html>

@@ -1,40 +1,27 @@
 # AI 科技日报
 
-公开试刊静态站，目前只有两期：
+公开档案共 16 份：10月24–30日周报、11月1日和2日增量、11月3–4日试刊，以及 11月5–16日第 1–12 期。
 
-- [第 12 期 · 2026年11月16日](2026-11-16.html)
-- [第 11 期 · 2026年11月15日](2026-11-15.html)
+- [周报 · 2026-10-24 – 10-30](2026/10/24-30.html)
+- [试刊 · 2026-11-03 – 11-04](2026/11/03-04.html)
+- [第 12 期 · 2026年11月16日](2026/11/16.html)
 
-首页 `index.html` 按时间从新到旧链接这两期。报告正文、内嵌图片和折叠交互保持原样。页面不引用外部脚本、字体或统计。
+首页 `index.html` 是档案。桌面左侧按年、月、日和期号浏览；窄屏用「历史日报」抽屉。搜索使用 `archive/index.json`，不加载整期图片。报告正文、内嵌图片和折叠交互仍在日期路径里。
 
-发布前已核对：报告中没有私人联系方式、邮件收件人、投递记录、本机路径或密钥。文章里的公开作者和来源仍保留。
+每期正式路径是 `年/月/日.html`。原来的 `年-月-日.html` 会转到该页。报告正文、内嵌图片和折叠交互保持原文件内容。
 
-## 发布到 GitHub Pages
+页面不引用外部脚本、字体或统计。没有定时发布。历史回填只做一次：把已经核对过的 HTML 交给
 
-仓库已是公开仓库 `zzz55AA/ai-daily`。站点文件在仓库根目录，并带有 `.nojekyll`。
+```bash
+python3 scripts/import-reports.py --manifest 清单.json
+```
 
-当前令牌没有 `pages=write` 与 `administration=write`，因此无法从这里打开 Pages。站点地址 **尚未上线**。合并本变更后，预期地址是：
+清单里的 `file` 是该期选定的终稿，不按文件修改时间取舍。同一天可以有多份报告，跨日期的专刊也单独保留。Markdown 和 PDF 先原样留下并标明尚未转换。公开作者邮箱可以保留；疑似收件人、本机路径或密钥只报告类别和数量，不打印内容，对应的已批准稿也不会被悄悄丢掉。11 月 8 日必须是 83 条的终稿，11 月 10 日必须是补入 Anthropic 的 61 条终稿。
 
-https://zzz55AA.github.io/ai-daily/
+## 发布
 
-仓库所有者还需要完成下面其中一条。
+GitHub Pages 已从 `main` 发布。合并本变更后，现有工作流会发布首页、`archive/`、各年份目录和日期跳转页：
 
-### 方式 A：合并后由 Actions 发布
+https://zzz55aa.github.io/ai-daily/
 
-`.github/workflows/pages.yml` 只在推送到 `main` 时运行。合并拉取请求后，若仓库允许 Actions，且 Workflow permissions 为读写，该工作流会发布根目录里的三个 HTML 文件。
-
-若工作流因权限失败：
-
-1. 打开 [Actions 权限设置](https://github.com/zzz55AA/ai-daily/settings/actions)。
-2. 在 Workflow permissions 中选择 **Read and write permissions** 并保存。
-3. 在 Actions 里重新运行 **Deploy GitHub Pages**。
-
-### 方式 B：从分支发布，不依赖 Actions
-
-1. 先把拉取请求合并到 `main`。
-2. 打开 [Pages 设置](https://github.com/zzz55AA/ai-daily/settings/pages)。
-3. Build and deployment 选择 **Deploy from a branch**。
-4. Branch 选择 `main`，文件夹选择 `/ (root)`，保存。
-5. 等到设置页显示站点已发布，再打开 https://zzz55AA.github.io/ai-daily/ 确认首页是「近期刊期」，而不是只有本说明文件。
-
-两种方式不要同时启用。若已用方式 B，可忽略方式 A 的工作流失败。
+不需要另改仓库权限或 Pages 设置。合并前线上仍是现在的首页。
