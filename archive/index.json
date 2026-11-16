@@ -1,0 +1,51 @@
+{
+  "publication": "AI 科技日报",
+  "issues": [
+    {
+      "date": "2026-11-16",
+      "year": 2026,
+      "month": 11,
+      "day": 16,
+      "weekday": "星期一",
+      "issue": 12,
+      "count": 66,
+      "window": "2026-11-15 05:30 – 2026-11-16 08:00（北京时间）",
+      "title": "2026年11月16日 星期一",
+      "path": "2026/11/16.html",
+      "summary": "周日资讯偏少：OpenAI 新开科学博客并发首篇客座文，Anthropic 等其余头部公司官方站点窗内无新稿。英伟达黄仁勋风波继续发酵；古尔曼披露苹果智能眼镜 N50 细节；华为上线 openPangu-2.1-Pro，谷歌 Project Zero 收紧漏洞披露期限。本期另设「前期遗漏补充」板块，补收前几期漏掉的官方稿。",
+      "highlights": [
+        {"n": "01", "id": "item-e1", "title": "OpenAI 开设科学博客，首篇客座文：物理学家与 GPT-6 Astra 合作提出标准模型的候选格点定义。"},
+        {"n": "02", "id": "item-e2", "title": "英伟达风波续：传黄仁勋讨论回归，贝森特呼吁董事会大幅整顿，众议院称黄仁勋同意作证。"},
+        {"n": "03", "id": "item-e4", "title": "古尔曼：苹果首款智能眼镜 N50 无显示屏、主打新版 Siri 应用操控，拟 WWDC 2027 发布。"},
+        {"n": "04", "id": "item-z2", "title": "华为云上线 openPangu-2.1-Pro，强化 Agent、鸿蒙应用开发与昇腾算子生成。"},
+        {"n": "05", "id": "item-z3", "title": "谷歌 Project Zero 收紧漏洞披露：2028 年起报告后 30 天即公开，理由是 AI 加速漏洞挖掘。"},
+        {"n": "06", "id": "item-e3", "title": "美国会两党推动收紧 AI 芯片出口；FT 称美国与盟友同意保护 AI 供应链。"},
+        {"n": "07", "id": "item-p2", "title": "Ethan Mollick 的 SatBench：实验室自 2023 年引用的 173 个基准中 63% 已饱和。"},
+        {"n": "08", "id": "item-m1", "title": "新设「前期遗漏补充」：补收第 6–10 期漏掉的 Anthropic、Google 官方稿 9 篇，含《Building always-on agents》。"}
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "year": 2026,
+      "month": 11,
+      "day": 15,
+      "weekday": "星期日",
+      "issue": 11,
+      "count": 71,
+      "window": "2026-11-14 05:30 – 2026-11-15 08:00（北京时间）",
+      "title": "2026年11月15日 星期日",
+      "path": "2026/11/15.html",
+      "summary": "周末资讯偏少：OpenAI、Anthropic 官网窗内均无新稿。英伟达黄仁勋离任风波继续发酵，请愿签名超 11.5 万；Cursor 公布遭入侵与恶意 Claude Code 扩展的调查结果；星舰第 15 次试飞飞船首次被塔臂接住。意大利对 Meta 罚款 8.05 亿欧元，特斯拉开放 Cybercab 个人预订，华为继续公开麒麟 9050 细节。",
+      "highlights": [
+        {"n": "01", "id": "item-e2", "title": "要求英伟达恢复黄仁勋职务的请愿签名超 11.5 万，马斯克等署名；路透称其曾就客户往来误导公司高层。"},
+        {"n": "02", "id": "item-z2", "title": "Cursor 公布安全事件调查：攻击者借 Fireworks 泄露密钥入侵部分内部系统，并在扩展市场植入篡改版 Claude Code。"},
+        {"n": "03", "id": "item-e4", "title": "星舰第 15 次试飞：助推器取消回收后海上自毁，飞船首次被发射塔机械臂接住。"},
+        {"n": "04", "id": "item-e6", "title": "意大利数据保护局罚 Meta 8.05 亿欧元，因安卓版 Facebook 相册建议未经单独同意读取照片。"},
+        {"n": "05", "id": "item-z4", "title": "华为继续公开麒麟 9050：马良 GPU 称性能提升 40%、功耗降 45%，AI ISP 支持 2 亿像素。"},
+        {"n": "06", "id": "item-e5", "title": "特斯拉开放 Cybercab 个人用途预订：29,990 美元，另需每月 299 美元，限得州区域。"},
+        {"n": "07", "id": "item-z3", "title": "Cloudflare 开源面向 AI 智能体的浏览器 Kitesurf，运行在 Workers 上、兼容 CDP。"},
+        {"n": "08", "id": "item-e7", "title": "NVIDIA cuBLAS 新增 Ozaki-II 与 2M 算法，用整数 Tensor Core 模拟 FP64 计算。"}
+      ]
+    }
+  ]
+}
