@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Import scrubbed AI daily HTML into the archive.
+"""Import scrubbed AI daily reports into the archive.
 
 One-time backfill helper. It does not publish on a schedule.
-When several files share a date, the newest file mtime is kept.
-Files that still contain private contact data, local paths, or secrets
-are refused and left unpublished.
+The inventory manifest names the chosen file for each report. File mtime
+is never used. Reports are not dropped because they share a calendar day.
+Markdown and PDF sources are kept and reported until a conversion is specified.
 """
 
 from __future__ import annotations
@@ -20,38 +20,47 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://zzz55aa.github.io/ai-daily"
 CANONICAL_RE = re.compile(r"^[0-9]{4}/[0-9]{2}/[0-9]{2}\.html$")
 DATE_RE = re.compile(r"(\d{4})年(\d{1,2})月(\d{1,2})日(?:\s*(星期[一二三四五六日]))?")
-PRIVATE = [
-    re.compile(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}"),
-    re.compile(r"/Users/"),
-    re.compile(r"/home/ubuntu"),
-    re.compile(r"/opt/cursor"),
-    re.compile(r"TubeAlfred\s*积分"),
-    re.compile(r"盒子浏览器"),
-    re.compile(r"已登录浏览器"),
-    re.compile(r"x_accounts\.txt"),
-    re.compile(r"x_official_links\.json"),
-    re.compile(r"sitemaps/snap\.sh"),
-    re.compile(r"(?<![\w./])ff\.py\b"),
-    re.compile(r"ghp_[A-Za-z0-9]{20,}"),
-    re.compile(r"github_pat_[A-Za-z0-9_]{20,}"),
-    re.compile(r"AKIA[0-9A-Z]{16}"),
-    re.compile(r"BEGIN (?:RSA |OPENSSH )?PRIVATE KEY"),
-]
+EMAIL_RE = re.compile(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}")
+# Categories only. Matched text is never printed.
+BLOCKING = {
+    "local_path": re.compile(r"/Users/|/home/ubuntu|/opt/cursor"),
+    "private_workflow": re.compile(r"TubeAlfred\s*积分|盒子浏览器|已登录浏览器|x_accounts\.txt|x_official_links\.json|sitemaps/snap\.sh|(?<![\w./])ff\.py\b"),
+    "recipient": re.compile(r"收件人|邮件收件|投递记录|投递日志|\b(?:To|Cc|Bcc)\s*:"),
+    "secret": re.compile(r"ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY"),
+}
+# The manifest must name these exact finals. Another file is never substituted.
+REQUIRED = {
+    "2026-11-08": {"count": 83, "label": "83-item final"},
+    "2026-11-10": {"count": 61, "contains": "Anthropic", "label": "61-item Anthropic-added final"},
+}
 
 
 def strip_images(html: str) -> str:
     return re.sub(r"data:image/[^)\s\"']+", "", html)
 
 
-def privacy_hits(html: str) -> list[str]:
+def privacy_findings(html: str) -> list[dict]:
+    """Report categories and counts only. Never return matched secret text."""
     text = strip_images(html)
-    hits = []
-    for pattern in PRIVATE:
-        found = pattern.findall(text)
-        if found:
-            sample = found[0]
-            hits.append(f"{pattern.pattern} ({sample[:80]})")
-    return hits
+    findings = []
+    emails = EMAIL_RE.findall(text)
+    if emails:
+        findings.append({
+            "kind": "email",
+            "count": len(emails),
+            "blocking": False,
+            "note": "address not printed; a public author address can stay",
+        })
+    for kind, pattern in BLOCKING.items():
+        count = len(pattern.findall(text))
+        if count:
+            findings.append({
+                "kind": kind,
+                "count": count,
+                "blocking": True,
+                "note": "matched text not printed",
+            })
+    return findings
 
 
 def text_of(html: str, class_name: str) -> str:
@@ -102,7 +111,6 @@ def parse_report(path: Path) -> dict:
         "path": f"{year:04d}/{month:02d}/{day:02d}.html",
         "summary": text_of(html, "summary") or text_of(html, "lede"),
         "highlights": highlights,
-        "mtime": path.stat().st_mtime,
         "source": str(path),
     }
 
@@ -203,109 +211,178 @@ def render_homepage(issues: list[dict]) -> None:
     page.write_text(html, encoding="utf-8")
 
 
-def collect_inputs(extra: list[str], from_tree: bool) -> list[Path]:
-    found: list[Path] = []
-    if from_tree:
-        for path in ROOT.glob("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9].html"):
-            found.append(path)
-    for item in extra:
-        path = Path(item)
-        if path.is_dir():
-            found.extend(sorted(path.rglob("*.html")))
-        elif path.is_file():
-            found.append(path)
-        else:
-            raise SystemExit(f"missing input: {item}")
-    unique = []
+def load_manifest(path: Path) -> list[dict]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    entries = data.get("reports") if isinstance(data, dict) else None
+    if not isinstance(entries, list) or not entries:
+        raise SystemExit("manifest needs a non-empty reports list")
     seen = set()
-    for path in found:
-        resolved = path.resolve()
-        if resolved in seen:
-            continue
-        seen.add(resolved)
-        unique.append(path)
-    return unique
+    for entry in entries:
+        if not isinstance(entry, dict) or not entry.get("id") or not entry.get("file"):
+            raise SystemExit("each manifest report needs id and file")
+        if entry["id"] in seen:
+            raise SystemExit(f"duplicate manifest id {entry['id']}")
+        seen.add(entry["id"])
+    return entries
 
 
-def choose_latest(reports: list[dict]) -> list[dict]:
-    grouped: dict[str, dict] = {}
-    for report in reports:
-        current = grouped.get(report["date"])
-        if current is None or report["mtime"] > current["mtime"]:
-            if current is not None:
-                print(f"keep newer {report['date']}: {report['source']}", file=sys.stderr)
-            grouped[report["date"]] = report
-        else:
-            print(f"skip older {report['date']}: {report['source']}", file=sys.stderr)
-    return sorted(grouped.values(), key=lambda item: item["date"], reverse=True)
+def requirement_for(entry: dict, report: dict | None) -> dict | None:
+    if (entry.get("kind") or "daily") == "range":
+        return None
+    date = str(entry.get("date") or (report["date"] if report else ""))
+    return REQUIRED.get(date)
+
+
+def output_path(entry: dict, report: dict | None) -> str:
+    if entry.get("path"):
+        return str(entry["path"]).lstrip("/")
+    if report is None:
+        return f"sources/{entry['id']}"
+    kind = entry.get("kind") or "daily"
+    if kind == "range":
+        return f"{report['year']:04d}/{report['month']:02d}/{report['day']:02d}/{entry['id']}.html"
+    return report["path"]
+
+
+def describe_findings(entry_id: str, findings: list[dict]) -> None:
+    for finding in findings:
+        print(
+            f"finding {entry_id}: {finding['kind']} count={finding['count']} "
+            f"blocking={finding['blocking']} ({finding['note']})",
+            file=sys.stderr,
+        )
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Import scrubbed daily reports into the archive.")
-    parser.add_argument("inputs", nargs="*", help="HTML files or directories of scrubbed reports")
-    parser.add_argument("--from-tree", action="store_true", help="include reports already stored at YYYY/MM/DD.html")
+    parser = argparse.ArgumentParser(description="Import the manifest's chosen reports into the archive.")
+    parser.add_argument("--manifest", required=True, help="JSON inventory whose file field is the chosen version")
     args = parser.parse_args()
-    if not args.inputs and not args.from_tree:
-        parser.error("pass report files or --from-tree")
+    manifest_path = Path(args.manifest)
+    entries = load_manifest(manifest_path)
+    base = manifest_path.parent
+    planned = []
+    holdings = []
+    blocked = False
 
-    refused = []
-    parsed = []
-    for path in collect_inputs(args.inputs, args.from_tree):
+    for entry in entries:
+        source = Path(entry["file"])
+        if not source.is_absolute():
+            source = base / source
+        if not source.is_file():
+            print(f"missing chosen file for {entry['id']}: {entry['file']}", file=sys.stderr)
+            blocked = True
+            continue
+        suffix = source.suffix.lower()
+        if suffix in {".md", ".pdf"}:
+            holdings.append({"id": entry["id"], "file": str(source), "suffix": suffix})
+            print(
+                f"hold {entry['id']}: {suffix} source kept, conversion not specified, file not dropped",
+                file=sys.stderr,
+            )
+            continue
+        if suffix not in {".html", ".htm"}:
+            print(
+                f"hold {entry['id']}: {suffix or 'unknown'} source kept, conversion not specified",
+                file=sys.stderr,
+            )
+            holdings.append({"id": entry["id"], "file": str(source), "suffix": suffix or "unknown"})
+            continue
         try:
-            report = parse_report(path)
+            report = parse_report(source)
         except ValueError as exc:
-            print(f"skip {path}: {exc}", file=sys.stderr)
+            print(f"hold {entry['id']}: chosen HTML could not be read ({exc}); not replaced or dropped", file=sys.stderr)
+            blocked = True
             continue
-        hits = privacy_hits(report["raw"])
-        if hits:
-            refused.append((str(path), hits))
+        findings = privacy_findings(report["raw"])
+        describe_findings(entry["id"], findings)
+        if any(item["blocking"] for item in findings):
+            print(f"hold {entry['id']}: approved report not published and not silently skipped", file=sys.stderr)
+            blocked = True
             continue
-        parsed.append(report)
-    if refused:
-        for path, hits in refused:
-            print(f"refused {path}: {'; '.join(hits)}", file=sys.stderr)
-        print("refused files were not written", file=sys.stderr)
-        return 2
-    if not parsed and not args.from_tree:
-        print("no reports imported", file=sys.stderr)
-        return 1
+        rule = requirement_for(entry, report)
+        if rule:
+            text = strip_images(report["raw"])
+            if report["count"] != rule["count"] or (
+                rule.get("contains") and rule["contains"] not in text
+            ):
+                print(
+                    f"reject {entry['id']}: chosen file is not the {rule['label']}; no other version was substituted",
+                    file=sys.stderr,
+                )
+                blocked = True
+                continue
+        report["id"] = entry["id"]
+        report["kind"] = entry.get("kind") or "daily"
+        report["path"] = output_path(entry, report)
+        report["legacy"] = entry.get("legacy")
+        planned.append(report)
 
-    existing = []
-    for path in sorted(ROOT.glob("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9].html")):
-        if any(Path(item["source"]).resolve() == path.resolve() for item in parsed):
+    if blocked:
+        print("import stopped; no archive files were written", file=sys.stderr)
+        return 2
+
+    paths = [item["path"] for item in planned]
+    if len(paths) != len(set(paths)):
+        print("two chosen reports resolve to the same path; neither was dropped", file=sys.stderr)
+        for item in planned:
+            print(f"  {item['id']} -> {item['path']}", file=sys.stderr)
+        return 2
+
+    legacy_owner: dict[str, str] = {}
+    for item in planned:
+        if item["kind"] == "range":
             continue
+        legacy = item["legacy"] or f"{item['date']}.html"
+        previous = legacy_owner.get(legacy)
+        if previous:
+            print(
+                f"legacy {legacy} is needed by {previous} and {item['id']}; set an explicit legacy and path",
+                file=sys.stderr,
+            )
+            return 2
+        legacy_owner[legacy] = item["id"]
+        item["legacy_name"] = legacy
+
+    # Preserve reports already on the site when this manifest does not mention them.
+    for path in sorted(ROOT.glob("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9].html")):
         try:
-            report = parse_report(path)
+            current = parse_report(path)
         except ValueError:
             continue
-        hits = privacy_hits(report["raw"])
-        if hits:
-            refused.append((str(path), hits))
+        if any(item["path"] == current["path"] for item in planned):
             continue
-        existing.append(report)
-    if refused:
-        for path, hits in refused:
-            print(f"refused {path}: {'; '.join(hits)}", file=sys.stderr)
-        return 2
+        current["id"] = current["date"]
+        current["kind"] = "daily"
+        current["legacy_name"] = f"{current['date']}.html"
+        planned.append(current)
 
-    chosen = choose_latest(parsed + existing)
-    if not chosen:
-        print("no reports to publish", file=sys.stderr)
-        return 1
+    for item in holdings:
+        source = Path(item["file"])
+        dest = ROOT / "sources" / item["id"] / source.name
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(source.read_bytes())
 
-    for report in chosen:
+    for report in planned:
+        if "raw" not in report:
+            continue
         target = ROOT / report["path"]
         target.parent.mkdir(parents=True, exist_ok=True)
         public = f"{SITE}/{report['path']}"
         target.write_text(prepare_html(report["raw"], public), encoding="utf-8")
-        legacy = ROOT / f"{report['date']}.html"
-        legacy.write_text(redirect_html(report["date"], report["path"], report["issue"]), encoding="utf-8")
-        report["path"] = report["path"]
+        if report.get("legacy_name"):
+            legacy = ROOT / report["legacy_name"]
+            legacy.write_text(
+                redirect_html(report["date"], report["path"], report["issue"]),
+                encoding="utf-8",
+            )
 
+    html_issues = [item for item in planned if item.get("issue")]
+    html_issues.sort(key=lambda item: (item["date"], item["path"]), reverse=True)
     index = {
         "publication": "AI 科技日报",
         "issues": [
             {
+                "id": item.get("id") or item["date"],
                 "date": item["date"],
                 "year": item["year"],
                 "month": item["month"],
@@ -318,16 +395,22 @@ def main() -> int:
                 "path": item["path"],
                 "summary": item["summary"],
                 "highlights": item["highlights"],
+                "kind": item.get("kind") or "daily",
             }
-            for item in chosen
+            for item in html_issues
+        ],
+        "holdings": [
+            {"id": item["id"], "suffix": item["suffix"], "kept": True, "converted": False}
+            for item in holdings
         ],
     }
     (ROOT / "archive" / "index.json").write_text(
         json.dumps(index, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    render_homepage(chosen)
-    print(f"imported {len(chosen)} issues")
+    if html_issues:
+        render_homepage(html_issues)
+    print(f"imported {len(html_issues)} html reports; held {len(holdings)} non-html sources")
     return 0
 
 
