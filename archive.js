@@ -12,8 +12,8 @@
     ".arc-nav a{color:inherit;text-decoration:none}",
     ".arc-backdrop{position:fixed;inset:0;background:rgba(28,27,25,.42);z-index:35;border:0;padding:0}",
     ".arc-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;position:sticky;top:0;z-index:15;background:rgba(251,250,247,.94);border-bottom:1px solid #e4e1da;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC','WenQuanYi Micro Hei',sans-serif}",
-    ".arc-open,.arc-close,.arc-go{font:inherit;color:#1c1b19;background:#fff;border:1px solid #d6d2c9;border-radius:8px;min-height:44px;padding:8px 12px;cursor:pointer}",
-    ".arc-open{font-weight:600}",
+    ".arc-toggle,.arc-close,.arc-go{font:inherit;color:#1c1b19;background:#fff;border:1px solid #d6d2c9;border-radius:8px;min-height:44px;padding:8px 12px;cursor:pointer}",
+    ".arc-toggle{font-weight:600}",
     ".arc-close{padding:6px 10px;min-height:36px}",
     ".arc-pager{display:flex;gap:8px;margin-left:auto;min-width:0}",
     ".arc-pager a,.arc-edge{display:flex;flex-direction:column;justify-content:center;min-height:44px;min-width:0;padding:4px 10px;border:1px solid #e4e1da;border-radius:8px;background:#fff;color:#1c1b19;text-decoration:none;font-size:13px;line-height:1.3}",
@@ -55,11 +55,11 @@
     ".arc-hit span{display:block;color:#57534e;font-size:12px;margin-bottom:2px}",
     ".arc-empty{margin:8px 0;color:#57534e;font-size:13px}",
     ".arc-nav :focus-visible,.arc-bar :focus-visible{outline:2px solid #3b6fd8;outline-offset:2px}",
+    "body.arc-nav-open .arc-nav{transform:none;pointer-events:auto}",
     "@media (min-width:960px){",
-    "body.arc-on{padding-left:292px}",
-    ".arc-nav{width:292px;transform:none;pointer-events:auto;z-index:20}",
-    ".arc-open,.arc-close,.arc-backdrop{display:none !important}",
-    ".arc-bar.arc-home{display:none}",
+    "body.arc-on.arc-nav-open{padding-left:292px}",
+    ".arc-nav{width:292px;z-index:20}",
+    ".arc-backdrop{display:none !important}",
     "}",
     "article.issue{cursor:pointer}",
     "article.issue .points,article.issue .points a,article.issue .points summary{cursor:auto}",
@@ -67,10 +67,9 @@
     ".arc-end{display:flex;gap:8px;margin:28px 18px 8px;padding-top:14px;border-top:1px solid #e4e1da}",
     ".arc-end a,.arc-end .arc-edge{flex:1}",
     "@media (max-width:959px){",
-    "body.arc-open .arc-nav{transform:none;pointer-events:auto}",
     ".arc-bar{position:static;top:auto;z-index:auto;background:transparent;border:0;padding:8px 14px 0;box-shadow:none}",
     ".arc-bar .arc-pager small{display:none}",
-    ".arc-bar .arc-open,.arc-bar .arc-pager a,.arc-bar .arc-edge{min-height:36px;padding:4px 10px}",
+    ".arc-bar .arc-toggle,.arc-bar .arc-pager a,.arc-bar .arc-edge{min-height:36px;padding:4px 10px}",
     ".arc-bar .arc-pager a,.arc-bar .arc-edge{flex-direction:row;align-items:center}",
     "}",
     "@media print{.arc-nav,.arc-bar,.arc-end,.arc-backdrop{display:none !important}body.arc-on{padding-left:0}}",
@@ -230,7 +229,7 @@
       document.body.appendChild(nav);
 
       var bar = el("div", "arc-bar");
-      var openBtn = el("button", "arc-open", "历史日报");
+      var openBtn = el("button", "arc-toggle", "历史日报");
       openBtn.type = "button";
       openBtn.setAttribute("aria-expanded", "false");
       openBtn.setAttribute("aria-controls", "arc-nav");
@@ -397,34 +396,34 @@
         var target = openBtn;
         if (restore && lastFocus && lastFocus.focus && !nav.contains(lastFocus)) target = lastFocus;
         if (restore) target.focus();
-        document.body.classList.remove("arc-open");
+        document.body.classList.remove("arc-nav-open");
         document.documentElement.classList.remove("arc-lock");
         backdrop.hidden = true;
         openBtn.setAttribute("aria-expanded", "false");
         nav.removeAttribute("role");
         nav.removeAttribute("aria-modal");
-        if (!isDesktop()) nav.setAttribute("aria-hidden", "true");
-        else nav.removeAttribute("aria-hidden");
+        nav.setAttribute("aria-hidden", "true");
         var content = contentNode();
         if (content) content.inert = false;
       }
       function openDrawer() {
-        if (isDesktop()) return;
         lastFocus = document.activeElement && document.activeElement !== document.body ? document.activeElement : openBtn;
-        document.body.classList.add("arc-open");
-        document.documentElement.classList.add("arc-lock");
-        backdrop.hidden = false;
+        document.body.classList.add("arc-nav-open");
         openBtn.setAttribute("aria-expanded", "true");
-        nav.setAttribute("role", "dialog");
-        nav.setAttribute("aria-modal", "true");
         nav.removeAttribute("aria-hidden");
-        var content = contentNode();
-        if (content) content.inert = true;
+        if (!isDesktop()) {
+          document.documentElement.classList.add("arc-lock");
+          backdrop.hidden = false;
+          nav.setAttribute("role", "dialog");
+          nav.setAttribute("aria-modal", "true");
+          var content = contentNode();
+          if (content) content.inert = true;
+        }
         closeBtn.focus();
       }
       function onKey(event) {
         if (event.key === "Escape") {
-          if (document.body.classList.contains("arc-open")) {
+          if (document.body.classList.contains("arc-nav-open")) {
             event.preventDefault();
             closeDrawer(true);
             return;
@@ -435,7 +434,7 @@
           }
           return;
         }
-        if (event.key !== "Tab" || !document.body.classList.contains("arc-open")) return;
+        if (event.key !== "Tab" || nav.getAttribute("aria-modal") !== "true") return;
         var nodes = focusable(nav);
         if (!nodes.length) return;
         var first = nodes[0];
@@ -450,8 +449,11 @@
       }
 
       openBtn.addEventListener("click", function () {
-        lastFocus = openBtn;
-        openDrawer();
+        if (document.body.classList.contains("arc-nav-open")) closeDrawer(true);
+        else {
+          lastFocus = openBtn;
+          openDrawer();
+        }
       });
       closeBtn.addEventListener("click", function () { closeDrawer(true); });
       backdrop.addEventListener("click", function () { closeDrawer(true); });
@@ -466,8 +468,7 @@
         if (link && !isDesktop()) closeDrawer(false);
       });
       function syncMode() {
-        if (isDesktop()) closeDrawer(false);
-        else if (!document.body.classList.contains("arc-open")) nav.setAttribute("aria-hidden", "true");
+        closeDrawer(false);
       }
       if (desktopQuery.addEventListener) desktopQuery.addEventListener("change", syncMode);
       syncMode();
