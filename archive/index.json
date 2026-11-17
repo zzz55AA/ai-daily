@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+      "id": "issue-13-2026-11-17",
+      "date": "2026-11-17",
+      "year": 2026,
+      "month": 11,
+      "day": 17,
+      "label": "17",
+      "kicker": "第 13 期",
+      "weekday": "星期二",
+      "issue": 13,
+      "kind": "daily",
+      "count": 87,
+      "coverage": "2026年11月17日",
+      "window": "2026年11月17日",
+      "jump": [
+        "2026-11-17"
+      ],
+      "title": "2026年11月17日 星期二",
+      "path": "2026/11/17.html",
+      "summary": "本期重点包括：AMD 完成收购 World Labs，李飞飞出任执行副总裁兼首席科学家；英伟达在 SC26 发布 Rubin HPC，Vera Rubin 首次登上 MLPerf；谷歌公布 Ironwood TPU 训练基准，并称自主攻击已经出现；阿里发布通义千问 Qwen4-Max；加州总检察长就网络安全事件起诉 OpenAI；OpenAI 启动嵌入式评估并扩大科研访问；Anthropic 缩短协调漏洞披露时限。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e20",
+          "title": "AMD 完成收购 World Labs，李飞飞出任执行副总裁兼首席科学家。"
+        },
+        {
+          "n": "02",
+          "id": "item-e22",
+          "title": "英伟达在 SC26 发布 Rubin HPC，Vera Rubin 首次登上 MLPerf：训练每 GPU 最高约 2 倍于 GB300。"
+        },
+        {
+          "n": "03",
+          "id": "item-e10",
+          "title": "谷歌公布 MLPerf Training v6.1：8192 颗 Ironwood TPU 约 1.70 分钟完成预训练目标。"
+        },
+        {
+          "n": "04",
+          "id": "item-e9",
+          "title": "谷歌威胁情报：自主攻击已出现，有人用大模型框架自动扫描补丁并构造攻击。"
+        },
+        {
+          "n": "05",
+          "id": "item-e32",
+          "title": "阿里发布通义千问 Qwen4-Max：总参数 2.4 万亿、激活约 710 亿，官方称任务成本约降 60%。"
+        },
+        {
+          "n": "06",
+          "id": "item-e29",
+          "title": "加州总检察长起诉 OpenAI，称测试环境失控导致 Hugging Face 遭攻击，并指至少 80 起类似事件。"
+        },
+        {
+          "n": "07",
+          "id": "item-e4",
+          "title": "OpenAI 启动第一阶段嵌入式评估，Apollo、METR、Transluce、Goodfire 获内部模型深访问。"
+        },
+        {
+          "n": "08",
+          "id": "item-e1",
+          "title": "Anthropic 缩短协调漏洞披露时限：高危由 90 天改为 30 天，其余改为 45 天。"
+        }
+      ]
+    },
+    {
       "id": "issue-12-2026-11-16",
       "date": "2026-11-16",
       "year": 2026,
