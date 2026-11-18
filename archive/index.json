@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+      "id": "issue-14-2026-11-18",
+      "date": "2026-11-18",
+      "year": 2026,
+      "month": 11,
+      "day": 18,
+      "label": "18",
+      "kicker": "第 14 期",
+      "weekday": "星期三",
+      "issue": 14,
+      "kind": "daily",
+      "count": 108,
+      "coverage": "2026年11月18日",
+      "window": "2026年11月18日",
+      "jump": [
+        "2026-11-18"
+      ],
+      "title": "2026年11月18日 星期三",
+      "path": "2026/11/18.html",
+      "summary": "本期聚焦 OpenAI 发布 GPT-6.2 Astra 与 Sol、英伟达 2027 财年第三季度营收 1158 亿美元、黄仁勋表态愿重返 CEO 而董事会无意恢复其职务，以及微软 Ignite 新模型和 Anthropic 招股书持股更新。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e1",
+          "title": "OpenAI 发布 GPT-6.2 Astra 与 Sol：面向专业工作，API 价格下调，安全分级上调。"
+        },
+        {
+          "n": "02",
+          "id": "item-n1",
+          "title": "英伟达公布 2027 财年第三季度业绩：营收 1158 亿美元，同比增长 103%。"
+        },
+        {
+          "n": "03",
+          "id": "item-n2",
+          "title": "黄仁勋声明称若董事会同意愿重返 CEO，英伟达董事长回应无意恢复其职务。"
+        },
+        {
+          "n": "04",
+          "id": "item-n5",
+          "title": "微软在 Ignite 发布 MAI Cyber 2 Flash、MAI Code 2、MAI Image 2.7 等模型，并提供可授权权重。"
+        },
+        {
+          "n": "05",
+          "id": "item-n3",
+          "title": "Anthropic 更新招股书：IPO 及私募完成后，亚马逊与谷歌将分别持股约 14.7% 和 13.7%。"
+        },
+        {
+          "n": "06",
+          "id": "item-n4",
+          "title": "Alphabet 旗下 Isomorphic Labs 完成 50 亿美元 C 轮，Greenoaks 与红杉资本共同领投。"
+        },
+        {
+          "n": "07",
+          "id": "item-e9",
+          "title": "Gemini 应用上线 Task 模式，可代为预约、分析账单和购物。"
+        },
+        {
+          "n": "08",
+          "id": "item-z11",
+          "title": "华为公布 Mate X8 大折叠官图，发布会定于 11 月 24 日 14:30。"
+        }
+      ]
+    },
+    {
       "id": "issue-13-2026-11-17",
       "date": "2026-11-17",
       "year": 2026,
