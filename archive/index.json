@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+      "id": "issue-15-2026-11-19",
+      "date": "2026-11-19",
+      "year": 2026,
+      "month": 11,
+      "day": 19,
+      "label": "19",
+      "kicker": "第 15 期",
+      "weekday": "星期四",
+      "issue": 15,
+      "kind": "daily",
+      "count": 89,
+      "coverage": "2026年11月19日",
+      "window": "2026年11月19日",
+      "jump": [
+        "2026-11-19"
+      ],
+      "title": "2026年11月19日 星期四",
+      "path": "2026/11/19.html",
+      "summary": "本期聚焦 Anthropic 宣布 IPO 定价每股 83 美元并将以代码 ANT 在纳斯达克上市、谷歌发布 Gemini 4 Neon 并向 Ultra 用户开放 Genie 4，以及 OpenAI 介绍用模型辅助芯片设计的进展。另设「前期遗漏补充」，补入第 14 期漏收的 Anthropic 黑洞物理研究稿，以及官网标注 11 月 17 日的 claude.dev 上线压测工程文。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-e15",
+          "title": "Anthropic 宣布 IPO 定价每股 83 美元，预计 11 月 19 日以代码 ANT 在纳斯达克开盘。"
+        },
+        {
+          "n": "02",
+          "id": "item-e7",
+          "title": "谷歌发布 Gemini 4 Neon：主打更快完成复杂工程与知识工作，API 输入价每百万 token 3 美元。"
+        },
+        {
+          "n": "03",
+          "id": "item-e8",
+          "title": "谷歌 DeepMind 向 Ultra 用户开放 Genie 4 世界模型，加入实时改世界与原生音频。"
+        },
+        {
+          "n": "04",
+          "id": "item-e5",
+          "title": "OpenAI 称用自有模型改进芯片设计：Jalapeño 单元面积下降，AMD 旗舰 GPU 最高改进约 14%。"
+        },
+        {
+          "n": "05",
+          "id": "item-n2",
+          "title": "英伟达召开黄仁勋离职后首次全员大会：12 月提前加薪，穆迪将评级展望调至稳定。"
+        },
+        {
+          "n": "06",
+          "id": "item-n8",
+          "title": "Palo Alto Networks 以约 45 亿美元全股票交易收购 Applied Compute。"
+        },
+        {
+          "n": "07",
+          "id": "item-z6",
+          "title": "腾讯：WorkBuddy 日活超 1000 万，近七日收入年化超 5 亿美元。"
+        },
+        {
+          "n": "08",
+          "id": "item-e9",
+          "title": "Google Labs 推出 Stitch Loop：连接代码库与线上指标、持续提交待审修复。"
+        }
+      ]
+    },
+    {
       "id": "issue-14-2026-11-18",
       "date": "2026-11-18",
       "year": 2026,
