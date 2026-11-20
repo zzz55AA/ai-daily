@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+      "id": "issue-16-2026-11-20",
+      "date": "2026-11-20",
+      "year": 2026,
+      "month": 11,
+      "day": 20,
+      "label": "20",
+      "kicker": "第 16 期",
+      "weekday": "星期五",
+      "issue": 16,
+      "kind": "daily",
+      "count": 82,
+      "coverage": "2026年11月20日",
+      "window": "2026年11月20日",
+      "jump": [
+        "2026-11-20"
+      ],
+      "title": "2026年11月20日 星期五",
+      "path": "2026/11/20.html",
+      "summary": "Anthropic 上市首日收涨约 17%；苹果据悉自研可操控设备与编码的 AI 智能体；Gemini Mac 上线 computer use；OpenAI 介绍用 Codex 自动修复性能回退的 Performance Factory。",
+      "highlights": [
+        {
+          "n": "01",
+          "id": "item-n1",
+          "title": "Anthropic 上市首日开盘 111.50 美元、收盘 97.17 美元，较发行价上涨约 17%，公开发行募资约 813 亿美元。"
+        },
+        {
+          "n": "02",
+          "id": "item-n2",
+          "title": "彭博社：苹果正自研可操控设备、调用应用、浏览网页并编写代码的自主 AI 智能体。"
+        },
+        {
+          "n": "03",
+          "id": "item-e10",
+          "title": "Gemini Mac 应用上线 computer use，可在后台代为点击、输入并完成跨应用任务。"
+        },
+        {
+          "n": "04",
+          "id": "item-e1",
+          "title": "OpenAI 介绍 Performance Factory：用 Codex 代理自动排查并修复 ChatGPT 性能回退。"
+        },
+        {
+          "n": "05",
+          "id": "item-n3",
+          "title": "《The Information》：Meta 计划为 Muse Charm 定价 300 美元，智能手表推迟到 2027 年。"
+        },
+        {
+          "n": "06",
+          "id": "item-n10",
+          "title": "英伟达与微软扩大合作：Azure 已运行 Vera Rubin NVL72，加速计算扩展到 Windows PC。"
+        },
+        {
+          "n": "07",
+          "id": "item-e9",
+          "title": "Genie 4 上线 Gemini API 与 AI Studio，可生成 720p、24fps 带原生音频的可交互世界。"
+        },
+        {
+          "n": "08",
+          "id": "item-z5",
+          "title": "华为官宣 Mate 90 Air 与 WATCH Air 将于 11 月 24 日发布。"
+        }
+      ]
+    },
+    {
       "id": "issue-15-2026-11-19",
       "date": "2026-11-19",
       "year": 2026,
