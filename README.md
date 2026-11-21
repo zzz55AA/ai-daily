@@ -15,6 +15,16 @@
 
 每期正式路径是 `年/月/日.html`。原来的 `年-月-日.html` 会转到该页。报告正文、内嵌图片和折叠交互保持原文件内容。
 
+## 深度研究
+
+专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 2 篇：
+
+- [深度研究专栏首页](research/index.html)
+- [图解 poteto 的 AI Engineer 演讲与 pstack](research/pstack.html) — 2026-11-15（pstack v0.15.42 历史快照）
+- [Matt Pocock Skills 深度研究](research/matt-pocock-skills.html) — 2026-11-21
+
+正式路径是 `research/index.html` 与 `research/<文章名>.html`。日报首页 `index.html` 顶部有「日报 / 深度研究」入口，专栏首页有返回日报的链接。专题正文保留自带的图文与脚本，不引用日报的归档脚本。
+
 页面不引用外部脚本、字体或统计。没有定时发布。历史回填只做一次：把已经核对过的 HTML 交给
 
 ```bash

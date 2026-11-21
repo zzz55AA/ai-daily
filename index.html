@@ -20,6 +20,10 @@ a{color:inherit}
 .brand{font-size:13px;letter-spacing:.14em;color:var(--text3)}
 h1{margin:4px 0 0;font-size:34px;line-height:1.2;font-weight:650;letter-spacing:-.02em}
 .lede{margin:10px 0 0;max-width:40em;color:var(--text2)}
+.sectnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sectnav a{display:inline-block;min-height:36px;padding:6px 14px;border:1px solid var(--border2);border-radius:999px;background:var(--card);color:var(--text2);text-decoration:none;font-size:14px}
+.sectnav a:hover{border-color:var(--text);color:var(--text)}
+.sectnav a[aria-current="page"]{background:var(--text);border-color:var(--text);color:var(--bg)}
 .month-h{margin:26px 0 0;font-size:13px;letter-spacing:.12em;color:var(--text3);font-weight:650}
 .issue{display:grid;grid-template-columns:104px 1fr;gap:8px 16px;padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer}
 .issue .points,.issue .points a,.issue .points summary{cursor:pointer}
@@ -58,6 +62,10 @@ a:focus-visible,summary:focus-visible{outline:2px solid #3b6fd8;outline-offset:3
   <div class="brand">AI 科技日报</div>
   <h1>日报档案</h1>
   <p class="lede">按日期查阅已发布的期次。桌面左侧是年、月、日和期号目录；窄屏可打开「历史日报」。搜索只查日期、标题和今日要点，不会加载整期图片。</p>
+  <nav class="sectnav" aria-label="栏目切换">
+    <a href="./index.html" aria-current="page">日报</a>
+    <a href="research/index.html">深度研究</a>
+  </nav>
 </header>
 <main id="archive-list">
   <p class="month-h">2026年11月</p>
