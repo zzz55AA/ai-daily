@@ -17,9 +17,12 @@
 
 ## 深度研究
 
-专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 6 篇：
+专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 9 篇：
 
 - [深度研究专栏首页](research.html)
+- [长任务 Agent 如何可靠接续工作](research-long-running-agents.html) — 2026-11-21（跨会话交接与崩溃恢复）
+- [上下文工程：每一步给模型看什么](research-context-engineering.html) — 2026-11-21（上下文选择、检索与压缩损失）
+- [实时WebRTC深度讲义｜协议、会话、播放与恢复](research-realtime-webrtc.html) — 2026-11-21（协议、会话、播放与恢复）
 - [Karpathy 2023 Intro to LLMs 独立深读](research-karpathy-intro-2023.html) — 2026-11-21（2023 短讲座 Intro to Large Language Models）
 - [从预测下一个词，到成为 AI 助手——Karpathy LLM 讲座深度图解](research-karpathy-llm-2025.html) — 2026-11-21（2025 长讲座 Deep Dive into LLMs like ChatGPT，讲座发布于 2025-02-05）
 - [OpenSpec 深度报告](research-openspec.html) — 2026-11-21（OpenSpec 2.1.1）
