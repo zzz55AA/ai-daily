@@ -17,9 +17,11 @@
 
 ## 深度研究
 
-专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 2 篇：
+专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 4 篇：
 
 - [深度研究专栏首页](research.html)
+- [OpenSpec 深度报告](research-openspec.html) — 2026-11-21（OpenSpec 2.1.1）
+- [Superpowers 深度报告](research-superpowers.html) — 2026-11-21（Superpowers v7.0.2）
 - [图解 poteto 的 AI Engineer 演讲与 pstack](research-pstack.html) — 2026-11-15（pstack v0.15.42 历史快照）
 - [Matt Pocock Skills 深度研究](research-matt-pocock-skills.html) — 2026-11-21
 

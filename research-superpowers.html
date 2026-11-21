@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="canonical" href="https://zzz55aa.github.io/ai-daily/research-superpowers.html">
+<title>Superpowers 深度报告 · 2026-11-21</title>
+<style>:root{--paper:#f5f1e8;--ink:#1a2a32;--muted:#5a6b6e;--line:#d6d0c4;--teal:#155e63;--copper:#9a3b1a;--panel:#fffaf1;--navy:#102430;--wash:#ece6d8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.9;font-size:17px}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+a:hover{color:var(--copper)}
+button,input{font:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:7px 13px;line-height:1.5}
+button:hover{border-color:var(--teal)}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #e8a95a;outline-offset:4px}
+button[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.mast{background:var(--navy);color:#e7efe8;padding:13px 5vw;display:flex;justify-content:space-between;gap:16px;font-size:12px;letter-spacing:.12em}
+.hero{padding:62px max(5vw,24px) 46px;max-width:1320px;margin:auto;border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--copper);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5.6vw,70px);line-height:1.18;letter-spacing:-.04em;margin:22px 0;max-width:1080px}
+.hero h1 span{color:var(--teal)}
+.dek{max-width:780px;font-size:20px;color:var(--muted);line-height:1.8}
+.stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:32px}
+.stat strong{font-size:34px;line-height:1.2;display:block;color:var(--teal)}
+.stat span{font-size:12px;color:var(--muted)}
+.stamp{font-size:12px;color:var(--muted);margin-top:28px;overflow-wrap:anywhere}
+.toolbar{position:sticky;top:0;z-index:10;background:#f5f1e8f5;border-bottom:1px solid var(--line);padding:10px max(5vw,20px);display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.toolbar a{margin-right:auto}
+.layout{display:grid;grid-template-columns:218px minmax(0,900px);gap:48px;max-width:1280px;margin:auto;padding:42px 32px 90px}
+.toc{font-size:12px;align-self:start;position:sticky;top:90px;max-height:calc(100vh - 120px);overflow:auto}
+.toc h2{font-size:12px;letter-spacing:.14em;color:var(--copper)}
+.toc a{display:block;padding:9px 0;color:var(--muted);text-decoration:none;line-height:1.6;border-bottom:1px solid var(--line)}
+.toc a:hover{color:var(--teal)}
+main{min-width:0}
+.chapter{padding:0 0 38px;margin-bottom:36px;border-bottom:1px solid var(--line)}
+.section-no{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--copper);margin-bottom:12px}
+h2{font-size:clamp(25px,3vw,34px);line-height:1.45;letter-spacing:-.03em;margin:0 0 25px}
+h3{font-size:21px;line-height:1.6;color:var(--teal);margin:35px 0 14px}
+p{margin:0 0 22px;overflow-wrap:anywhere;text-wrap:pretty}
+strong{font-weight:700}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.86em;overflow-wrap:anywhere;background:#e8e4d8;border-radius:4px;padding:2px 5px}
+pre{background:var(--navy);color:#eff5ee;white-space:pre-wrap;overflow-wrap:anywhere;padding:24px;border-radius:12px;line-height:1.7;font-size:14px}
+pre code{padding:0;background:none;color:inherit}
+.cite{font-size:11px;white-space:normal;display:inline;color:#547d71;margin-left:6px;text-decoration:none;background:#e4eee6;padding:2px 5px;border-radius:4px}
+figure{margin:28px 0 32px;background:var(--panel);padding:12px 14px 10px;border:1px solid var(--line);border-radius:16px}
+.diagram-mobile{display:none}
+.svgwrap svg{display:block;width:100%;height:auto}
+figcaption{font-size:12px;color:var(--muted);padding:7px 6px 2px;line-height:1.7}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:13px;min-width:620px;width:100%}
+td,th{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+th{background:var(--navy);color:#f3f4eb}
+td:first-child{font-weight:700;min-width:140px}
+tbody tr:last-child td{border-bottom:0}
+.callout,.empty{border-left:3px solid var(--copper);background:#f4eadb;padding:16px 18px;font-size:15px;margin:0 0 22px;border-radius:0 10px 10px 0}
+.callout.note{border-left-color:var(--teal);background:#e7efec}
+.map-tools{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--panel);margin:24px 0}
+.map-tools label{font-size:13px;display:block;margin-bottom:8px;font-weight:700}
+.map-tools input{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font-size:15px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 12px}
+.filters button{font-size:12px}
+.map-tools p{font-size:12px;color:var(--muted);margin:8px 0}
+.map-tools>button{font-size:12px}
+.skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 24px}
+.skill-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;min-width:0;align-self:start}
+.skill-card summary{padding:17px;cursor:pointer;list-style:none}
+.skill-card summary::-webkit-details-marker{display:none}
+.badge{font-size:10px;display:inline-block;border:1px solid #b7d0c2;border-radius:20px;padding:1px 8px;color:var(--teal);line-height:1.7;margin:0 4px 4px 0}
+.badge.debug{color:#9a4e22;border-color:#dfbc92}
+.badge.meta{color:#706a86;border-color:#c8c0d5}
+.badge.test{color:#155e63;border-color:#8fbfb4}
+.skill-name{font:600 15px ui-monospace,SFMono-Regular,Consolas,monospace;display:block;overflow-wrap:anywhere;color:var(--teal);margin-top:10px;line-height:1.6}
+.skill-title{font-size:15px;display:block;margin:6px 0 7px;line-height:1.6}
+.skill-type{font-size:11px;color:var(--muted);display:block}
+.skill-card[open]{border-color:#86b19d}
+.skill-body{padding:0 17px 19px;font-size:13px}
+.skill-body dl{margin:0}
+.skill-body dt{font-size:11px;font-weight:800;color:var(--copper);margin-top:14px}
+.skill-body dd{margin:4px 0 12px;line-height:1.85}
+.skill-body small{display:block;color:var(--muted);font-size:10px;margin-top:9px}
+.skill-body a{font-size:11px}
+.deep-dive{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:16px 0}
+.deep-dive>summary{font-size:19px;font-weight:700;line-height:1.6;padding:21px;cursor:pointer;color:var(--teal)}
+.deep-body{padding:0 25px 6px}
+.deep-body p{font-size:16px}
+.sources-list{font-size:12px;line-height:1.8;word-break:break-word;padding-left:20px}
+.sources-list li{margin:9px 0}
+.endnote{font-size:12px;color:var(--muted);background:#e8eee4;padding:23px;border-radius:12px}
+footer{background:var(--navy);color:#b4c9c2;padding:32px 5vw;font-size:12px}
+ul,ol{margin:0 0 22px;padding-left:1.3em}
+li{margin:6px 0;overflow-wrap:anywhere}
+blockquote{margin:0 0 22px;padding:12px 18px;border-left:3px solid var(--teal);background:var(--panel);color:var(--ink)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:1000px){.layout{grid-template-columns:1fr;max-width:850px;padding:28px 24px 60px}.toc{position:static;max-height:none;border-bottom:1px solid var(--line);padding-bottom:22px}.toc a{display:inline-block;margin-right:15px;border:0;padding:5px 0}.toc h2{margin-top:0}.hero{padding-top:40px}.stats{gap:25px}}
+@media(max-width:720px){.svgwrap{display:none}.diagram-mobile{display:block;list-style:none;margin:4px;padding:0}.diagram-mobile li{background:#edf4ee;border:1px solid var(--line);border-radius:9px;padding:12px;margin-bottom:10px;font-size:13px;line-height:1.8}.diagram-mobile li:nth-child(even){background:#f7eee5}.diagram-mobile li strong{display:block;color:var(--teal);font-size:14px}.diagram-mobile li span{display:block;margin-top:5px}}
+@media(max-width:560px){body{font-size:16px;line-height:1.95}.mast{font-size:10px;letter-spacing:.08em;padding:10px 20px}.hero{padding:32px 20px}.hero h1{font-size:36px;letter-spacing:-.03em}.dek{font-size:16px}.stat strong{font-size:27px}.toolbar{padding:9px 15px;font-size:11px;gap:5px}.toolbar button{font-size:11px;padding:6px 8px}.layout{padding:25px 19px 50px;gap:25px}.skill-grid{grid-template-columns:1fr}.deep-dive>summary{font-size:17px;padding:17px}.deep-body{padding:0 17px 4px}.deep-body p{font-size:15px}h2{font-size:26px}h3{font-size:20px}figure{padding:6px}}
+@media print{body{font-size:11pt;background:#fff;color:#000}.toolbar,.toc,.map-tools,.mast{display:none!important}.layout{display:block;padding:15px;max-width:none}a{color:inherit;text-decoration:none}.hero{padding:10px 0}figure{break-inside:avoid}.svgwrap{display:block}.diagram-mobile{display:block}details{open:revert}details,details[open]{border:0}details>summary{display:block}}
+</style>
+</head>
+<body>
+<header class="mast" id="top"><span>深度研究 · Superpowers</span><span>北京时间 2026-11-21 · 固定 v7.0.2</span></header>
+<div class="hero">
+<p class="eyebrow">obra/superpowers · Jesse Vincent / Prime Radiant</p>
+<h1>把代理按住，先问清楚<br><span>再写、再测、再交人决定</span></h1>
+<p class="dek">这不是又一份安装教程。它根据 2026-11-04 发布的 v7.0.2 源码快照，讲这套技能现在实际怎么转、哪些「强制」只写在纸上、以及它在手机 WebRTC 工作里能管到哪一步。案例全部是假设，没有在真机或业务仓库里跑过。</p>
+<div class="stats">
+<div class="stat"><strong>15</strong><span>个 SKILL.md，正文全部读完</span></div>
+<div class="stat"><strong>v7.0.2</strong><span>与 main 提交 22f0b463 一致</span></div>
+<div class="stat"><strong>236/236</strong><span>快照文件与 Git 树 blob 一致</span></div>
+<div class="stat"><strong>5</strong><span>幅原创结构图，小屏有文字步骤</span></div>
+</div>
+<p class="stamp">读取窗口：2026-11-21 21:29 起（北京时间，Asia/Shanghai）。提交时间是 2026-11-03 22:17:07 UTC，合 2026-11-04 06:17:07 北京时间。分析的是这一固定快照，不是「今天 latest」。安装命令只摘录，未执行。</p>
+</div>
+<div class="toolbar">
+<a href="#section-1">今日要点</a>
+<button type="button" id="expand-all">全部展开</button>
+<button type="button" id="collapse-all">全部收起</button>
+<button type="button" id="print-report">打印 / 导出</button>
+</div>
+<div class="layout">
+<nav class="toc" aria-label="目录">
+<h2>目录</h2>
+<a href="#section-1">1 快速结论</a>
+<a href="#section-2">2 这是哪一个 Superpowers</a>
+<a href="#section-3">3 解决什么，不解决什么</a>
+<a href="#section-4">4 版本、流程差异与读取边界</a>
+<a href="#section-5">5 技能与入口地图</a>
+<a href="#section-6">6 关键机制精读</a>
+<a href="#section-7">7 假设案例：手机 WebRTC</a>
+<a href="#section-8">8 失败模式与适用边界</a>
+<a href="#section-9">9 可证实的版本变化</a>
+<a href="#section-10">10 与 Matt、pstack、OpenSpec</a>
+<a href="#section-11">11 落地建议</a>
+<a href="#section-12">12 来源与方法</a>
+</nav>
+<main>
+<section class="chapter" id="section-1">
+<p class="section-no">01 / 快速结论</p>
+<h2>先记住这几句</h2>
+<ul>
+<li>用户要的是 Jesse Vincent 与 Prime Radiant 的 AI 编程技能库 <strong>obra/superpowers</strong>。它和 Dex Horthy 的四门模型、非官方插件 factory-gates、以及其它同名项目不是一回事。</li>
+<li>当前可核对版本是 <strong>v7.0.2</strong>，annotated tag 指到 main 提交 <code>22f0b463e7a5e579904dd6211a520321035526f7</code>。本报告只讨论这一快照，不以 2025 年 10 月首发博文的旧流程当现行机制。</li>
+<li>它真正卖的是过程：先弄清要什么和为什么，写出设计并等人批准，再把决定写成可执行计划；实施时走 TDD，用子代理逐任务评审，或在同一会话里便宜地做完再终审；最后把合并或开 PR 的选择交还给人。</li>
+<li>技能正文里的 MUST、铁律、红旗表，是写给模型看的描述约束。真正会失败退出的，主要是 SDD 辅助脚本（指错仓库、没有提交、任务解析失败）。会话启动 hook 会注入 <code>using-superpowers</code>。Windows 未找到可用 bash 时才静默跳过注入；Unix 可回退到 zsh，只有 bash 和 zsh 都不可用时才以退出码 0 跳过。</li>
+<li>README 仍写「设计批准后先建 worktree」「2–5 分钟任务、完整代码」。更具体的技能正文已经改成：批准设计后只调用 <code>writing-plans</code>，worktree 放到执行阶段并先征求同意，计划写接口和测试断言而不是整份实现。发生冲突时以更具体的技能正文为准，并在后文标出差异。</li>
+<li>对手机 WebRTC：它能管信令状态、重试策略、统计字段和测试是否先失败；不能代替真机弱网、芯片差异和实验室音质。单测全绿，不等于「弱网可用」。</li>
+</ul>
+</section>
+<section class="chapter" id="section-2">
+<p class="section-no">02 / 身份</p>
+<h2>先确认这就是要的那个项目</h2>
+<p>身份链是互相指向，不只看搜索排名或星数。GitHub 仓库 <a href="https://github.com/obra/superpowers">obra/superpowers</a> 的作者是 Jesse Vincent（账号 obra），仓库说明写的是 agentic skills framework 与软件开发方法论。插件清单 <code>.claude-plugin/plugin.json</code> 与 <code>.cursor-plugin/plugin.json</code> 的 name 都是 <code>superpowers</code>，version 是 7.0.2，author 写 Jesse Vincent，homepage 与 repository 指回同一仓库。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/.claude-plugin/plugin.json">.claude-plugin/plugin.json</a></p>
+<p>公司与产品页交叉印证同一件事：<a href="https://primeradiant.com/superpowers/">primeradiant.com/superpowers</a> 把 Superpowers 写成 Prime Radiant 的产品；<a href="https://primeradiant.com/about/">About</a> 写 Jesse Vincent 是创始人，并点名他创造了 Superpowers。<a href="https://blog.fsck.com/2025/10/09/superpowers/">2025-10-09 首发博文</a>和 README 的社区段都把项目归到 Jesse Vincent 与 Prime Radiant。<a href="https://www.skills.sh/obra/superpowers">skills.sh/obra/superpowers</a> 列出的 15 个技能名称，与本快照 <code>skills/*/SKILL.md</code> 完全一致。</p>
+<p>需要主动排除的同名或近邻对象：</p>
+<ul>
+<li><strong>不是 Dex Horthy 的作品。</strong> 社区仓库 factory-gates 自称把 Horthy 的四门模型插入 Superpowers 流程，并写明非官方、非附属。不能把 Superpowers 归到 Horthy，也不能把那三个门技能算进这 15 项。</li>
+<li><strong>obra/superpowers-skills 不是本报告的清单来源。</strong> v2.0.0 曾把技能拆到该仓库；当前 v7.0.2 的 15 项技能正文就在 obra/superpowers 里。那是相关/社区仓库，不与本快照混计。</li>
+<li>其它叫 Superpowers 的游戏、库或培训材料，只要不指向这套「编码代理技能 + 开发方法论」，都不在范围内。</li>
+</ul>
+<p>GitHub API 在本次读取时返回默认分支 main、约 32.3 万星、MIT 许可。星数会变，这里只记录读取时刻的 API 值，不当作质量证明。skills.sh 当时显示约 400 万次累计安装，这是目录站自己的数字，本文未独立审计。</p>
+</section>
+<section class="chapter" id="section-3">
+<p class="section-no">03 / 范围</p>
+<h2>它解决什么，不解决什么</h2>
+<h3>它试图解决的</h3>
+<p>编码代理一上来就写代码、写完却测的是已经存在的行为、一次会话里把计划忘光又重做、以及把合并、推送这些不可逆动作悄悄做掉。Superpowers 用一组会互相调用的技能，把「问清楚 → 写设计 → 等人批 → 写计划 → 选执行法 → 隔离工作区 → 红绿测试 → 评审 → 交还选择」变成默认路径。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md#L308-L324">README L308–L324</a></p>
+<p>对已经走偏的会话，它还提供 <code>diagnosing-superpowers</code>：按投诉类型读转录、给带行号的证据，而不是凭印象总结。</p>
+<h3>它明确不解决的</h3>
+<ul>
+<li><strong>不代替判断。 </strong>用户指令可以覆盖技能。对方说跳过提问，头脑风暴的门就一起撤掉。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L63-L65">using-superpowers L63–L65</a><a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L269-L283">brainstorming L269–L283</a></li>
+<li><strong>不保证模型一定遵守。</strong> 没有编译器在写第一行产品代码前拦住它。接受测试「我们做个 react todo list，应先触发头脑风暴」是维护者对集成的要求，不是你仓库里的技术锁。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/AGENTS.md#L82-L96">AGENTS.md L82–L96</a></li>
+<li><strong>不提供领域实现。</strong> 15 项里没有 WebRTC、Android 音频或芯片平台技能。领域知识仍要来自你的代码、规格和实验室。</li>
+<li><strong>不创造真机证据。</strong> 完成门要求「有当次命令输出」，但输出是什么，取决于计划里写了什么命令。没有实验室步骤，它不能证明音质或弱网体验。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md#L14-L35">verification-before-completion L14–L35</a></li>
+<li><strong>不默认帮你改这个上游仓库或对外发布。</strong> 贡献指南对代理 PR 极严，拒绝率被写成 94%。本报告只读公开快照，不提交、不安装、不运行其脚本。</li>
+</ul>
+</section>
+<section class="chapter" id="section-4">
+<p class="section-no">04 / 版本口径</p>
+<h2>按当前正文讲，不把旧流程当作默认</h2>
+<p>固定对象：release <strong>v7.0.2</strong>。annotated tag 的对象就是提交 <code>22f0b463e7a5e579904dd6211a520321035526f7</code>，提交说明为 “Release v7.0.2…”。各插件 manifest 与 <code>package.json</code> 的 version 字段均为 7.0.2。因此可以说：这次读取的 main 头，就是该正式版发布提交。不要把「marketplace 上的 latest」自动当成这一 commit。</p>
+<figure id="fig1"><div class="svgwrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" role="img" aria-labelledby="svg1-title svg1-desc">
+<title id="svg1-title">当前版本主流程</title>
+<desc id="svg1-desc">从会话启动到收尾的当前技能顺序，并标出与 README 步骤清单的差异。</desc>
+<rect width="860" height="420" fill="#fffaf1"/>
+<text x="20" y="28" font-size="15" font-weight="700" fill="#102430" font-family="sans-serif">当前技能正文中的主路径（v7.0.2）</text>
+<rect x="20" y="48" width="160" height="58" rx="8" fill="#155e63"/>
+<text x="100" y="74" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">会话启动注入</text>
+<text x="100" y="92" text-anchor="middle" font-size="11" fill="#d7eee8" font-family="sans-serif">using-superpowers</text>
+<rect x="210" y="48" width="160" height="58" rx="8" fill="#155e63"/>
+<text x="290" y="74" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">先问要什么/为什么</text>
+<text x="290" y="92" text-anchor="middle" font-size="11" fill="#d7eee8" font-family="sans-serif">brainstorming</text>
+<rect x="400" y="48" width="160" height="58" rx="8" fill="#9a3b1a"/>
+<text x="480" y="74" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">设计批准门</text>
+<text x="480" y="92" text-anchor="middle" font-size="11" fill="#f3ddd3" font-family="sans-serif">未批准不写产品代码</text>
+<rect x="590" y="48" width="250" height="58" rx="8" fill="#155e63"/>
+<text x="715" y="74" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">只调用 writing-plans</text>
+<text x="715" y="92" text-anchor="middle" font-size="11" fill="#d7eee8" font-family="sans-serif">HARD-GATE：不再调其他技能</text>
+<path d="M180 77h28" stroke="#102430" stroke-width="1.6"/>
+<path d="M370 77h28" stroke="#102430" stroke-width="1.6"/>
+<path d="M560 77h28" stroke="#102430" stroke-width="1.6"/>
+<rect x="20" y="150" width="250" height="70" rx="8" fill="#fff" stroke="#155e63" stroke-width="1.5"/>
+<text x="145" y="176" text-anchor="middle" font-size="12" fill="#102430" font-family="sans-serif">人审计划并选择执行法</text>
+<text x="145" y="196" text-anchor="middle" font-size="11" fill="#5a6b6e" font-family="sans-serif">SDD（逐任务审）或 Native（同会话）</text>
+<rect x="300" y="150" width="250" height="70" rx="8" fill="#fff" stroke="#155e63" stroke-width="1.5"/>
+<text x="425" y="176" text-anchor="middle" font-size="12" fill="#102430" font-family="sans-serif">执行阶段再建隔离工作区</text>
+<text x="425" y="196" text-anchor="middle" font-size="11" fill="#5a6b6e" font-family="sans-serif">using-git-worktrees，先征得同意</text>
+<rect x="580" y="150" width="260" height="70" rx="8" fill="#fff" stroke="#155e63" stroke-width="1.5"/>
+<text x="710" y="176" text-anchor="middle" font-size="12" fill="#102430" font-family="sans-serif">任务循环 + TDD + 评审</text>
+<text x="710" y="196" text-anchor="middle" font-size="11" fill="#5a6b6e" font-family="sans-serif">账本记录裁决，最后 finishing 菜单</text>
+<path d="M270 185h28" stroke="#102430" stroke-width="1.6"/>
+<path d="M550 185h28" stroke="#102430" stroke-width="1.6"/>
+<rect x="20" y="250" width="820" height="150" rx="10" fill="#ece6d8"/>
+<text x="36" y="276" font-size="13" font-weight="700" fill="#9a3b1a" font-family="sans-serif">不要按旧材料自动补步骤</text>
+<text x="36" y="302" font-size="12" fill="#1a2a32" font-family="sans-serif">README 基本流程仍把 worktree 写在设计批准之后、写计划之前，并写「2-5 分钟任务、完整代码」。</text>
+<text x="36" y="324" font-size="12" fill="#1a2a32" font-family="sans-serif">2025-10-09 首发博文还有 getting-started、自动建 worktree、另开会话当人肉 PM。当前快照中这些都已不是正文机制。</text>
+<text x="36" y="346" font-size="12" fill="#1a2a32" font-family="sans-serif">本图以更具体的技能正文为准，并把 README / 旧博文的差异标为历史口径，而不是第二套现行流程。</text>
+<text x="36" y="376" font-size="12" fill="#5a6b6e" font-family="sans-serif">例外：对方明确跳过提问，或同意做一次性 spike；保留 spike 成果要重新过批准门。</text>
+</svg></div><ol class="diagram-mobile"><li><strong>会话启动</strong><span>hook 注入 using-superpowers，提醒先找技能。</span></li><li><strong>头脑风暴</strong><span>先弄清要什么和为什么；琐碎改动可直接做。</span></li><li><strong>设计批准门</strong><span>未批准不写产品代码。批准后只调用 writing-plans。</span></li><li><strong>人选执行法</strong><span>SDD 逐任务评审，或 Native 同会话实施加一次终审。</span></li><li><strong>执行时才建工作区</strong><span>using-git-worktrees 在执行技能的 setup 中出现，并先征求同意。</span></li><li><strong>不要套旧顺序</strong><span>README 仍把 worktree 写在写计划前；2025 年博文还有自动建工作和另开会话。</span></li></ol><figcaption>图 1  当前版本主路径，以及它和 README / 首发博文的差别。 宽屏看结构图；小屏请用文字步骤。图为报告原创，不是上游仓库插图。</figcaption></figure>
+<p>两处必须摊开的口径差：</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>来源</th><th>它怎么写</th><th>当前更具体的正文</th></tr></thead>
+<tbody>
+<tr><td>README「基本流程」</td><td>设计批准后先 <code>using-git-worktrees</code>，再写计划；任务「2–5 分钟」，并有「完整代码」。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md#L308-L324">README L308–L324</a></td><td>头脑风暴批准后「只调用 writing-plans，不再调用其它技能」。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L269-L283">brainstorming L269–L283</a> 计划技能把 worktree 留给执行阶段。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L14-L15">writing-plans L14–L15</a> 任务按可测试、可评审的单元切分，步骤写签名和断言，函数体由实施者写。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L34-L41">writing-plans L34–L41</a><a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L140-L161">writing-plans L140–L161</a></td></tr>
+<tr><td>2025-10-09 首发博文</td><td>引导去读 <code>getting-started</code>；设计后自动建 worktree；可另开一个 Claude 会话当人肉 PM。</td><td>入口技能已是 <code>using-superpowers</code>。快照里没有 <code>getting-started</code> 或 <code>remembering-conversations</code>。worktree 需同意。执行选择是 SDD 或同会话 Native，不再是「另开会话当 PM」。</td></tr>
+</tbody>
+</table>
+</div>
+<p>公开归档已展开为 236 个普通文件快照，并与 Git 树 blob 逐一核对，全部匹配。没有 git clone，没有保留可执行位，没有运行 hook、辅助脚本或视觉伴侣服务器。</p>
+</section>
+
+<section class="chapter" id="section-5">
+<p class="section-no">05 / 地图</p>
+<h2>15 项技能，以及它们怎样被找上门</h2>
+<p>本快照恰好 15 个 <code>SKILL.md</code>，与 README「What's Inside」和 skills.sh 列表一致，没有隐藏的第 16 个技能正文。下面的中文标题是本报告概括。分组沿用 README 的 Testing / Debugging / Collaboration / Meta，再标上本报告的用途标签。筛选只作用于这 15 张卡片。</p>
+<div class="map-tools" id="map-tools">
+<label for="skill-search">搜索技能名称、用途或机制要点</label>
+<input type="search" id="skill-search" placeholder="例如：TDD、账本、worktree、终审" autocomplete="off">
+<div class="filters" role="group" aria-label="按类别筛选">
+<button type="button" data-filter="all" aria-pressed="true">全部</button>
+<button type="button" data-filter="collab">协作</button>
+<button type="button" data-filter="test">测试</button>
+<button type="button" data-filter="debug">调试</button>
+<button type="button" data-filter="meta">元技能</button>
+</div>
+<p id="map-count">显示 15 / 15 项</p>
+<button type="button" id="reset-filter">重置筛选</button>
+</div>
+<div class="skill-grid" id="skill-grid"><details class="skill-card" data-cat="meta" data-text="using-superpowers 先找技能，再开口 元技能 / 入口 会话入口。子代理须忽略本技能。 若有 1% 可能适用就必须先调用技能，包括澄清问题和看代码之前。进入 plan mode 前若尚未头脑风暴，先调用 brainstorming。用户指令优先于技能。 这是提示词纪律，不是运行时拦截。平台适配文件按宿主另读。" data-name="using-superpowers"><summary><span class="badge badge meta">元技能 / 入口</span><span class="skill-name">using-superpowers</span><span class="skill-title">先找技能，再开口</span><span class="skill-type">65 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>会话入口。子代理须忽略本技能。</dd><dt>原文机制</dt><dd>若有 1% 可能适用就必须先调用技能，包括澄清问题和看代码之前。进入 plan mode 前若尚未头脑风暴，先调用 brainstorming。用户指令优先于技能。</dd><dt>阅读与边界</dt><dd>这是提示词纪律，不是运行时拦截。平台适配文件按宿主另读。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L1-L65">永久链接（本报告固定提交，L1–L65）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="brainstorming 先弄清要什么和为什么 协作 / 规划 任何创造性工作前的默认过程技能。 批准设计前不写产品代码、脚手架、装依赖或调用实施技能。批准后只调用 writing-plans。琐碎改动可直接做；对方可跳过提问；同意的 spike 可先做，但留下成果要重新过门。 问句只在答案会改变成品且现有材料没有答案时出现。过程步骤由模型自己决定并说出来。" data-name="brainstorming"><summary><span class="badge badge">协作 / 规划</span><span class="skill-name">brainstorming</span><span class="skill-title">先弄清要什么和为什么</span><span class="skill-type">316 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>任何创造性工作前的默认过程技能。</dd><dt>原文机制</dt><dd>批准设计前不写产品代码、脚手架、装依赖或调用实施技能。批准后只调用 writing-plans。琐碎改动可直接做；对方可跳过提问；同意的 spike 可先做，但留下成果要重新过门。</dd><dt>阅读与边界</dt><dd>问句只在答案会改变成品且现有材料没有答案时出现。过程步骤由模型自己决定并说出来。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L1-L316">永久链接（本报告固定提交，L1–L316）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="writing-plans 把决定写成可执行任务 协作 / 规划 有规格之后、动手之前。 默认写到 docs/superpowers/plans/。任务是带测试周期、值得独立评审的最小单元。步骤给签名、测试断言和验证命令；实现者写函数体。计划不应长过它所描述的代码。交出去后等人选择 SDD 或 Native。 与 README「2-5 分钟、完整代码」不一致，以本技能为准。worktree 标注为执行阶段的事。" data-name="writing-plans"><summary><span class="badge badge">协作 / 规划</span><span class="skill-name">writing-plans</span><span class="skill-title">把决定写成可执行任务</span><span class="skill-type">204 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>有规格之后、动手之前。</dd><dt>原文机制</dt><dd>默认写到 docs/superpowers/plans/。任务是带测试周期、值得独立评审的最小单元。步骤给签名、测试断言和验证命令；实现者写函数体。计划不应长过它所描述的代码。交出去后等人选择 SDD 或 Native。</dd><dt>阅读与边界</dt><dd>与 README「2-5 分钟、完整代码」不一致，以本技能为准。worktree 标注为执行阶段的事。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L1-L204">永久链接（本报告固定提交，L1–L204）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="using-git-worktrees 隔离工作区，先问再建 协作 / 隔离 开始需要隔离的功能工作，或执行计划前。 先检测是否已在 worktree（并排除 submodule 误判）。无既有偏好时先征求同意。优先用宿主原生工具，再回退到 git worktree。目录须被 gitignore。沙箱拒绝则就地工作。 v5.1 起不再暗中建 worktree。这是步骤纪律加 git 命令，不是强制沙箱。" data-name="using-git-worktrees"><summary><span class="badge badge">协作 / 隔离</span><span class="skill-name">using-git-worktrees</span><span class="skill-title">隔离工作区，先问再建</span><span class="skill-type">167 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>开始需要隔离的功能工作，或执行计划前。</dd><dt>原文机制</dt><dd>先检测是否已在 worktree（并排除 submodule 误判）。无既有偏好时先征求同意。优先用宿主原生工具，再回退到 git worktree。目录须被 gitignore。沙箱拒绝则就地工作。</dd><dt>阅读与边界</dt><dd>v5.1 起不再暗中建 worktree。这是步骤纪律加 git 命令，不是强制沙箱。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-git-worktrees/SKILL.md#L1-L167">永久链接（本报告固定提交，L1–L167）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="subagent-driven-development 每任务新鲜实施者与评审 协作 / 执行 有计划、任务大体独立、对方未要求同会话实施、且有子代理工具时。 每任务派实施者，再做规格符合与质量评审，最后整分支终审。用账本而不是只靠 todo。修复最多五轮后熔断裁决。禁止并行多个实施者。不可逆、安全敏感、工作区外副作用或计划彻底不可猜时才停下来问人。 控制器连续执行，不为「要不要继续」停顿。压缩后必须相信账本和 git log。" data-name="subagent-driven-development"><summary><span class="badge badge">协作 / 执行</span><span class="skill-name">subagent-driven-development</span><span class="skill-title">每任务新鲜实施者与评审</span><span class="skill-type">339 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>有计划、任务大体独立、对方未要求同会话实施、且有子代理工具时。</dd><dt>原文机制</dt><dd>每任务派实施者，再做规格符合与质量评审，最后整分支终审。用账本而不是只靠 todo。修复最多五轮后熔断裁决。禁止并行多个实施者。不可逆、安全敏感、工作区外副作用或计划彻底不可猜时才停下来问人。</dd><dt>阅读与边界</dt><dd>控制器连续执行，不为「要不要继续」停顿。压缩后必须相信账本和 git log。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L1-L339">永久链接（本报告固定提交，L1–L339）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="executing-plans 同会话按计划实施 协作 / 执行 对方选择 inline，或没有子代理工具。 自己按任务做，不做逐任务外审；用 TDD、账本和一次终审补上。与 SDD 共用工作区。没有子代理时终审是自审，必须向对方说明更弱。 适合中等模型加写清楚的计划；长计划后段在压缩后最容易变弱。" data-name="executing-plans"><summary><span class="badge badge">协作 / 执行</span><span class="skill-name">executing-plans</span><span class="skill-title">同会话按计划实施</span><span class="skill-type">323 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>对方选择 inline，或没有子代理工具。</dd><dt>原文机制</dt><dd>自己按任务做，不做逐任务外审；用 TDD、账本和一次终审补上。与 SDD 共用工作区。没有子代理时终审是自审，必须向对方说明更弱。</dd><dt>阅读与边界</dt><dd>适合中等模型加写清楚的计划；长计划后段在压缩后最容易变弱。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md#L1-L323">永久链接（本报告固定提交，L1–L323）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="test" data-text="test-driven-development TDD：没有先失败的测试，就不要写产品代码 测试 实现功能或修 bug、写实现代码之前。 铁律：没有先失败的测试，就没有产品代码。已写代码要删掉重来。须看见失败原因，再写最小实现，再跑项目套件。重构只在绿色之后且不加行为。 这是描述约束。例外需对方允许。实施者模板的措辞更松，见机制精读。" data-name="test-driven-development"><summary><span class="badge badge test">测试</span><span class="skill-name">test-driven-development</span><span class="skill-title">TDD：没有先失败的测试，就不要写产品代码</span><span class="skill-type">330 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>实现功能或修 bug、写实现代码之前。</dd><dt>原文机制</dt><dd>铁律：没有先失败的测试，就没有产品代码。已写代码要删掉重来。须看见失败原因，再写最小实现，再跑项目套件。重构只在绿色之后且不加行为。</dd><dt>阅读与边界</dt><dd>这是描述约束。例外需对方允许。实施者模板的措辞更松，见机制精读。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md#L1-L330">永久链接（本报告固定提交，L1–L330）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="requesting-code-review 把评审交给新鲜上下文 协作 / 评审 完成任务、大功能或合并前。 SDD 每任务后、大功能完成后、合进 main 前为强制场景。给评审者精确上下文，不要给会话历史。Critical 立刻修，Important 前进前修。 通用示例仍用 HEAD~1；SDD/Native 明确禁止用 HEAD~1 截断多提交任务。以更具体的执行技能为准。" data-name="requesting-code-review"><summary><span class="badge badge">协作 / 评审</span><span class="skill-name">requesting-code-review</span><span class="skill-title">把评审交给新鲜上下文</span><span class="skill-type">95 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>完成任务、大功能或合并前。</dd><dt>原文机制</dt><dd>SDD 每任务后、大功能完成后、合进 main 前为强制场景。给评审者精确上下文，不要给会话历史。Critical 立刻修，Important 前进前修。</dd><dt>阅读与边界</dt><dd>通用示例仍用 HEAD~1；SDD/Native 明确禁止用 HEAD~1 截断多提交任务。以更具体的执行技能为准。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/requesting-code-review/SKILL.md#L1-L95">永久链接（本报告固定提交，L1–L95）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="receiving-code-review 先核实，再决定听不听 协作 / 评审 收到评审意见、动手改之前。 禁止表演式同意或盲目照做。YAGNI：没用到的「专业实现」应推回去。可因技术错误、破坏现有行为或与对方架构决定冲突而反驳。 这是对反馈的技术纪律，不自动合并意见。" data-name="receiving-code-review"><summary><span class="badge badge">协作 / 评审</span><span class="skill-name">receiving-code-review</span><span class="skill-title">先核实，再决定听不听</span><span class="skill-type">205 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>收到评审意见、动手改之前。</dd><dt>原文机制</dt><dd>禁止表演式同意或盲目照做。YAGNI：没用到的「专业实现」应推回去。可因技术错误、破坏现有行为或与对方架构决定冲突而反驳。</dd><dt>阅读与边界</dt><dd>这是对反馈的技术纪律，不自动合并意见。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/receiving-code-review/SKILL.md#L1-L205">永久链接（本报告固定提交，L1–L205）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="finishing-a-development-branch 先绿再给菜单，不擅自合并 协作 / 收尾 实现完成且测试通过，要决定如何集成。 先跑完整测试套件。菜单是本地合并、开 PR、或保持原样。丢弃只在对方明确要求时。合并后还要再测。分离 HEAD 不提供本地合并项。 推送、合并、开 PR 属于工作区外副作用，执行技能也要求先问。本文只转述，没有执行这些步骤。" data-name="finishing-a-development-branch"><summary><span class="badge badge">协作 / 收尾</span><span class="skill-name">finishing-a-development-branch</span><span class="skill-title">先绿再给菜单，不擅自合并</span><span class="skill-type">225 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>实现完成且测试通过，要决定如何集成。</dd><dt>原文机制</dt><dd>先跑完整测试套件。菜单是本地合并、开 PR、或保持原样。丢弃只在对方明确要求时。合并后还要再测。分离 HEAD 不提供本地合并项。</dd><dt>阅读与边界</dt><dd>推送、合并、开 PR 属于工作区外副作用，执行技能也要求先问。本文只转述，没有执行这些步骤。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/finishing-a-development-branch/SKILL.md#L1-L225">永久链接（本报告固定提交，L1–L225）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="debug" data-text="verification-before-completion 没有当次证据，就不能说完成 调试 / 验证 准备宣称完成、修好或通过，以及提交或开 PR 之前。 铁律：没有新鲜验证证据，就不要做完成声明。须在当次消息跑完整命令并阅读输出。「应该过了」或「代理说成功」都不够。 它阻止空口完成，不把单元测试升级成真机结论。" data-name="verification-before-completion"><summary><span class="badge badge debug">调试 / 验证</span><span class="skill-name">verification-before-completion</span><span class="skill-title">没有当次证据，就不能说完成</span><span class="skill-type">120 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>准备宣称完成、修好或通过，以及提交或开 PR 之前。</dd><dt>原文机制</dt><dd>铁律：没有新鲜验证证据，就不要做完成声明。须在当次消息跑完整命令并阅读输出。「应该过了」或「代理说成功」都不够。</dd><dt>阅读与边界</dt><dd>它阻止空口完成，不把单元测试升级成真机结论。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md#L1-L120">永久链接（本报告固定提交，L1–L120）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="debug" data-text="systematic-debugging 先找根因，再提修复 调试 / 验证 遇到 bug、测试失败或意外行为、提出修复之前。 铁律：未经第一阶段根因调查不得提修复。四阶段：根因调查、模式分析、假设与验证、再实现。实现阶段仍走 TDD。 过程技能优先于领域修补。时间压力不是跳过调查的理由。" data-name="systematic-debugging"><summary><span class="badge badge debug">调试 / 验证</span><span class="skill-name">systematic-debugging</span><span class="skill-title">先找根因，再提修复</span><span class="skill-type">283 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>遇到 bug、测试失败或意外行为、提出修复之前。</dd><dt>原文机制</dt><dd>铁律：未经第一阶段根因调查不得提修复。四阶段：根因调查、模式分析、假设与验证、再实现。实现阶段仍走 TDD。</dd><dt>阅读与边界</dt><dd>过程技能优先于领域修补。时间压力不是跳过调查的理由。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/systematic-debugging/SKILL.md#L1-L283">永久链接（本报告固定提交，L1–L283）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="collab" data-text="dispatching-parallel-agents 只并行互不共享状态的调查 协作 / 并行调查 两个以上彼此独立、无共享状态的任务。 用于独立失败域的并行调查，例如不同测试文件、不同子系统。相关失败、需要全局状态或会改同一批文件时不要用。 与 SDD「禁止并行多个实施者」不矛盾：一个管调查，一个管同一计划的实施。" data-name="dispatching-parallel-agents"><summary><span class="badge badge">协作 / 并行调查</span><span class="skill-name">dispatching-parallel-agents</span><span class="skill-title">只并行互不共享状态的调查</span><span class="skill-type">167 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>两个以上彼此独立、无共享状态的任务。</dd><dt>原文机制</dt><dd>用于独立失败域的并行调查，例如不同测试文件、不同子系统。相关失败、需要全局状态或会改同一批文件时不要用。</dd><dt>阅读与边界</dt><dd>与 SDD「禁止并行多个实施者」不矛盾：一个管调查，一个管同一计划的实施。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/dispatching-parallel-agents/SKILL.md#L1-L167">永久链接（本报告固定提交，L1–L167）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="debug" data-text="diagnosing-superpowers 用证据解释一次会话怎么走偏 调试 / 会话诊断 会话行为异常，或要给维护者打一份脱敏报告时。 先问清问题再分析。只读会话文件。不修改技能，也不在未批准时开 issue。七类分析都会跑，报告按投诉类型排重点。 会接触会话数据；打包或发 issue 必须先给对方看脱敏结果并得到精确文本批准。本文没有调用它。" data-name="diagnosing-superpowers"><summary><span class="badge badge debug">调试 / 会话诊断</span><span class="skill-name">diagnosing-superpowers</span><span class="skill-title">用证据解释一次会话怎么走偏</span><span class="skill-type">120 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>会话行为异常，或要给维护者打一份脱敏报告时。</dd><dt>原文机制</dt><dd>先问清问题再分析。只读会话文件。不修改技能，也不在未批准时开 issue。七类分析都会跑，报告按投诉类型排重点。</dd><dt>阅读与边界</dt><dd>会接触会话数据；打包或发 issue 必须先给对方看脱敏结果并得到精确文本批准。本文没有调用它。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/diagnosing-superpowers/SKILL.md#L1-L120">永久链接（本报告固定提交，L1–L120）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details>
+<details class="skill-card" data-cat="meta" data-text="writing-skills 用失败场景来写技能 元技能 创建、修改或发布前验证技能。 铁律与 TDD 相同：没有先失败的测试，就不要写或改技能。用有压力的真实场景，而不是问答题。 解释了 Superpowers 为什么用红旗表和劝说式措辞。本报告不编写或修改上游技能。" data-name="writing-skills"><summary><span class="badge badge meta">元技能</span><span class="skill-name">writing-skills</span><span class="skill-title">用失败场景来写技能</span><span class="skill-type">399 行正文 · 已全文阅读</span></summary><div class="skill-body"><dl><dt>何时用</dt><dd>创建、修改或发布前验证技能。</dd><dt>原文机制</dt><dd>铁律与 TDD 相同：没有先失败的测试，就不要写或改技能。用有压力的真实场景，而不是问答题。</dd><dt>阅读与边界</dt><dd>解释了 Superpowers 为什么用红旗表和劝说式措辞。本报告不编写或修改上游技能。</dd></dl><a href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md#L1-L399">永久链接（本报告固定提交，L1–L399）</a><small>分类来自 README 的技能库分组，中文标题是本报告概括，不是官方译名。</small></div></details></div>
+<p class="empty" id="map-empty" hidden>没有匹配的技能。可清空搜索或点重置。无脚本时 15 张卡片都会显示，可用浏览器页内查找。</p>
+<h3>入口不是斜杠命令，而是注入 + 描述 + 人的明确覆盖</h3>
+<p>当前快照没有 <code>/brainstorm</code> 这类有效斜杠命令：它们在更早版本里被弃用，并在 v5.1.0 删除。代理被期待靠技能描述自行触发；人也可以直接点名技能。集成是否算「真的」，维护者给的验收句是：干净会话里说 “Let's make a react todo list”，应在写任何代码前触发 <code>brainstorming</code>。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/AGENTS.md#L82-L96">AGENTS.md L82–L96</a></p>
+<p>支持 SessionStart 的宿主（Claude Code、Cursor 等）会在启动、clear、compact 时跑 hook：把 <code>using-superpowers</code> 全文包进一段 “You have superpowers” 的上下文。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/hooks/session-start#L49-L88">hooks/session-start L49–L88</a> 这是第 1 层真实机制。但它会被拆掉：Windows 半段在未找到可用 bash 时才静默 <code>exit /b 0</code>，插件仍可用，只是没有注入；Unix 半段会依次使用 <code>$BASH</code>、PATH 上的 bash，再回退 zsh，只有两者都没有时才 <code>exit 0</code>。发布说明也写了 Unix 无 bash 时回退 zsh 或安静退出。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/hooks/run-hook.cmd#L39-L76">run-hook.cmd L39–L41（Windows：未找到可用 bash 时 exit /b 0）与 L65–L76（Unix：$BASH → bash → zsh，否则 exit 0）</a> Antigravity 在发布说明里被写明没有 SessionStart，只能靠描述里「任何对话开始时使用」让模型自己去读。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/RELEASE-NOTES.md#L91-L111">RELEASE-NOTES L91–L111</a></p>
+<p>子代理被要求忽略 <code>using-superpowers</code>，以免执行任务时又把整套入口流程跑一遍。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L6-L8">using-superpowers L6–L8</a> 对方写在 AGENTS.md 或当场说的话，优先级高于技能。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L63-L65">using-superpowers L63–L65</a></p>
+</section>
+
+<section class="chapter" id="section-6">
+<p class="section-no">06 / 机制精读</p>
+<h2>触发、计划、执行、测试与评审，实际怎么咬合</h2>
+<figure id="fig2"><div class="svgwrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 416" role="img" aria-labelledby="svg2-title svg2-desc">
+<title id="svg2-title">约束层级：注入、提示词与脚本硬拒绝</title>
+<desc id="svg2-desc">四层约束从会话注入到脚本退出，说明哪些只是描述，哪些会真正失败。Windows 未找到可用 bash 时才静默跳过；Unix 可回退 zsh，两者都不可用才 exit 0。</desc>
+<rect width="860" height="416" fill="#fffaf1"/>
+<text x="20" y="28" font-size="15" font-weight="700" fill="#102430" font-family="sans-serif">什么叫「强制」：四层并不一样</text>
+<rect x="20" y="48" width="820" height="86" rx="8" fill="#102430"/>
+<text x="36" y="76" font-size="14" fill="#fff" font-family="sans-serif">第 1 层  SessionStart hook 注入 using-superpowers 全文</text>
+<text x="36" y="96" font-size="12" fill="#c9ddd6" font-family="sans-serif">这是启动时的真实机制。Windows 未找到可用 bash 时才静默跳过注入。</text>
+<text x="36" y="114" font-size="12" fill="#c9ddd6" font-family="sans-serif">Unix 可回退 zsh；bash 与 zsh 都不可用才 exit 0。插件仍可用，只是没有注入。</text>
+<rect x="20" y="146" width="820" height="70" rx="8" fill="#155e63"/>
+<text x="36" y="174" font-size="14" fill="#fff" font-family="sans-serif">第 2 层  技能正文里的 MUST / Iron Law / 红旗表</text>
+<text x="36" y="196" font-size="12" fill="#d7eee8" font-family="sans-serif">描述约束，靠模型遵守。没有编译器或权限系统阻止它直接写代码。用户指令优先于技能。</text>
+<rect x="20" y="228" width="820" height="70" rx="8" fill="#9a3b1a"/>
+<text x="36" y="256" font-size="14" fill="#fff" font-family="sans-serif">第 3 层  SDD / executing-plans 辅助脚本会 exit 2</text>
+<text x="36" y="278" font-size="12" fill="#f3ddd3" font-family="sans-serif">不在仓库内、没有提交、指错计划或任务、未闭合代码围栏：脚本会拒绝。这是少数真正的技术强制。</text>
+<rect x="20" y="310" width="820" height="86" rx="8" fill="#ece6d8"/>
+<text x="36" y="338" font-size="14" font-weight="700" fill="#102430" font-family="sans-serif">第 4 层  平台差异会拆掉第 1 层</text>
+<text x="36" y="360" font-size="12" fill="#1a2a32" font-family="sans-serif">Antigravity 没有 SessionStart，靠技能描述里「任何对话开始时使用」来提醒模型自己加载。</text>
+<text x="36" y="382" font-size="12" fill="#1a2a32" font-family="sans-serif">子代理被要求忽略 using-superpowers。没有子代理工具时，终审会退化成作者自审，技能会明确告诉对方这一点更弱。</text>
+</svg></div><ol class="diagram-mobile"><li><strong>第 1 层 hook</strong><span>SessionStart 注入技能全文。Windows 未找到可用 bash 时才静默跳过；Unix 可回退 zsh，两者都不可用才 exit 0。</span></li><li><strong>第 2 层提示词</strong><span>MUST 和铁律靠模型遵守，用户指令可以覆盖。</span></li><li><strong>第 3 层脚本</strong><span>指错仓库、没有提交、任务解析失败时，辅助脚本会退出。</span></li><li><strong>第 4 层平台</strong><span>没有 SessionStart 的宿主只靠描述提醒；无子代理时终审变自审。</span></li></ol><figcaption>图 2  「强制」其实分成注入、提示词、脚本硬拒绝和平台差异四层。 宽屏看结构图；小屏请用文字步骤。图为报告原创，不是上游仓库插图。</figcaption></figure>
+<details class="deep-dive" id="dive-trigger" open>
+<summary>触发与优先级：先过程，后实现</summary>
+<div class="deep-body">
+<p><code>using-superpowers</code> 把规则写得很硬：相关技能必须在任何回应或行动之前调用，包括澄清问题和查看文件。若还没做过头脑风暴就进入 plan mode，先调用 <code>brainstorming</code>。然后要宣布 “Using [skill] to [purpose]”，并精确按技能执行。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L18-L24">using-superpowers L18–L24</a> 多个技能同时适用时，过程技能在前：要做新东西，先头脑风暴；要修 bug，先系统调试，再进入实现或领域技能。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L26-L31">using-superpowers L26–L31</a>「这只是个简单问题」「我先看看代码」都被写成应停下的红旗。</p>
+<p>这仍然是第 2 层描述约束。1% 规则 <a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md#L10-L15">using-superpowers L10–L15</a> 靠的是劝说式措辞——写作技能甚至把这类写法当成纪律手段来教——而不是权限系统。反例很直接：宿主没注入、模型选择忽略、或对方说「别问了直接改」，流程就会从中断开。前两个是遵守失败，第三个是规则允许的覆盖。</p>
+</div>
+</details>
+<details class="deep-dive" id="dive-plan" open>
+<summary>规划：问为什么、批准设计、计划里只留下实施者不能独自决定的事</summary>
+<div class="deep-body">
+<p><code>brainstorming</code> 的描述把自己绑在「任何创造性工作」上，软件内外都算。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L1-L3">brainstorming L1–L3</a> v7 重建后再经 7.0.1、7.0.2 调整：先看已有材料和代码；只在答案会改变成品、且现有材料没有答案时才提问；还没说为什么，就先问为什么，而且是开放问题，不给选项；有可列举的选择时，才摆出方案并推荐一个。过程性事项（写到哪里、要不要再查）由模型自己决定并告诉对方。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L101-L107">brainstorming L101–L107</a> 发布说明附带了内部对话评测数字，那是作者实验，不是本报告复现。</p>
+<p>真正的门在 HARD-GATE：设计文档（小改动用短文档，项目用完整文档）被批准前，不能写产品代码、脚手架、装依赖、建项目或调用实施技能；阅读和探索可以。两个例外：对方跳过提问，则技能结束、门一并撤掉；对方同意的 spike 可以做，但必须标成一次性，留下它要重新过门。批准之后，下一步只调用 <code>writing-plans</code>。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md#L269-L283">brainstorming L269–L283</a> 项目级文档在交给人之前，会先让一个「将来的建造者」子代理挑还要问的问题（没有子代理就自己扮演）。</p>
+<p>计划技能把读者设定成「没见过这份规格和代码库的工程师」：他一旦知道接口和测试，就能写出惯用代码，但不能猜你已经做的决定。于是计划要锁定文件、名称、签名、规格里的值和证明任务完成的测试。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L140-L161">writing-plans L140–L161</a> 任务不再按「几分钟」切，而是按「自带测试周期、值得新评审者挡一次」来切。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L34-L41">writing-plans L34–L41</a> 计划如果比代码还长，就被看成把程序抄了一遍；「TBD」「加上适当校验」则是相反的失败。交出去后，若对方还没指定执行法，技能会说明代价并推荐一种：SDD 更完整但每个任务和每次评审都要新上下文；Native 更便宜，由当前会话做完，最后用最强模型做一次整分支评审。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md#L179-L204">writing-plans L179–L204</a></p>
+<p>视觉伴侣是可选浏览器页，用来展示草稿和对比，不是默认模式。启用时会在本机起服务器，URL 带会话 key；README 写明，默认会从 Prime Radiant 网站加载带版本号的 logo，可用 <code>SUPERPOWERS_DISABLE_TELEMETRY</code> 等变量关闭。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md#L398-L400">README L398–L400</a> 本报告没有启动该服务器。</p>
+</div>
+</details>
+<details class="deep-dive" id="dive-exec" open>
+<summary>执行与协作：两种走法共用账本，停下来的理由只有四种</summary>
+<div class="deep-body">
+<figure id="fig3"><div class="svgwrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" role="img" aria-labelledby="svg3-title svg3-desc">
+<title id="svg3-title">子代理驱动开发的任务环</title>
+<desc id="svg3-desc">每个任务：实施者、评审、最多五轮修复，以及终审一次修复波。</desc>
+<rect width="860" height="430" fill="#fffaf1"/>
+<text x="20" y="28" font-size="15" font-weight="700" fill="#102430" font-family="sans-serif">SDD：新鲜上下文 + 任务门 + 五轮熔断</text>
+<rect x="20" y="48" width="150" height="54" rx="8" fill="#155e63"/><text x="95" y="80" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">账本与预检</text>
+<rect x="190" y="48" width="150" height="54" rx="8" fill="#155e63"/><text x="265" y="80" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">派实施者</text>
+<rect x="360" y="48" width="150" height="54" rx="8" fill="#155e63"/><text x="435" y="80" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">打包 diff</text>
+<rect x="530" y="48" width="150" height="54" rx="8" fill="#155e63"/><text x="605" y="80" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">规格+质量评审</text>
+<rect x="700" y="48" width="140" height="54" rx="8" fill="#9a3b1a"/><text x="770" y="80" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">通过或修复环</text>
+<path d="M170 75h18" stroke="#102430" stroke-width="1.5"/><path d="M340 75h18" stroke="#102430" stroke-width="1.5"/><path d="M510 75h18" stroke="#102430" stroke-width="1.5"/><path d="M680 75h18" stroke="#102430" stroke-width="1.5"/>
+<rect x="20" y="130" width="400" height="160" rx="10" fill="#fff" stroke="#d6d0c4"/>
+<text x="36" y="156" font-size="13" font-weight="700" fill="#155e63" font-family="sans-serif">实施者合同</text>
+<text x="36" y="180" font-size="12" fill="#1a2a32" font-family="sans-serif">只读任务 brief，不读整份计划。</text>
+<text x="36" y="202" font-size="12" fill="#1a2a32" font-family="sans-serif">禁止再派子代理，尤其禁止自己找评审。</text>
+<text x="36" y="224" font-size="12" fill="#1a2a32" font-family="sans-serif">必须显式指定模型，否则继承最贵会话模型。</text>
+<text x="36" y="246" font-size="12" fill="#1a2a32" font-family="sans-serif">禁止并行派多个实施者，以免改同一工作区。</text>
+<text x="36" y="268" font-size="12" fill="#5a6b6e" font-family="sans-serif">控制器自己改代码会被视为跳过评审。</text>
+<rect x="440" y="130" width="400" height="160" rx="10" fill="#fff" stroke="#d6d0c4"/>
+<text x="456" y="156" font-size="13" font-weight="700" fill="#9a3b1a" font-family="sans-serif">修复环与熔断</text>
+<text x="456" y="180" font-size="12" fill="#1a2a32" font-family="sans-serif">1-3 轮：尽量恢复原实施者上下文。</text>
+<text x="456" y="202" font-size="12" fill="#1a2a32" font-family="sans-serif">4-5 轮：换更强模型的新鲜实施者。</text>
+<text x="456" y="224" font-size="12" fill="#1a2a32" font-family="sans-serif">每轮后做范围受限的再审，不把新观察扩进循环。</text>
+<text x="456" y="246" font-size="12" fill="#1a2a32" font-family="sans-serif">第 5 轮仍开着：由控制器裁决并写入账本，禁止悄悄扔掉。</text>
+<text x="456" y="268" font-size="12" fill="#5a6b6e" font-family="sans-serif">Minor 不进循环；终审只有一轮修复波。</text>
+<rect x="20" y="308" width="820" height="100" rx="10" fill="#ece6d8"/>
+<text x="36" y="334" font-size="13" font-weight="700" fill="#102430" font-family="sans-serif">Native 执行（executing-plans）少了什么</text>
+<text x="36" y="358" font-size="12" fill="#1a2a32" font-family="sans-serif">同一会话当实施者，不做逐任务外审；用 TDD、账本和一次终审来补。长计划后期最容易在压缩后变弱。</text>
+<text x="36" y="380" font-size="12" fill="#1a2a32" font-family="sans-serif">两种模式共用 .superpowers/sdd/ 账本，中途可换执行者。没有子代理工具时，终审是作者自审，技能会标明更弱。</text>
+</svg></div><ol class="diagram-mobile"><li><strong>账本与预检</strong><span>每个计划一个工作区，压缩后以账本和 git log 为准。</span></li><li><strong>实施者</strong><span>只读 brief，不自己派评审，必须写明模型。</span></li><li><strong>评审</strong><span>规格符合与质量两项都要，且用完整 BASE..HEAD 而不是 HEAD~1。</span></li><li><strong>五轮熔断</strong><span>前三轮尽量恢复原实施者，后两轮升级模型，封顶后写入裁决。</span></li><li><strong>Native</strong><span>同会话实施，只有一次终审；无子代理时是更弱的自审。</span></li></ol><figcaption>图 3  子代理驱动开发的任务环、五轮修复和 Native 少掉的部分。 宽屏看结构图；小屏请用文字步骤。图为报告原创，不是上游仓库插图。</figcaption></figure>
+<p>两种执行技能都会先调用 <code>using-git-worktrees</code> 做或确认隔离工作区，并写明：未经明确同意，不要在 main/master 上直接开工。worktree 技能自己会先问，并优先用宿主原生工具，避免 <code>git worktree add</code> 留下宿主看不见的目录。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-git-worktrees/SKILL.md#L41-L45">using-git-worktrees L41–L45</a><a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-git-worktrees/SKILL.md#L51-L57">using-git-worktrees L51–L57</a></p>
+<p>一旦开始执行，默认连续做完，不为「要不要继续」停顿。可以停的只有四种：不可逆或破坏性操作；安全敏感动作；规范要求先问的工作区外副作用（合并、推到共享分支、发布）；以及计划烂到每条路都是猜。其余冲突由控制器按「规格为权威、计划是它的论证」自行裁决，并写成 <code>Ruling: 决定 — 理由 — 错了会付出什么</code>。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L17-L31">subagent-driven-development L17–L31</a> 压缩后，真实发生过的最贵失败是：控制器忘掉进度，把已经做完的任务整段重派。所以进度写在 <code>.superpowers/sdd/</code> 下该计划自己的 <code>progress.md</code>，并写明压缩后以账本和 <code>git log</code> 为准，不要相信自己的记忆。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L108-L128">subagent-driven-development L108–L128</a> 两种执行模式共用这套目录，中途可以换执行者。</p>
+<p>SDD 把每个任务交给新鲜实施者：先用脚本抽出 brief，只把 brief 路径、与前文相关的接口、以及报告路径交给它，不要把整份计划和会话历史贴进去。实施者被禁止再派子代理，尤其禁止自己找评审。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/implementer-prompt.md#L50-L60">implementer-prompt.md L50–L60</a> 必须显式指定模型，否则会继承最贵的会话模型。计划文本已经包含完整待写代码时，才允许用最便宜模型做「誊写加测试」——这是对计划内容的条件句，并不能让 README 那句「完整代码」重新变成现行要求。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L140-L170">subagent-driven-development L140–L170</a> 同一时刻不能并行派多个实施者。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L235-L236">subagent-driven-development L235–L236</a> 评审包必须用任务开始时记下的 BASE，而不是 <code>HEAD~1</code>，否则多提交任务会被悄悄截断。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md#L243-L243">subagent-driven-development L243</a></p>
+<p>修复环最多五轮：1–3 轮尽量接着原来的实施者；4–5 轮换更强模型的新鲜实施者；每轮都做范围受限的再审。封顶后控制器必须把未关问题写入账本，禁止悄悄丢掉。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/references/fix-loop.md#L21-L77">fix-loop.md L21–L77</a> 终审只有一轮修复波，残项同样记裁决，并在收尾时交给人看。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/references/final-review.md#L18-L31">final-review.md L18–L31</a> Native 模式少掉了逐任务外审，改用 TDD、账本和一次终审来补；没有子代理时，技能要求明白写出这是更弱的自审。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md#L8-L18">executing-plans L8–L18</a><a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md#L255-L260">executing-plans L255–L260</a></p>
+<p>v7.0.2 把辅助脚本改成「在当前工作区对应的仓库上运行」，并要求用绝对路径从项目工作树调用。以前从技能目录启动，会打到插件自己的文件；以前在仓库外运行，还可能把工作区写进插件缓存。现在这类错误会以退出码 2 失败。这是少数真正的技术强制。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/RELEASE-NOTES.md#L3-L48">RELEASE-NOTES L3–L48</a> 本文只读了脚本，没有执行。</p>
+</div>
+</details>
+<details class="deep-dive" id="dive-test" open>
+<summary>测试与评审：看见失败、看见套件、看见当次输出</summary>
+<div class="deep-body">
+<figure id="fig4"><div class="svgwrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" role="img" aria-labelledby="svg4-title svg4-desc">
+<title id="svg4-title">TDD 循环与完成声明门</title>
+<desc id="svg4-desc">红绿重构循环，以及没有当次命令输出就不能宣称完成。</desc>
+<rect width="860" height="360" fill="#fffaf1"/>
+<text x="20" y="28" font-size="15" font-weight="700" fill="#102430" font-family="sans-serif">测试门：先看见失败，再声明成功</text>
+<rect x="20" y="50" width="150" height="70" rx="8" fill="#9a3b1a"/>
+<text x="95" y="80" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">RED</text>
+<text x="95" y="100" text-anchor="middle" font-size="11" fill="#f3ddd3" font-family="sans-serif">写会失败的测试</text>
+<rect x="190" y="50" width="150" height="70" rx="8" fill="#9a3b1a"/>
+<text x="265" y="80" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">验 RED</text>
+<text x="265" y="100" text-anchor="middle" font-size="11" fill="#f3ddd3" font-family="sans-serif">必须看到失败原因</text>
+<rect x="360" y="50" width="150" height="70" rx="8" fill="#155e63"/>
+<text x="435" y="80" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">GREEN</text>
+<text x="435" y="100" text-anchor="middle" font-size="11" fill="#d7eee8" font-family="sans-serif">最小代码使其通过</text>
+<rect x="530" y="50" width="150" height="70" rx="8" fill="#155e63"/>
+<text x="605" y="80" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">验 GREEN</text>
+<text x="605" y="100" text-anchor="middle" font-size="11" fill="#d7eee8" font-family="sans-serif">单测 + 项目套件</text>
+<rect x="700" y="50" width="140" height="70" rx="8" fill="#102430"/>
+<text x="770" y="80" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">REFACTOR</text>
+<text x="770" y="100" text-anchor="middle" font-size="11" fill="#c9ddd6" font-family="sans-serif">保持绿色，不加行为</text>
+<path d="M170 85h18" stroke="#102430" stroke-width="1.5"/><path d="M340 85h18" stroke="#102430" stroke-width="1.5"/><path d="M510 85h18" stroke="#102430" stroke-width="1.5"/><path d="M680 85h18" stroke="#102430" stroke-width="1.5"/>
+<rect x="20" y="150" width="400" height="190" rx="10" fill="#fff" stroke="#d6d0c4"/>
+<text x="36" y="176" font-size="13" font-weight="700" fill="#9a3b1a" font-family="sans-serif">TDD 铁律是描述约束</text>
+<text x="36" y="200" font-size="12" fill="#1a2a32" font-family="sans-serif">先写了产品代码？正文要求删掉重来，连参考都不要留。</text>
+<text x="36" y="222" font-size="12" fill="#1a2a32" font-family="sans-serif">例外只要对方允许：一次性原型、生成代码、配置文件。</text>
+<text x="36" y="244" font-size="12" fill="#1a2a32" font-family="sans-serif">好测试先命名它要抓住的生产破坏，并尽量打真实行为。</text>
+<text x="36" y="266" font-size="12" fill="#1a2a32" font-family="sans-serif">对 mock 次数或源码字面量做断言，会被点名为坏测试。</text>
+<text x="36" y="296" font-size="12" fill="#5a6b6e" font-family="sans-serif">实施者模板写「若任务要求则遵循 TDD」，比 TDD 技能本身松。</text>
+<rect x="440" y="150" width="400" height="190" rx="10" fill="#fff" stroke="#d6d0c4"/>
+<text x="456" y="176" font-size="13" font-weight="700" fill="#155e63" font-family="sans-serif">完成声明门</text>
+<text x="456" y="200" font-size="12" fill="#1a2a32" font-family="sans-serif">没有在当次消息里跑过验证命令，就不能宣称通过。</text>
+<text x="456" y="222" font-size="12" fill="#1a2a32" font-family="sans-serif">「应该过了」「刚才过了」「代理说成功了」都不算证据。</text>
+<text x="456" y="244" font-size="12" fill="#1a2a32" font-family="sans-serif">任务里只点了单个测试文件，也不免除跑项目套件。</text>
+<text x="456" y="266" font-size="12" fill="#1a2a32" font-family="sans-serif">单元套件全绿，不能自动升级成「弱网可用」或「音质已修好」。</text>
+<text x="456" y="296" font-size="12" fill="#5a6b6e" font-family="sans-serif">这扇门拦的是空口完成，不创造实验室。</text>
+</svg></div><ol class="diagram-mobile"><li><strong>RED 并验失败</strong><span>测试必须因缺功能失败，而不是语法错误或一开始就通过。</span></li><li><strong>GREEN 并跑套件</strong><span>最小实现；除了任务里的测试，还要跑项目测试命令。</span></li><li><strong>REFACTOR</strong><span>只在绿色之后清理，不加新行为。</span></li><li><strong>完成门</strong><span>没有当次输出就不能说通过；单元绿不等于真机结论。</span></li></ol><figcaption>图 4  红-绿-重构循环，以及完成声明必须带当次命令输出。 宽屏看结构图；小屏请用文字步骤。图为报告原创，不是上游仓库插图。</figcaption></figure>
+<p>TDD 技能的铁律是「没有先失败的测试，就没有产品代码」。已经写出来的实现要删掉，不能留作参考。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md#L31-L45">test-driven-development L31–L45</a> 循环仍是红—验失败—绿—验通过—重构。验绿色时，「其它测试」指项目套件，不是只跑你新增的那个文件。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md#L185-L193">test-driven-development L185–L193</a> 一次性原型、生成代码和配置文件要先征得对方同意才能豁免。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md#L24-L28">test-driven-development L24–L28</a> 好测试附件要求：先命名这个测试要抓住哪一种生产破坏，并尽量打真实行为；用被测代码计算期望、或只断言源码里有某一行，都算失败写法。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/writing-good-tests.md#L11-L25">writing-good-tests.md L11–L25</a></p>
+<p>一处内部张力要说清：实施者模板写的是 “Write tests (following TDD if task says to)”。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/implementer-prompt.md#L34-L37">implementer-prompt.md L34–L37</a> 这比 TDD 技能的「总是如此」、也比 Native 执行「在 setup 就加载 TDD 技能」更松。若计划步骤写漏了红绿顺序，实施者可能按较松的模板走。这不是我推断出的隐式特性，而是两份原文并排可见的差异；落地时应以更严的 TDD 技能为准，并在计划步骤里把红绿写死。</p>
+<p><code>verification-before-completion</code> 把「完成」锁到当次消息里的命令输出：没跑、没读、只靠「应该过了」或「代理说成功」，都算没有证据。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md#L14-L35">verification-before-completion L14–L35</a> 它依然不能把 <code>npm test</code> 升级成「通话在弱网下可接受」。</p>
+<p>评审技能要求把 Critical 立刻修好、Important 在继续之前修好。通用示例里还出现了 <code>HEAD~1</code>。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/requesting-code-review/SKILL.md#L26-L29">requesting-code-review L26–L29</a> 执行技能已经把这个写法标成会截断多提交任务的错误。发生冲突时，按执行技能的 BASE..HEAD 规则。收尾技能则要求：套件绿了才出示菜单；合并、开 PR 或保持原样由人挑；本地合并后还要再跑测试。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/finishing-a-development-branch/SKILL.md#L14-L82">finishing-a-development-branch L14–L82</a> 这些都是工作区外副作用，报告只转述，不执行。</p>
+</div>
+</details>
+</section>
+
+<section class="chapter" id="section-7">
+<p class="section-no">07 / 假设案例</p>
+<h2>手机 WebRTC：弱网卡死后的恢复，会怎样被这套流程接住</h2>
+<p class="callout">以下是为手机终端 / WebRTC 工程师构造的端到端假设，用来对照机制，不是实测记录。没有在真机、芯片平台或业务仓库里安装或运行 Superpowers，也没有声称某次通话被它修好。</p>
+<figure id="fig5"><div class="svgwrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" role="img" aria-labelledby="svg5-title svg5-desc">
+<title id="svg5-title">假设的手机 WebRTC 弱网恢复任务，哪些能被门挡住</title>
+<desc id="svg5-desc">把信令状态机等可测部分和真机音质、芯片差异分开。</desc>
+<rect width="860" height="420" fill="#fffaf1"/>
+<text x="20" y="28" font-size="15" font-weight="700" fill="#102430" font-family="sans-serif">假设案例：门能挡住什么，挡不住什么</text>
+<rect x="20" y="48" width="400" height="250" rx="10" fill="#e7efec" stroke="#155e63"/>
+<text x="36" y="76" font-size="14" font-weight="700" fill="#155e63" font-family="sans-serif">计划里可以写成失败测试的</text>
+<text x="36" y="104" font-size="12" fill="#1a2a32" font-family="sans-serif">· ICE 状态机：failed / disconnected 后是否重启</text>
+<text x="36" y="126" font-size="12" fill="#1a2a32" font-family="sans-serif">· 重启次数、退避和放弃阈值</text>
+<text x="36" y="148" font-size="12" fill="#1a2a32" font-family="sans-serif">· 降级编码的协商顺序与回退条件</text>
+<text x="36" y="170" font-size="12" fill="#1a2a32" font-family="sans-serif">· RTCStats 快照字段和工程菜单开关</text>
+<text x="36" y="192" font-size="12" fill="#1a2a32" font-family="sans-serif">· 并发二次重启是否被忽略或排队</text>
+<text x="36" y="214" font-size="12" fill="#1a2a32" font-family="sans-serif">· 与现有信令状态的接口契约</text>
+<text x="36" y="250" font-size="12" fill="#5a6b6e" font-family="sans-serif">这些可以用伪时钟和受控 PeerConnection 测试。</text>
+<text x="36" y="272" font-size="12" fill="#5a6b6e" font-family="sans-serif">Superpowers 能要求先看测试失败，再写最小实现。</text>
+<rect x="440" y="48" width="400" height="250" rx="10" fill="#f4eadb" stroke="#9a3b1a"/>
+<text x="456" y="76" font-size="14" font-weight="700" fill="#9a3b1a" font-family="sans-serif">单测全绿仍不能声明的</text>
+<text x="456" y="104" font-size="12" fill="#1a2a32" font-family="sans-serif">· 真机弱 LTE 下 ICE consent 过期形态</text>
+<text x="456" y="126" font-size="12" fill="#1a2a32" font-family="sans-serif">· 不同调制解调器/芯片平台的差异</text>
+<text x="456" y="148" font-size="12" fill="#1a2a32" font-family="sans-serif">· AEC / NS / AGC 与重启过程的互相干扰</text>
+<text x="456" y="170" font-size="12" fill="#1a2a32" font-family="sans-serif">· 重启瞬间的听感和卡顿是否可接受</text>
+<text x="456" y="192" font-size="12" fill="#1a2a32" font-family="sans-serif">· 实验室 MOS、残差回声、双讲表现</text>
+<text x="456" y="214" font-size="12" fill="#1a2a32" font-family="sans-serif">· 与系统通话、热点、Wi-Fi/蜂窝切换共存</text>
+<text x="456" y="250" font-size="12" fill="#5a6b6e" font-family="sans-serif">这些应写进设计的反目标与计划 Review Focus。</text>
+<text x="456" y="272" font-size="12" fill="#5a6b6e" font-family="sans-serif">完成门只能要求「有证据」，不能发明真机证据。</text>
+<rect x="20" y="314" width="820" height="86" rx="10" fill="#ece6d8"/>
+<text x="36" y="342" font-size="13" font-weight="700" fill="#102430" font-family="sans-serif">若把整项做成强耦合的音视频/HAL 改造</text>
+<text x="36" y="366" font-size="12" fill="#1a2a32" font-family="sans-serif">SDD 前提是「任务大体独立」。音轨、信令、HAL 紧耦合时，技能自己也指向不要强行拆成互不相关的并行子代理。</text>
+<text x="36" y="388" font-size="12" fill="#1a2a32" font-family="sans-serif">下面的案例全程标注为假设，没有在真机或仓库里跑过 Superpowers。</text>
+</svg></div><ol class="diagram-mobile"><li><strong>可测部分</strong><span>ICE 状态机、重试阈值、编码降级顺序、统计字段、并发重启。</span></li><li><strong>不能单测宣布的</strong><span>真机弱网形态、芯片差异、3A 互相干扰、听感、实验室 MOS。</span></li><li><strong>耦合警告</strong><span>若信令、音轨和 HAL 紧耦合，不要强行按 SDD 拆成互不相关的并行实施。</span></li><li><strong>假设声明</strong><span>这是推演，不是实测。</span></li></ol><figcaption>图 5  假设的手机 WebRTC 弱网恢复：哪些能写成失败测试，哪些不能靠单测宣布成功。 宽屏看结构图；小屏请用文字步骤。图为报告原创，不是上游仓库插图。</figcaption></figure>
+<p>假设现场反馈是：部分机型在弱 LTE 下通话会先卡死再无法恢复，需要应用层在 ICE 失败后重启，必要时降级编码，并给实验室一个隐藏的统计导出开关。若只对代理说「加个 ICE 重启」，当前技能希望先把它当作创造性工作：进入 <code>brainstorming</code>，而不是直接改 <code>PeerConnection</code>。</p>
+<p>按 v7.0.2 的问法，第一件事通常不是方案菜单，而是为什么现在要做：是某次版本回归、某家运营商网络、还是实验室指标没过？已有代码和协议文档里能找到的，不应再问一遍。真正会改变成品的问题可能包括：只做应用层 <code>restartIce()</code>，还是允许整次重新协商；失败阈值按秒还是按 ICE 状态；编码降级是否动到现有 SDP 策略；统计导出是工程菜单还是日志。平台、语言、既有媒体栈，若对方只谈结果，应由模型给出默认并标明「这是我的决定，不是你点头同意的」。</p>
+<p>设计文档应把反目标写清楚：本次不承诺改善 3A 音质，不承诺统一所有芯片平台的恢复率，不把单测通过写成「弱网可用」。建造者检查若还问「哪家调制解调器要先验收」，这属于会改变范围的问题，应送回给人，而不是悄悄限定成某一平台。人批准后，才写计划。</p>
+<p>一份克制的计划会把可测行为拆成带接口的任务，例如：ICE 状态到重启动作的纯函数；重试与放弃；编码降级的协商顺序；统计快照字段；工程开关默认关闭。每一步带失败断言和要跑的命令。Review Focus 应写下单测覆盖不到、却最可能伤到通话的情况：consent 过期与应用重启的时序、AEC 在重启瞬间的收敛、Wi-Fi 与蜂窝切换。这些条目要么补进某个任务的测试，要么明确留给实验室，不能空着假装检查过。</p>
+<p>执行法怎么选，要看任务是否大体独立。若只是应用层状态机加统计，SDD 合适，但信令与媒体共享同一连接对象时，仍不应并行派两个实施者。若还要动 HAL 或厂商音频通道，任务耦合会升高，技能自己也提示不要在不独立时强行 SDD。无论哪种，工作区应在执行阶段建立，并先征求同意；不要在主分支上直接改。</p>
+<p>TDD 在这里对「状态机在第 3 次失败后放弃」很有用：先写带伪时钟的失败测试，看见它因功能缺失而失败，再写最小实现，再跑项目套件。它帮不上的是：用 mock 掉的 <code>PeerConnection</code> 去「证明」真机恢复。那种测试往往一开始就通过，或只在验证 mock 被调用了几次——这正是 TDD 技能和 <code>writing-good-tests.md</code> 点名的坏写法。完成门可以要求你出示测试命令输出，但你不能把这份输出说成实验室结论。</p>
+<p>收尾时，技能应出示菜单而不是自己合并或推送。若计划或账本里留下了「统计字段在某平台缺失，已延期」这类裁决，必须在最后说明里完整交给人。假设推演到此结束：它展示门能挡住什么，并不证明某款手机已经被修好。</p>
+</section>
+<section class="chapter" id="section-8">
+<p class="section-no">08 / 失败与边界</p>
+<h2>它会在哪里裂开，以及何时不该用</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>失败模式</th><th>机制上为什么会发生</th><th>不是什么</th></tr></thead>
+<tbody>
+<tr><td>技能该触发却没触发</td><td>Windows 未找到可用 bash 时 hook 会静默跳过注入；Unix 仍可回退 zsh，仅在 bash 与 zsh 都不可用时才以退出码 0 跳过。此外，宿主没有 SessionStart；模型忽略描述约束；长会话压缩后丢掉引导。</td><td>不是「安装了就等于强制执行」。维护者为此写了诊断技能和验收句。</td></tr>
+<tr><td>批准前已经写了代码</td><td>HARD-GATE 只写在技能里。v7 发布说明承认旧版在测试里仍会漏门，并给出他们自己的评测数字；本报告未复现。</td><td>不是编译失败。对方说「直接做」时，这甚至符合规则。</td></tr>
+<tr><td>计划太长或太空</td><td>技能同时反对「把代码抄进计划」和「TBD」。README 仍提完整代码，可能把模型往旧习惯拉。</td><td>不是脚本能拦住的格式错误。未闭合代码围栏除外，那个会被 <code>task-brief</code> 拒绝。</td></tr>
+<tr><td>做完的任务被再做一遍</td><td>压缩后只靠记忆。SDD 把这称为观察过的最贵失败，所以要写账本。</td><td>不是 git 丢提交。提交还在，缺的是控制器承认账本。</td></tr>
+<tr><td>评审看上去过了，其实只看了最后一次提交</td><td>用 <code>HEAD~1</code> 打包。通用评审技能示例仍这样写；执行技能已禁止。</td><td>不是「评审者无能」，是范围被截断。</td></tr>
+<tr><td>单测全绿，产品仍不可用</td><td>完成门只检查你跑了什么。计划若没有实验室步骤，门不会变出真机证据。</td><td>不是 TDD 失效，是证据类型被用错。</td></tr>
+<tr><td>视觉伴侣或辅助脚本打到错误目录</td><td>历史问题：相对路径、<code>cd</code> 到技能目录、仓库外写工作区。v7.0.2 针对这些加固，但仍要按正文用绝对路径从工作树调用。</td><td>不是已经不可能再指错。脚本更硬了，调用方式仍靠模型遵守。</td></tr>
+</tbody>
+</table>
+</div>
+<h3>适用</h3>
+<p>有测试框架、可以用失败测试表达行为、希望代理在改代码前先把目标和代价说清楚的软件工作。对手机应用层的信令、状态机、配置开关、统计和回归测试，尤其合适。也适合需要隔离分支、避免直接在主分支试验的多任务并行开发——前提是先同意建工作区。</p>
+<h3>不适用或只应部分使用</h3>
+<ul>
+<li>主要证据在实验室、电台、消声室或真机弱网矩阵里的工作。流程可以要求你把这些写成反目标和未完成项，但不能替你做。</li>
+<li>没有测试命令、或只能靠手工听音判断的改动。TDD 铁律在这里会变成空转，或逼出一堆无意义的 mock 测试。</li>
+<li>职责紧耦合、无法切成独立可评审任务的大型媒体栈改造。强行 SDD 会在共享对象上打架。</li>
+<li>只想改一个确定的图标颜色或一行配置：头脑风暴自己也说，这类事做完并说明即可。</li>
+<li>把 Superpowers 当成可以无人看管的发布系统：合并、推送、开 PR 必须等人选，诊断打包也必须先批准。</li>
+</ul>
+</section>
+<section class="chapter" id="section-9">
+<p class="section-no">09 / 版本变化</p>
+<h2>只写能在发布说明和正文里对上的变化</h2>
+<p>下面只保留对理解「现在这套流程」有用的节点。日期按发布说明或 tag，并换算到北京时间的日期。不把营销星数或未核对的中间提交当成特性来源。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>版本</th><th>时间（北京时间日期）</th><th>对现行机制的意义</th></tr></thead>
+<tbody>
+<tr><td>v1 首发</td><td>2025-10-09</td><td>博文记录的是 getting-started 引导、自动 worktree、可另开会话当 PM。只作历史对照。</td></tr>
+<tr><td>v2.0.0</td><td>2025-12-17</td><td>曾把技能拆到 obra/superpowers-skills。这不是当前 v7.0.2 的加载方式。</td></tr>
+<tr><td>v5.1.0</td><td>2026-04-30</td><td>删除已弃用斜杠命令；worktree 改为先检测、先征求同意、优先宿主原生工具。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/RELEASE-NOTES.md#L434-L447">RELEASE-NOTES L434–L447</a></td></tr>
+<tr><td>v6.4.1–v6.4.2</td><td>2026-09-18 至 09-25</td><td>Native 执行重整；计划改短，强调签名和测试而不是把程序誊进文档。诊断技能也在这一带加入。不要再用更早的「每三步停下来」印象。</td></tr>
+<tr><td>v7.0.0</td><td>2026-10-10（发布说明日期 2026-10-09）</td><td>头脑风暴重写：先描述和为什么，建造者检查取代旧的规格评审。并写明 Antigravity 没有 SessionStart。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/RELEASE-NOTES.md#L91-L111">RELEASE-NOTES L91–L111</a></td></tr>
+<tr><td>v7.0.1</td><td>2026-10-22（2026-10-21 UTC）</td><td>减轻公式化提问，并处理压缩后技能不易被想起的问题。</td></tr>
+<tr><td>v7.0.2</td><td>2026-11-04 06:17 北京时间</td><td>继续减少空提问、先问为什么、有选择就给方案；辅助脚本更难指错仓库或任务。<a class="cite" href="https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/RELEASE-NOTES.md#L3-L48">RELEASE-NOTES L3–L48</a> 本报告固定在这一提交。</td></tr>
+</tbody>
+</table>
+</div>
+<p>作者在 2026-10-09 的周年文章里回顾 7.0，并给出安装量和星数等自我统计。那些数字以原博为准，本文不转述为独立核实结果。</p>
+</section>
+<section class="chapter" id="section-10">
+<p class="section-no">10 / 边界</p>
+<h2>和 Matt skills、pstack、OpenSpec 各管一层</h2>
+<p>三者不是同一类工具，不宜叠成一套互相抢触发的「默认流程」。这里只做边界，OpenSpec 的完整深读由另一篇承担；Matt 的对照以同日已完成的 <code>mattpocock/skills</code> 报告和公开原文为限，不重做审计。pstack 不在本快照内，也不把它的名字写进 Superpowers 清单。本列表对 pstack 的归类与结构，依据同日已审定专题报告（本地稿 <code>research-pstack.html</code>，固定口径 v0.15.42）；本篇未重新审计其源码，也不把 pstack 混同为 Friday Work。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th></th><th>Superpowers（本篇）</th><th>Matt Pocock skills</th><th>OpenSpec</th><th>pstack</th></tr></thead>
+<tbody>
+<tr><td>主要对象</td><td>给编码代理的过程方法论：问清楚、计划、TDD、子代理或同会话执行、评审、收尾。</td><td>一套更宽的工程与生产力技能，含显式入口和多种工作流，不是单一 SDLC 套件。</td><td>规格层：用 <code>openspec/changes/&lt;id&gt;/</code> 保存提案、规格、设计、任务，并可归档回规格。</td><td>工程工作流与验证方法论插件（poteto / Lauren Tan）。已审定报告固定口径为 v0.15.42：入口 <code>/poteto-mode</code>、23 个 playbook、24 条原则、33 个功能技能。多模型配置只是其中一层。本篇未重新审计源码，也不把它与 Friday Work 混同。</td></tr>
+<tr><td>权威工件</td><td>设计文档和计划默认进 <code>docs/superpowers/</code>；执行账本在 <code>.superpowers/sdd/</code>，默认 gitignore。</td><td>随各技能而定，例如规格、工单、调研笔记。不要把那些入口算进本仓库的 15 项。</td><td>变更目录是一等公民；官方 README 强调规格先于代码，并可以跨仓库共享（Stores 为 beta）。</td><td>playbook、原则、功能技能与使用指南；合入前要求可验证的证据。<code>/setup-pstack</code> 只负责按角色选择模型与推理预算，不是整套工具的全部。已审报告未给出「额度用尽即自动回退」的证据。</td></tr>
+<tr><td>怎样开始</td><td>希望靠 hook 注入和描述自动触发；斜杠命令已删除。</td><td>更多显式用户入口与路由器，模型可发现的技能并存。</td><td>官方示例是 <code>/openspec-explore</code>、<code>/openspec-propose</code>、<code>/openspec-apply-change</code>、<code>/openspec-archive-change</code>，也可用自然语言。</td><td>需要严谨流程时走 <code>/poteto-mode</code>，匹配剧本后再按步骤调用原则和技能。配置层可用 <code>/setup-pstack</code> 选模型与预算。这不是「额度用尽或失败就自动换模型」的入口。</td></tr>
+<tr><td>测试观</td><td>现行 TDD 技能仍把重构放在绿之后的循环里；实施者模板稍松。</td><td>同日报告指出：Matt 的 tdd 正文把重构移到 review，而 README 仍写 red-green-refactor。两边都要以更具体的正文为准，不能混用口诀。</td><td>规格里用场景约束行为；它不内建 Superpowers 这套红绿铁律。</td><td>强调验证，并把「测试绿了」与「可以合入」分开。具体检查清单以已审 pstack 报告为准，本篇不重做。</td></tr>
+</tbody>
+</table>
+</div>
+<p>互补时，比较干净的切法是：OpenSpec 保存「要改变什么、规格怎样写」；Superpowers 约束「这个会话里的代理怎样问、怎样测、怎样审、怎样把不可逆动作交还」；pstack（依据已审定的 v0.15.42 专题报告，本篇未重新审计）提供另一套工程工作流与验证技能，用 <code>/poteto-mode</code> 匹配剧本并调用原则和功能技能。多模型只是它的配置层，不能把它当成额度耗尽自动切换器，也不应与 Friday Work 混同。Matt 的技能若只在 TypeScript 或工单流上使用，应显式调用，避免和 Superpowers 的头脑风暴、写计划同时自动抢入口。factory-gates 这类非官方四门插件，不应当作 Superpowers 本体。</p>
+</section>
+<section class="chapter" id="section-11">
+<p class="section-no">11 / 落地</p>
+<h2>若要在手机 / WebRTC 工作里用，先定规则再装</h2>
+<ol>
+<li><strong>先锁版本。</strong> 本报告描述的是 <code>22f0b463</code> / v7.0.2。按 README 从各宿主市场安装，装到的未必是这一提交。需要可复现时，应自己核对插件 version 与提交，而不是假设 latest 等于本文。</li>
+<li><strong>先写覆盖规则。</strong> 在项目 AGENTS 或等价文件里写清：什么时候必须留下实验室验收；什么时候允许跳过提问；禁止在主分支直接改；合并和推送必须等人。这些文字按技能自己的优先级，会压过默认流程。</li>
+<li><strong>计划里把证据类型分开。</strong> 能写成失败测试的，走 TDD；只能在真机或实验室看到的，写进 Review Focus 和未完成项，不要让完成门拿单测输出去「证明」通话质量。</li>
+<li><strong>看任务耦合再选 SDD 或 Native。</strong> 应用层、接口清楚、任务可独立评审，用 SDD 更稳，也更贵。耦合高或没有子代理，用 Native，并接受终审更弱或后段上下文更差。</li>
+<li><strong>不要同时开三套规划体系做默认触发。</strong> 若已用 OpenSpec 管变更目录，就让 Superpowers 从已批准的规格进入 <code>writing-plans</code>，而不是再头脑风暴出第二套互相矛盾的设计。</li>
+<li><strong>安装与商业支持只作摘录。</strong> README 列了 Claude Code、Cursor、Codex、Gemini、Devin 等许多宿主命令，也提供 <code>sales@primeradiant.com</code>。本文未执行其中任何命令，也不评估各宿主的实际注入是否成功。</li>
+</ol>
+</section>
+<section class="chapter" id="section-12">
+<p class="section-no">12 / 来源</p>
+<h2>读了什么，没读什么，许可是什么</h2>
+<p>一手来源是固定提交的公开仓库、作者博文和 Prime Radiant 产品页。完整逐项台账见同目录 <code>source-ledger.md</code>。下面是阅读口径，避免把「归档了」说成「每一页附件都精读了」。</p>
+<ul>
+<li><strong>已全文阅读：</strong> 15 个技能正文；以及以下较短全文：README；LICENSE；AGENTS.md；插件与版本清单（<code>.claude-plugin/plugin.json</code>、<code>.cursor-plugin/plugin.json</code>、<code>.version-bump.json</code>）；<code>hooks/session-start</code>、<code>hooks.json</code>、<code>hooks-cursor.json</code>、<code>run-hook.cmd</code>（只读）；SDD 的 <code>fix-loop.md</code>、<code>final-review.md</code>；<code>brainstorming/builder-check-prompt.md</code>。</li>
+<li><strong>选段精读 / 定向检索：</strong> 实施者与任务评审模板（<code>implementer-prompt.md</code>、<code>task-reviewer-prompt.md</code>）的开头及关键合同段；<code>writing-good-tests.md</code> 的原则段；<code>sdd-repo</code> / <code>sdd-workspace</code> 的仓库定位与计划路径逻辑；RELEASE-NOTES 中与现行流程相关的版本段；视觉伴侣 <code>server.cjs</code> 中的遥测与会话 key 片段。上述均不是全文阅读，不能与技能正文的全文阅读混列。</li>
+<li><strong>已核对但未逐行精读：</strong> 全部诊断提示词与模板、各宿主工具对照表、writing-skills 的长参考（含 Anthropic 最佳实践长文）、测试目录、文档目录、除上述选段外的其余脚本。这些文件留在快照中备查，不作为精读结论来源。</li>
+<li><strong>未做：</strong> git clone、安装插件、运行 hook 或任何上游脚本、启动视觉伴侣、联系维护者、修改网站仓库、付费登录、读取用户业务代码。</li>
+</ul>
+<p>上游原文里的 install、commit、push、开 issue、写入凭证和自主调度，一律当作研究材料，没有执行。</p>
+<p>许可是 MIT，版权声明为 Copyright (c) 2025 Jesse Vincent。引用与摘录保留署名和许可说明；本报告不提供法律意见。视觉伴侣默认远程加载 logo 属于上游可选遥测，本离线 HTML 没有加载该图片，也没有任何网络请求。</p>
+<ol class="sources-list">
+<li>仓库与固定提交：<a href="https://github.com/obra/superpowers">https://github.com/obra/superpowers</a> · <a href="https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7">tree/22f0b463</a></li>
+<li>正式版：<a href="https://github.com/obra/superpowers/releases/tag/v7.0.2">v7.0.2</a></li>
+<li>产品与作者：<a href="https://primeradiant.com/superpowers/">primeradiant.com/superpowers</a> · <a href="https://primeradiant.com/about/">About</a> · <a href="https://blog.fsck.com/2025/10/09/superpowers/">首发博文</a> · <a href="https://blog.primeradiant.com/what-a-year/">What a year</a></li>
+<li>目录页：<a href="https://www.skills.sh/obra/superpowers">skills.sh/obra/superpowers</a></li>
+<li>OpenSpec 官方 README（仅用于边界，非本篇深读对象）：<a href="https://github.com/Fission-AI/OpenSpec">Fission-AI/OpenSpec</a></li>
+<li>已审定 pstack 专题报告（仅用于第 10 章边界归类，本篇未重新审计）：本地稿 <code>research-pstack.html</code>，固定口径 v0.15.42。</li>
+</ol>
+<p class="endnote">离线单文件：样式、脚本和结构图均内嵌。禁用脚本时，正文、表格、15 张技能卡片和图片的文字步骤仍可阅读；筛选、全部展开和打印前自动展开不可用。CSP 禁止联网。本页通过静态检查，但真实手机和浏览器观感须由总管在本地打开验收。生成时刻的精确字节与散列以 <code>artifact-metadata.json</code> 和复核说明为准。</p>
+</section>
+</main>
+</div>
+<footer>
+<p>Superpowers 深度报告 · 固定 obra/superpowers v7.0.2 / 22f0b463 · 北京时间 2026-11-21 读取 · 旧稿保留后的集中修订稿 rev1 · 仅供群内审定，不是已发布页面。</p>
+<p>MIT 许可的上游原文版权归 Jesse Vincent。本报告是研究摘述，不代替官方文档，也不构成安装或法律建议。</p>
+</footer>
+
+<script>(function () {
+  "use strict";
+  var search = document.getElementById("skill-search");
+  var grid = document.getElementById("skill-grid");
+  var count = document.getElementById("map-count");
+  var empty = document.getElementById("map-empty");
+  var reset = document.getElementById("reset-filter");
+  var expandAll = document.getElementById("expand-all");
+  var collapseAll = document.getElementById("collapse-all");
+  var printBtn = document.getElementById("print-report");
+  var filterBtns = document.querySelectorAll("[data-filter]");
+  var activeCat = "all";
+
+  function cards() {
+    return grid ? [].slice.call(grid.querySelectorAll(".skill-card")) : [];
+  }
+  function allDetails() {
+    return [].slice.call(document.querySelectorAll("details"));
+  }
+  function setCount() {
+    if (!count || !grid) return;
+    var vis = cards().filter(function (c) { return !c.hidden; });
+    count.textContent = "显示 " + vis.length + " / " + cards().length + " 项";
+    if (empty) empty.hidden = vis.length !== 0;
+  }
+  function applyFilter() {
+    var q = search ? search.value.trim().toLowerCase() : "";
+    cards().forEach(function (c) {
+      var cat = c.getAttribute("data-cat") || "";
+      var text = (c.getAttribute("data-text") || c.textContent || "").toLowerCase();
+      var okCat = activeCat === "all" || cat === activeCat;
+      var okQ = !q || text.indexOf(q) !== -1;
+      c.hidden = !(okCat && okQ);
+    });
+    setCount();
+  }
+  if (search) search.addEventListener("input", applyFilter);
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      activeCat = btn.getAttribute("data-filter") || "all";
+      filterBtns.forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      applyFilter();
+    });
+  });
+  if (reset) reset.addEventListener("click", function () {
+    if (search) search.value = "";
+    activeCat = "all";
+    filterBtns.forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-filter") === "all" ? "true" : "false");
+    });
+    applyFilter();
+  });
+  if (expandAll) expandAll.addEventListener("click", function () {
+    allDetails().forEach(function (d) {
+      if (!d.hidden) d.open = true;
+    });
+  });
+  if (collapseAll) collapseAll.addEventListener("click", function () {
+    allDetails().forEach(function (d) { d.open = false; });
+  });
+  function openForPrint() {
+    allDetails().forEach(function (d) { d.dataset.wasOpen = d.open ? "1" : "0"; d.open = true; });
+  }
+  function restoreAfterPrint() {
+    allDetails().forEach(function (d) {
+      d.open = d.dataset.wasOpen === "1";
+      delete d.dataset.wasOpen;
+    });
+  }
+  window.addEventListener("beforeprint", openForPrint);
+  window.addEventListener("afterprint", restoreAfterPrint);
+  if (printBtn) printBtn.addEventListener("click", function () {
+    openForPrint();
+    window.print();
+  });
+  applyFilter();
+})();
+</script>
+</body>
+</html>
