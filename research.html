@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="深度研究专栏：AI 科技日报站点的专题长文，与日报分开计数。目前 6 篇：Karpathy 2023 Intro to LLMs 独立深读、Karpathy 2025 LLM 讲座深度图解、OpenSpec 深度报告、Superpowers 深度报告、图解 poteto 的 AI Engineer 演讲与 pstack、Matt Pocock Skills 深度研究。">
+<meta name="description" content="深度研究专栏：AI 科技日报站点的专题长文，与日报分开计数。目前 9 篇：长任务 Agent 如何可靠接续工作、上下文工程：每一步给模型看什么、实时WebRTC深度讲义｜协议、会话、播放与恢复、Karpathy 2023 Intro to LLMs 独立深读、Karpathy 2025 LLM 讲座深度图解、OpenSpec 深度报告、Superpowers 深度报告、图解 poteto 的 AI Engineer 演讲与 pstack、Matt Pocock Skills 深度研究。">
 <meta name="theme-color" content="#fbfaf7">
 <title>深度研究 · AI 科技日报</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231c1b19'/%3E%3Cpath d='M8 10h16M8 16h12M8 22h9' stroke='%23fbfaf7' stroke-width='1.7' stroke-linecap='square'/%3E%3C/svg%3E">
@@ -61,7 +61,40 @@ a:focus-visible{outline:2px solid #3b6fd8;outline-offset:3px}
   </nav>
 </header>
 <main>
-  <p class="count">已发布 6 篇</p>
+  <p class="count">已发布 9 篇</p>
+
+  <article class="paper">
+    <h2><a href="research-long-running-agents.html">长任务 Agent 如何可靠接续工作</a></h2>
+    <ul class="tagrow">
+      <li class="tag">主题 · 跨会话交接与崩溃恢复</li>
+      <li class="tag date">2026-11-21</li>
+    </ul>
+    <p class="blurb">从 Anthropic 的跨会话 Web 开发实验出发，解释长任务 Agent 如何把需求约束、增量交付、真实测试和崩溃恢复留在模型之外，让下一会话有依据地继续；并标出示例编排没有强制保证的边界。</p>
+    <p class="note">边界说明：核验时间 2026-11-21（北京时间）。原文页面标注 2025-11-26。原文观点、固定提交源码、教学补充和虚构案例分层标注。这不是无人值守生产系统的完整设计。</p>
+    <p class="more"><a href="research-long-running-agents.html">阅读全文 →</a></p>
+  </article>
+
+  <article class="paper">
+    <h2><a href="research-context-engineering.html">上下文工程：每一步给模型看什么</a></h2>
+    <ul class="tagrow">
+      <li class="tag">主题 · 上下文选择、检索与压缩损失</li>
+      <li class="tag date">2026-11-21</li>
+    </ul>
+    <p class="blurb">围绕 Anthropic 的上下文工程原文，说明 context rot 的证据、检索与原文的分工，以及压缩、笔记和多 Agent 隔离各自会丢掉什么；强调每一步给模型看什么，而不是把提示写得更长。</p>
+    <p class="note">边界说明：核验时间 2026-11-21（北京时间）。主原文页面标注 2025-09-29。原文建议、原始研究、现行文档与教学假设分层标注。2025 年文章里的产品行为与实验，不直接当作 2026 年现状。</p>
+    <p class="more"><a href="research-context-engineering.html">阅读全文 →</a></p>
+  </article>
+
+  <article class="paper">
+    <h2><a href="research-realtime-webrtc.html">实时WebRTC深度讲义｜协议、会话、播放与恢复</a></h2>
+    <ul class="tagrow">
+      <li class="tag">主题 · 协议、会话、播放与恢复</li>
+      <li class="tag date">2026-11-21</li>
+    </ul>
+    <p class="blurb">从 SDP 与 ICE 讲到当前 GPT-Live / Realtime 边界，把「连上、生成、播出、执行、恢复」分成不同层的完成条件；说明 WebRTC 负责实时传输，并不自动保证业务会话正确。</p>
+    <p class="note">边界说明：核验时间 2026-11-21（北京时间）。非 SDK 部署教程，非性能实测，非平台兼容保证。教学伪代码不执行。核心阅读已通过，但存在 1 条未诊断的控制台计数，不能写成全量零错。</p>
+    <p class="more"><a href="research-realtime-webrtc.html">阅读全文 →</a></p>
+  </article>
 
   <article class="paper">
     <h2><a href="research-karpathy-intro-2023.html">Karpathy 2023 Intro to LLMs 独立深读</a></h2>
@@ -130,7 +163,7 @@ a:focus-visible{outline:2px solid #3b6fd8;outline-offset:3px}
   </article>
 </main>
 <footer class="foot">
-  <p>深度研究共 6 篇，与 <a href="index.html">日报</a> 分开计数。日报归档与历史期次不受影响。</p>
+  <p>深度研究共 9 篇，与 <a href="index.html">日报</a> 分开计数。日报归档与历史期次不受影响。</p>
 </footer>
 </div>
 </body>
