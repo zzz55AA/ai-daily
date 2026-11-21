@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="深度研究专栏：AI 科技日报站点的专题长文，与日报分开计数。目前 2 篇：图解 poteto 的 AI Engineer 演讲与 pstack、Matt Pocock Skills 深度研究。">
+<meta name="theme-color" content="#fbfaf7">
+<title>深度研究 · AI 科技日报</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231c1b19'/%3E%3Cpath d='M8 10h16M8 16h12M8 22h9' stroke='%23fbfaf7' stroke-width='1.7' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://zzz55aa.github.io/ai-daily/research.html">
+<style>
+:root{--bg:#fbfaf7;--card:#fff;--text:#1c1b19;--text2:#57534e;--text3:#8a857d;--border:#e4e1da;--border2:#d6d2c9;--a0:#3b6fd8;}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC","WenQuanYi Micro Hei",sans-serif;font-size:16px;line-height:1.65}
+a{color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:8px 18px 72px}
+.mast{border-top:2px solid var(--text);border-bottom:1px solid var(--border2);padding:18px 0 16px}
+.brand{font-size:13px;letter-spacing:.14em;color:var(--text3)}
+h1{margin:4px 0 0;font-size:34px;line-height:1.2;font-weight:650;letter-spacing:-.02em}
+.lede{margin:10px 0 0;max-width:40em;color:var(--text2)}
+.sectnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sectnav a{display:inline-block;min-height:36px;padding:6px 14px;border:1px solid var(--border2);border-radius:999px;background:var(--card);color:var(--text2);text-decoration:none;font-size:14px}
+.sectnav a:hover{border-color:var(--text);color:var(--text)}
+.sectnav a[aria-current="page"]{background:var(--text);border-color:var(--text);color:var(--bg)}
+.count{margin:22px 0 0;font-size:13px;letter-spacing:.12em;color:var(--text3);font-weight:650}
+.paper{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 20px 18px;margin-top:14px}
+.paper h2{margin:0;font-size:22px;line-height:1.35;font-weight:650}
+.paper h2 a{text-decoration:none}
+.paper h2 a:hover{text-decoration:underline;text-underline-offset:3px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.tag{display:inline-block;padding:2px 10px;border:1px solid var(--border2);border-radius:999px;color:var(--text2);font-size:12.5px}
+.tag.date{font-variant-numeric:tabular-nums}
+.blurb{margin:12px 0 0;font-size:15.5px}
+.note{margin:10px 0 0;padding:8px 12px;border-left:3px solid var(--border2);background:var(--bg);color:var(--text2);font-size:13.5px}
+.more{margin:14px 0 0;font-size:14px}
+.more a{color:var(--a0);text-decoration:none}
+.more a:hover{text-decoration:underline;text-underline-offset:2px}
+.foot{margin-top:26px;color:var(--text3);font-size:12.5px}
+.foot a{color:var(--text2)}
+a:focus-visible{outline:2px solid #3b6fd8;outline-offset:3px}
+@media (max-width:520px){
+  .wrap{padding:4px 14px 56px}
+  h1{font-size:28px}
+  .paper{padding:16px 14px 14px}
+  .paper h2{font-size:19px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+  <div class="brand">AI 科技日报</div>
+  <h1>深度研究</h1>
+  <p class="lede">专题长文专栏。按主题展开的完整研究与图解，独立成篇；与日报分开计数，也不并入日报归档。正文保留自带的图文与交互。</p>
+  <nav class="sectnav" aria-label="栏目切换">
+    <a href="index.html">日报</a>
+    <a href="research.html" aria-current="page">深度研究</a>
+  </nav>
+</header>
+<main>
+  <p class="count">已发布 2 篇</p>
+
+  <article class="paper">
+    <h2><a href="research-pstack.html">图解 poteto 的 AI Engineer 演讲与 pstack</a></h2>
+    <ul class="tagrow">
+      <li class="tag">主题 · AI Engineer 演讲与 pstack 插件体系</li>
+      <li class="tag date">2026-11-15</li>
+    </ul>
+    <p class="blurb">按演讲顺序逐段图解 poteto 在 AI Engineer CODE 的分享：从信任金字塔与代码库质量，到用 lint 取代注释、运行时验证与功能地图、形式化验证，再到 1.1 万次 PR 与 0.5% 回滚率的工程实践；并整理 pstack 的技能体系、剧本与 58 个技能目录的实际构成。</p>
+    <p class="note">版本说明：本文对应 pstack <b>v0.15.42</b> 的历史快照（线上仓库最新提交为北京时间 2026-11-15 11:36），不是最新版本。演讲与仓库状态此后可能已有变化。</p>
+    <p class="more"><a href="research-pstack.html">阅读全文 →</a></p>
+  </article>
+
+  <article class="paper">
+    <h2><a href="research-matt-pocock-skills.html">Matt Pocock Skills 深度研究</a></h2>
+    <ul class="tagrow">
+      <li class="tag">主题 · Claude Code 技能生态与工程方法</li>
+      <li class="tag date">2026-11-21</li>
+    </ul>
+    <p class="blurb">面向 Matt Pocock 的 skills 仓库做只读深读：先说清「谁的集合、解决什么问题」这一边界，再给 39 项技能的全量地图（其中 27 项列入常规插件清单）、10 项核心机制精读，以及组合方式、贯穿案例和逐步采用的建议。</p>
+    <p class="note">边界说明：核验时间 2026-11-21（北京时间），固定提交原文对照。本文没有跑多代理基准，不提供加速倍数或 token 节约比例；文中的图与方法为原创重绘。</p>
+    <p class="more"><a href="research-matt-pocock-skills.html">阅读全文 →</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <p>深度研究共 2 篇，与 <a href="index.html">日报</a> 分开计数。日报归档与历史期次不受影响。</p>
+</footer>
+</div>
+</body>
+</html>
