@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="canonical" href="https://zzz55aa.github.io/ai-daily/research-karpathy-llm-2025.html">
+<title>从预测下一个词，到成为 AI 助手——Karpathy LLM 讲座深度图解</title>
+<style>
+:root{--paper:#f5f1e8;--ink:#1a2a32;--muted:#5a6b6e;--line:#d6d0c4;--teal:#155e63;--copper:#9a3b1a;--panel:#fffaf1;--navy:#102430;--wash:#ece6d8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.9;font-size:17px}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+a:hover{color:var(--copper)}
+button,input{font:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:7px 13px;line-height:1.5}
+button:hover{border-color:var(--teal)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #e8a95a;outline-offset:4px}
+.mast{background:var(--navy);color:#e7efe8;padding:13px 5vw;display:flex;justify-content:space-between;gap:16px;font-size:12px;letter-spacing:.12em}
+.hero{padding:62px max(5vw,24px) 46px;max-width:1320px;margin:auto;border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--copper);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.hero h1{font-size:clamp(32px,5.4vw,68px);line-height:1.18;letter-spacing:-.04em;margin:22px 0;max-width:1080px}
+.hero h1 span{color:var(--teal)}
+.dek{max-width:780px;font-size:20px;color:var(--muted);line-height:1.8}
+.stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:32px}
+.stat strong{font-size:34px;line-height:1.2;display:block;color:var(--teal)}
+.stat span{font-size:12px;color:var(--muted)}
+.stamp{font-size:12px;color:var(--muted);margin-top:28px;overflow-wrap:anywhere}
+.toolbar{position:sticky;top:0;z-index:10;background:#f5f1e8f5;border-bottom:1px solid var(--line);padding:10px max(5vw,20px);display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.toolbar a{margin-right:auto}
+.layout{display:grid;grid-template-columns:218px minmax(0,900px);gap:48px;max-width:1280px;margin:auto;padding:42px 32px 90px}
+.toc{font-size:12px;align-self:start;position:sticky;top:90px;max-height:calc(100vh - 120px);overflow:auto}
+.toc h2{font-size:12px;letter-spacing:.14em;color:var(--copper)}
+.toc a{display:block;padding:9px 0;color:var(--muted);text-decoration:none;line-height:1.6;border-bottom:1px solid var(--line)}
+.toc a:hover{color:var(--teal)}
+main{min-width:0}
+.chapter{padding:0 0 38px;margin-bottom:36px;border-bottom:1px solid var(--line)}
+.section-no{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--copper);margin-bottom:12px}
+h2{font-size:clamp(25px,3vw,34px);line-height:1.45;letter-spacing:-.03em;margin:0 0 25px}
+h3{font-size:21px;line-height:1.6;color:var(--teal);margin:35px 0 14px}
+p{margin:0 0 22px;overflow-wrap:anywhere;text-wrap:pretty}
+strong{font-weight:700}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.86em;overflow-wrap:anywhere;background:#e8e4d8;border-radius:4px;padding:2px 5px}
+.cite{font-size:11px;white-space:normal;display:inline;color:#547d71;margin-left:6px;text-decoration:none;background:#e4eee6;padding:2px 5px;border-radius:4px}
+figure{margin:28px 0 32px;background:var(--panel);padding:12px 14px 10px;border:1px solid var(--line);border-radius:16px}
+.diagram-mobile{display:none}
+.svgwrap svg{display:block;width:100%;height:auto}
+figcaption{font-size:12px;color:var(--muted);padding:7px 6px 2px;line-height:1.7}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:13px;min-width:640px;width:100%}
+td,th{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+th{background:var(--navy);color:#f3f4eb}
+td:first-child{font-weight:700;min-width:120px}
+tbody tr:last-child td{border-bottom:0}
+.callout{border-left:3px solid var(--copper);background:#f4eadb;padding:16px 18px;font-size:15px;margin:0 0 22px;border-radius:0 10px 10px 0}
+.callout.note{border-left-color:var(--teal);background:#e7efec}
+.callout.ext{border-left-color:#70548a;background:#efe8f4}
+.tag{font-size:10px;display:inline-block;border:1px solid #b7d0c2;border-radius:20px;padding:1px 8px;color:var(--teal);line-height:1.7;margin:0 4px 6px 0;letter-spacing:.04em}
+.tag.teach{color:#9a4e22;border-color:#dfbc92}
+.tag.y2026{color:#5a4d8a;border-color:#c8c0d5}
+.tag.third{color:#3b5a2e;border-color:#b7c9a6}
+.tag.ext{color:#70548a;border-color:#cbb8dc}
+.tag.asr{color:#6a4a1a;border-color:#e0c48a}
+.deep-dive{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:16px 0}
+.deep-dive>summary{font-size:18px;font-weight:700;line-height:1.6;padding:18px 21px;cursor:pointer;color:var(--teal)}
+.deep-body{padding:0 25px 8px}
+.sources-list{font-size:12px;line-height:1.8;word-break:break-word;padding-left:20px}
+.sources-list li{margin:9px 0}
+.endnote{font-size:12px;color:var(--muted);background:#e8eee4;padding:23px;border-radius:12px}
+footer{background:var(--navy);color:#b4c9c2;padding:32px 5vw;font-size:12px}
+ul,ol{margin:0 0 22px;padding-left:1.3em}
+li{margin:6px 0;overflow-wrap:anywhere}
+blockquote{margin:0 0 22px;padding:12px 18px;border-left:3px solid var(--teal);background:var(--panel);color:var(--ink);font-size:16px}
+.skim{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:8px 28px 12px;margin:0 0 28px}
+.mech,.ex,.pitfall{margin:0 0 18px;padding:14px 16px;border-radius:10px;border:1px solid var(--line);font-size:15px}
+.mech{background:#eef5f1}
+.ex{background:#f7f1e6}
+.pitfall{background:#f6ece8}
+.mech strong,.ex strong,.pitfall strong{display:block;font-size:12px;letter-spacing:.08em;margin-bottom:6px;color:var(--copper)}
+.prob{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;background:var(--navy);color:#eff5ee;padding:18px 20px;border-radius:12px;line-height:1.7;overflow-x:auto;margin:0 0 22px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:1000px){.layout{grid-template-columns:1fr;max-width:850px;padding:28px 24px 60px}.toc{position:static;max-height:none;border-bottom:1px solid var(--line);padding-bottom:22px}.toc a{display:inline-block;margin-right:15px;border:0;padding:5px 0}.toc h2{margin-top:0}.hero{padding-top:40px}.stats{gap:25px}}
+@media(max-width:720px){.svgwrap{display:none}.diagram-mobile{display:block;list-style:none;margin:4px;padding:0}.diagram-mobile li{background:#edf4ee;border:1px solid var(--line);border-radius:9px;padding:12px;margin-bottom:10px;font-size:13px;line-height:1.8}.diagram-mobile li:nth-child(even){background:#f7eee5}.diagram-mobile li strong{display:block;color:var(--teal);font-size:14px}.diagram-mobile li span{display:block;margin-top:5px}}
+@media(max-width:560px){body{font-size:16px;line-height:1.95}.mast{font-size:10px;letter-spacing:.08em;padding:10px 20px}.hero{padding:32px 20px}.hero h1{font-size:32px}.dek{font-size:16px}.stat strong{font-size:27px}.toolbar{padding:9px 15px;font-size:11px;gap:5px}.toolbar button{font-size:11px;padding:6px 8px}.layout{padding:25px 19px 50px;gap:25px}.deep-dive>summary{font-size:17px;padding:17px}.deep-body{padding:0 17px 4px}h2{font-size:26px}h3{font-size:20px}figure{padding:6px}.skim{padding:6px 16px}}
+@media print{body{font-size:11pt;background:#fff;color:#000}.toolbar,.toc,.mast{display:none!important}.layout{display:block;padding:15px;max-width:none}a{color:inherit;text-decoration:none}.hero{padding:10px 0}figure,.callout,.deep-dive{break-inside:avoid}.svgwrap{display:block}.diagram-mobile{display:block}}
+
+</style>
+</head>
+<body>
+<header class="mast"><span>深度研究 · AI 科技日报</span><span>2026-11-21 · 北京时间</span></header>
+<div class="hero">
+<p class="eyebrow">Karpathy 2025 长讲座 · 自学讲义</p>
+<h1>从预测下一个词，<span>到成为 AI 助手</span></h1>
+<p class="dek">把 Andrej Karpathy《Deep Dive into LLMs like ChatGPT》写成可以代替观看的图解讲义：先建立十分钟主线，再按机制、例子和误区往下拆。讲座原意、教学解释、2026 年补充和第三方解读分开标注。</p>
+<div class="stats">
+<div class="stat"><strong>3:31:24</strong><span>主片公开时长</span></div>
+<div class="stat"><strong>24</strong><span>官方章节全部覆盖</span></div>
+<div class="stat"><strong>9</strong><span>原创机制图</span></div>
+<div class="stat"><strong>2025-02-05</strong><span>讲座发布日</span></div>
+</div>
+<p class="stamp">主片：<a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer">youtube.com/watch?v=7xTGNNLPyMI</a>　依据公开第三方完整转录交叉核对，非正式官方逐字稿。离线自包含；只有点击来源才会联网。</p>
+</div>
+<div class="toolbar">
+<a href="#skim">今日要点 / 十分钟主线</a>
+<button type="button" id="expand-all">全部展开</button>
+<button type="button" id="collapse-all">全部收起</button>
+<button type="button" id="print-report">打印 / 另存 PDF</button>
+</div>
+<div class="layout">
+<nav class="toc" aria-label="目录"><h2>目录</h2><a href="#how-to-read">00 如何阅读与证据</a>
+<a href="#skim">十分钟主线</a>
+<a href="#ch-speak">01 你在和什么说话</a>
+<a href="#ch-data">02 预训练数据</a>
+<a href="#ch-token">03 Token</a>
+<a href="#ch-io">04 预测下一个词</a>
+<a href="#ch-net">05 网络内部</a>
+<a href="#ch-infer">06 训练与推理</a>
+<a href="#ch-base">07 基座模型</a>
+<a href="#ch-sft">08 监督微调</a>
+<a href="#ch-halluc">09 幻觉、工具与记忆</a>
+<a href="#ch-self">10 自我认知</a>
+<a href="#ch-think">11 需要 token 思考</a>
+<a href="#ch-jagged">12 拼写与参差智力</a>
+<a href="#ch-rl">13 强化学习与 R1</a>
+<a href="#ch-rlhf">14 RLHF</a>
+<a href="#ch-future">15 接下来与去哪里找</a>
+<a href="#ch-close">16 总图与用法</a>
+<a href="#ch-ext">17 延伸：终端与实时通信</a>
+<a href="#ch-2023">18 与 2023 短片</a>
+<a href="#ch-sources">19 来源与第三方</a></nav>
+<main>
+
+<section class="chapter" id="how-to-read">
+<div class="section-no">00</div>
+<h2>如何阅读这份讲义，以及证据边界</h2>
+<p>这不是视频逐字稿，也不是官方讲义。目标是：让你不看 3.5 小时视频，也能把 Karpathy 在 2025 年 2 月这条主线建立起来，并分清哪些是他的原意、哪些是为了讲清机制而补的解释、哪些是 2026 年才需要单独标明的变化。</p>
+<p><span class="tag ">讲座原意</span><span class="tag teach">教学解释</span><span class="tag y2026">2026 补充</span><span class="tag third">第三方解读</span><span class="tag ext">延伸假设</span><span class="tag asr">转录可能有误</span></p>
+<div class="callout note">
+<p><strong>证据说明。</strong>主片是 Andrej Karpathy 2025 年 2 月 5 日发布的 <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer">Deep Dive into LLMs like ChatGPT</a>，公开时长约 3 小时 31 分 24 秒，带 24 个官方章节。作者站点 <a href="https://karpathy.ai/" target="_blank" rel="noopener noreferrer">karpathy.ai</a> 把它列为面向一般听众的“引擎盖下”讲解，与技术向的 Zero to Hero 并列。</p>
+<p>本篇依据的是<strong>公开可访问的第三方完整转录</strong>，不是 YouTube 官方下载的字幕文件，也不是作者发布的逐字稿。主文本来自 Lawrence Wu 站点上带时间戳的 Whisper 转写（3,202 段，首句 00:00:00，末句 03:31:21）；另用一份与 YouTube 自动字幕行文特征相符的公开纯文本（约 41,116 词，首尾一致）交叉核对。二者覆盖全部 24 章，段间最大间隔 12 秒，片尾只比视频名义结束早约 3 秒。专有名词仍可能被听错，例如 Lee Sedol 被写成 Lisa Dole、ChatGPT 有时被写成相近的错词。文中只引用必要短句，时间戳一律指向原视频。</p>
+<p>付费字幕接口在本次任务前已显示额度用尽，本篇没有再次调用，也没有下载音视频做转写。<span class="tag y2026">2026 补充</span>Hugging Face 的 FineWeb 介绍在 2026 年 11 月 21 日仍把数据集写成“最初 15 万亿 token，现已超过 18.5 万亿”；讲座里的 15 万亿与当时公开描述一致。磁盘约 44TB 来自讲座对 FineWeb 博文的转述，当前数据集卡片上我们没有独立核到同一磁盘数字。</p>
+</div>
+<p>2023 年的一小时短片《Intro to Large Language Models》由作者列为更早的平行介绍，但本篇没有独立核对其完整转录，文末只作不猜测演进的对照。短片另有独立报告。</p>
+</section>
+
+
+<section class="chapter" id="skim">
+<div class="section-no">速读</div>
+<h2>十分钟就能带走的主线</h2>
+<div class="skim">
+<ol>
+<li><strong>你在和什么说话？</strong>先不是“魔法智能体”，而是一条被训练成会续写 token 的流水线。聊天框后面，是预训练、监督微调、强化学习三步。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=0" target="_blank" rel="noopener noreferrer">0:00:00 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3563" target="_blank" rel="noopener noreferrer">0:59:23 ↗</a></li>
+<li><strong>文字如何变成计算？</strong>文本要切成有限符号表里的 token。这些符号是唯一 ID，不是可加减的数。序列长度很珍贵，所以用字节对编码（BPE）换更短的序列。GPT-4 词表，讲座给出 100,277。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=470" target="_blank" rel="noopener noreferrer">0:07:50 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=708" target="_blank" rel="noopener noreferrer">0:11:48 ↗</a></li>
+<li><strong>模型到底在学什么？</strong>在一段上下文里预测下一个 token。训练是把正确那个 token 的概率往上推；参数是一排可拧的旋钮。预训练完成后，得到的是“互联网文档模拟器”，不是助手。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1009" target="_blank" rel="noopener noreferrer">0:16:49 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1297" target="_blank" rel="noopener noreferrer">0:21:37 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2889" target="_blank" rel="noopener noreferrer">0:48:09 ↗</a></li>
+<li><strong>训练和推理不是一回事。</strong>训练改参数；你使用产品时，参数通常已经固定，只在推理：按概率采样，接到后面，再采下一个。所以同一句话多问一次，答案可以不一样。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1571" target="_blank" rel="noopener noreferrer">0:26:11 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1829" target="_blank" rel="noopener noreferrer">0:30:29 ↗</a></li>
+<li><strong>助手是后来装上去的。</strong>监督微调扔掉互联网文档集，改用对话示范继续训练。你面对的大致是：对“人类标注员会怎样按公司说明书回答”的即时模拟，而不是一个有自我的人。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3789" target="_blank" rel="noopener noreferrer">1:03:09 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4641" target="_blank" rel="noopener noreferrer">1:17:21 ↗</a></li>
+<li><strong>参数不是工作记忆。</strong>写在权重里的是模糊回忆；写在上下文里的才是当前工作记忆。幻觉常常是因为训练里“谁是某某”都被自信地答完了，模型就学了这种腔，而不是先承认不知道。工具把检索结果贴进上下文，就是在补工作记忆。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4937" target="_blank" rel="noopener noreferrer">1:22:17 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5963" target="_blank" rel="noopener noreferrer">1:39:23 ↗</a></li>
+<li><strong>模型需要 token 来思考。</strong>每个新 token 只能做有限计算。逼它立刻给答案，等于要求一步跳完；把步骤写出来，是把计算摊开。这些步骤首先是写给模型自己的。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6560" target="_blank" rel="noopener noreferrer">1:49:20 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6819" target="_blank" rel="noopener noreferrer">1:53:39 ↗</a></li>
+<li><strong>能力像瑞士奶酪。</strong>整体可以很强，却会在拼写、计数、9.11 和 9.9 这类地方突然出现空洞。强化学习能在可验证领域里长出回看、重算等策略；RLHF 能改善文风，但奖励模型可被钻空子，不能无限优化。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7493" target="_blank" rel="noopener noreferrer">2:04:53 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11173" target="_blank" rel="noopener noreferrer">3:06:13 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12373" target="_blank" rel="noopener noreferrer">3:26:13 ↗</a></li>
+<li><strong>怎么用？</strong>当工具箱里的工具：要初稿、要启发、要提问，但检查工作，并对产物负责。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12632" target="_blank" rel="noopener noreferrer">3:30:32 ↗</a></li>
+</ol>
+</div>
+<figure id="fig-pipeline">
+<div class="svgwrap"><svg viewBox="0 0 760 290" role="img" aria-labelledby="三阶段流水线-t 三阶段流水线-d" xmlns="http://www.w3.org/2000/svg"><title id="三阶段流水线-t">三阶段流水线</title><desc id="三阶段流水线-d">预训练、监督微调与强化学习依次把互联网模拟器变成助手。</desc><rect width="760" height="290" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="30" y="70" width="200" height="80" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="130.0" y="103.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">预训练</text><text x="130.0" y="119.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">互联网文档 → 基座模型</text><line x1="230" y1="110" x2="270" y2="110" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="270" y="70" width="200" height="80" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="370.0" y="103.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">监督微调</text><text x="370.0" y="119.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">对话示范 → 助手人格</text><line x1="470" y1="110" x2="510" y2="110" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="510" y="70" width="220" height="80" rx="10" fill="#efe8f4" stroke="#70548a" stroke-width="1.5"/><text x="620.0" y="103.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">强化学习</text><text x="620.0" y="119.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">练习题 / 偏好 → 推理策略</text><rect x="30" y="190" width="700" height="70" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="225.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">输出：可以问答的助手，但仍是逐 token 采样的统计系统</text></svg></div>
+<ul class="diagram-mobile"><li><strong>预训练</strong><span>用过滤后的互联网文本，训练模型预测下一个 token，得到基座模型。</span></li><li><strong>监督微调</strong><span>改用人类撰写的对话示范，继续训练，装上助手人格。</span></li><li><strong>强化学习</strong><span>在可验证题目上练习，或用奖励模型学人类偏好。</span></li><li><strong>注意</strong><span>三阶段用的是同一类训练算法，换的是数据和目标，不是换了一种魔法。</span></li></ul>
+<figcaption>图 1　Karpathy 贯穿全片的主线：先得到互联网文档模拟器，再把它变成助手。依据讲座开篇与两处总结 <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=62" target="_blank" rel="noopener noreferrer">0:01:02 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3563" target="_blank" rel="noopener noreferrer">0:59:23 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12106" target="_blank" rel="noopener noreferrer">3:21:46 ↗</a></figcaption>
+</figure>
+
+</section>
+
+
+<section class="chapter" id="ch-speak">
+<div class="section-no">01</div>
+<h2>你到底在和什么说话</h2>
+<p><span class="tag ">讲座原意</span>开场要解决的不是公式，而是心理模型：这个文本框后面是什么，该往里放什么，返回来的词又是怎么来的。他承认它在某些方面出色，同时强调它擅长的和糟糕的都不均衡，还有不少锋利的边。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=0" target="_blank" rel="noopener noreferrer">0:00:00 ↗</a></p>
+<p>他选择按<strong>整条建造流水线</strong>往下讲，并尽量保持一般听众能跟上。后面几乎所有“怪异表现”，都可以在这条流水线上找到来源：数据如何过滤、符号如何切分、训练时模仿了什么、推理时又只能做多大的一步计算。</p>
+<div class="mech"><strong>机制</strong>先有会续写互联网文本的基座模型，再有对话数据和强化学习，把它变成助手。三步不是三个不同的魔法，多半是同一类训练，换了数据与目标。</div>
+<div class="ex"><strong>例子</strong>你在 ChatGPT 里打字，看到的几乎都是推理：参数早已训练好并被固定。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1829" target="_blank" rel="noopener noreferrer">0:30:29 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要一上来就把它当成一个有连续自我的人，也不要因为它会说话，就认为它在查资料。默认情况下，它只是在往后续写统计上像那么回事的 token。</div>
+</section>
+
+<section class="chapter" id="ch-data">
+<div class="section-no">02</div>
+<h2>从“下载互联网”到过滤后的文本</h2>
+<p><span class="tag ">讲座原意</span>预训练的第一步，是下载并处理公开文本。他用来建立直觉的公开样本是 Hugging Face 的 FineWeb：目标是<strong>量大、质量高、来源多样</strong>，因为多样性会进入模型所能表现的知识面。主要提供方内部都会有某种等价物。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=66" target="_blank" rel="noopener noreferrer">0:01:06 ↗</a></p>
+<p>一个反直觉的数字是：经过大幅过滤后，FineWeb 大约只占 <strong>44TB</strong> 磁盘。互联网很大，但这里用的是文本，而且过滤很凶，所以“并不算天文数字”，差不多能放进一块硬盘。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=135" target="_blank" rel="noopener noreferrer">0:02:15 ↗</a> 起点通常是 Common Crawl（他提到该组织自 2007 年爬网，并举 2024 年约 27 亿页面为例）。随后是一长串处理：URL 黑名单去掉恶意、垃圾、成人等站点；从 HTML 里抽出正文、去掉导航和样式；语言识别（FineWeb 举例只保留英语占比超过 65% 的页面，这是产品选择，会直接影响多语言能力）；去重；以及尽量去掉地址、社保号一类个人可识别信息。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=168" target="_blank" rel="noopener noreferrer">0:02:48 ↗</a></p>
+<p>他把前 200 个页面拼在一起给你看：那是一大块“互联网纹理”。接下来的任务，就是让神经网络学会模拟这种纹理如何流动。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=422" target="_blank" rel="noopener noreferrer">0:07:02 ↗</a></p>
+<div class="callout note"><span class="tag y2026">2026 补充</span>我们核到的 FineWeb 官方介绍仍把该数据集写成“最初约 15 万亿 token”。讲座后数据集卡片已写“超过 18.5 万亿（最初 15 万亿）”。44TB 是讲座对当时博文的转述，本篇没有在当前卡片上核到同一磁盘数字。不要把 18.5 万亿写回 2025 年 2 月的口播。</div>
+<div class="mech"><strong>机制</strong>进入模型的不是“整个互联网”，而是被过滤过的文本统计。过滤规则会变成模型的性格和盲区。</div>
+<div class="ex"><strong>例子</strong>若几乎丢掉西班牙语，后来的模型就不太会西语。FineWeb 偏英语，是明确的设计选择。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=306" target="_blank" rel="noopener noreferrer">0:05:06 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>看到“训练数据来自互联网”，不要以为模型在推理时还能上网；那是训练前的离线语料，而且已经损失了大量页面。</div>
+</section>
+
+<section class="chapter" id="ch-token">
+<div class="section-no">03</div>
+<h2>Token：模型真正在读的字母表</h2>
+<p><span class="tag ">讲座原意</span>神经网络要的是<strong>有限符号表上的一维序列</strong>。屏幕上看起来像两维排版，对模型来说只是从左到右、从上到下的一条线。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=470" target="_blank" rel="noopener noreferrer">0:07:50 ↗</a></p>
+<p>若用 UTF-8 看成原始比特，符号只有 0 和 1，序列会极长；而序列长度在这些网络里是稀缺资源。把 8 个比特收成一个字节，符号变成 256 种，长度缩短 8 倍。他特别叮嘱：请把这些数字想成<strong>唯一 ID 或唯一符号</strong>，最好想象成不同的标记，而不是可以拿来做算术的数。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=619" target="_blank" rel="noopener noreferrer">0:10:19 ↗</a></p>
+<p>生产模型还会继续压缩。方法是字节对编码（BPE）：反复找到最常见的相邻符号，合并成新符号。词表变大，序列变短。他给出一个实践上相当好的规模：大约 10 万种符号；具体到 GPT-4，是 <strong>100,277</strong>。这个“从原文到符号、再从符号回到原文”的过程就叫 tokenization。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=662" target="_blank" rel="noopener noreferrer">0:11:02 ↗</a></p>
+<p>演示里他用公开的分词查看工具看 GPT-4 的 <code>CL100KBase</code>： “hello world” 是两个 token（“hello” 编号 15339，以及带空格的 “ world” 编号 1917）。大小写、空格一变，切分就变。他预告后面还会回到切分，因为它能解释拼写和计数上的笨拙。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=740" target="_blank" rel="noopener noreferrer">0:12:20 ↗</a></p>
+<figure id="fig-tokens">
+<div class="svgwrap"><svg viewBox="0 0 760 260" role="img" aria-labelledby="文本如何变成 token-t 文本如何变成 token-d" xmlns="http://www.w3.org/2000/svg"><title id="文本如何变成 token-t">文本如何变成 token</title><desc id="文本如何变成 token-d">从比特、字节到字节对编码，用更大的词表换更短的序列。</desc><rect width="760" height="260" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="40" width="160" height="70" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="100.0" y="68.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">原始文本</text><text x="100.0" y="84.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">一维字符流</text><line x1="180" y1="75" x2="220" y2="75" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="220" y="40" width="160" height="70" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="300.0" y="68.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">UTF-8 比特</text><text x="300.0" y="84.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">只有 0 和 1，序列极长</text><line x1="380" y1="75" x2="420" y2="75" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="420" y="40" width="150" height="70" rx="10" fill="#efe8f4" stroke="#70548a" stroke-width="1.5"/><text x="495.0" y="68.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">字节</text><text x="495.0" y="84.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">256 种符号，短 8 倍</text><line x1="570" y1="75" x2="610" y2="75" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="610" y="40" width="130" height="70" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="675.0" y="68.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">BPE token</text><text x="675.0" y="84.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">约 10 万种符号</text><rect x="20" y="150" width="720" height="80" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="183.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">序列长度是稀缺资源：符号表越大，同一段文字所需的 token 越少</text><text x="380.0" y="199.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">请把这些数字想成唯一 ID，而不是可以加减的量</text></svg></div>
+<ul class="diagram-mobile"><li><strong>问题</strong><span>神经网络要的是有限符号表上的一维序列，不能直接吞整页文字。</span></li><li><strong>比特太长</strong><span>只用 0 和 1，序列会占满宝贵的上下文长度。</span></li><li><strong>字节</strong><span>8 个比特合成 256 种符号，长度缩短 8 倍。</span></li><li><strong>BPE</strong><span>反复合并常见相邻符号，GPT-4 词表讲座给出 100,277。</span></li><li><strong>关键提醒</strong><span>这些编号是唯一 ID，不是算术里的数。</span></li></ul>
+<figcaption>图 2　模型从不直接“看见字母”，它看见的是切好的符号 ID。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=470" target="_blank" rel="noopener noreferrer">0:07:50 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=619" target="_blank" rel="noopener noreferrer">0:10:19 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>模型从不逐字母阅读。它看见的是切好的块。块的边界由压缩效率决定，不必符合人类的单词直觉。</div>
+<div class="ex"><strong>例子</strong>“hello world”、改大写、插入两个空格，会得到不同的 ID 序列。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=763" target="_blank" rel="noopener noreferrer">0:12:43 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要以为模型“看见了单词里的每个字母”。后面草莓单词里有几个 r、以及某些比较大小的事故，都和这一点有关。</div>
+</section>
+
+
+<section class="chapter" id="ch-io">
+<div class="section-no">04</div>
+<h2>预测下一个词：输入、输出和一次示意性更新</h2>
+<p><span class="tag ">讲座原意</span>FineWeb 不仅是约 44TB，讲座转述它还是大约 <strong>15 万亿 token</strong> 的序列。把文本换成 ID 之后，训练要做的事很单纯：建模这些 token 如何一个接一个出现。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=880" target="_blank" rel="noopener noreferrer">0:14:40 ↗</a></p>
+<p>做法是从数据里随机切一段窗口当<strong>上下文</strong>，长度从 0 到某个上限（他举例 8,000，也说 4,000 或 16,000 都常见；再长会非常贵）。网络输出词表里每个 token 的概率。网络一开始是随机的，所以这些概率一开始也接近乱猜。因为窗口来自真实数据，我们其实知道下一个真值。于是有一套数学手续，把正确那个 token 的概率略微推高，把其余的略微压低。对整份数据、在大批窗口上同时这样做，就是训练。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=938" target="_blank" rel="noopener noreferrer">0:15:38 ↗</a></p>
+<div class="prob">示意（来自讲座自己的玩具数字，不是某次真实训练日志）：
+上下文 4 个 token → 网络给真值 token「post」（ID 3962）约 3%
+更新后，同一上下文再次输入 → 该概率或许变成约 4%，其它 token 相应下降
+这只是为了说明“拧旋钮”的方向，不能当成可复现实验。</div>
+<figure id="fig-io">
+<div class="svgwrap"><svg viewBox="0 0 760 300" role="img" aria-labelledby="下一个词如何被预测-t 下一个词如何被预测-d" xmlns="http://www.w3.org/2000/svg"><title id="下一个词如何被预测-t">下一个词如何被预测</title><desc id="下一个词如何被预测-d">上下文进入网络，输出整个词表的概率，再训练或采样。</desc><rect width="760" height="300" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="50" width="200" height="90" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="120.0" y="88.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">上下文</text><text x="120.0" y="104.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">最多约数千到上万 token</text><line x1="220" y1="95" x2="260" y2="95" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="260" y="50" width="200" height="90" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="360.0" y="88.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">神经网络</text><text x="360.0" y="104.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">参数是可拧的旋钮</text><line x1="460" y1="95" x2="500" y2="95" stroke="#155e63" stroke-width="2" marker-end="url(#arr)"/><rect x="500" y="30" width="240" height="130" rx="10" fill="#efe8f4" stroke="#70548a" stroke-width="1.5"/><text x="620.0" y="88.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">词表上的概率</text><text x="620.0" y="104.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">100,277 个数字，和为 1</text><rect x="20" y="200" width="720" height="70" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="235.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">训练：提高“正确答案”的概率　　推理：按概率掷有偏硬币，采一个 token，再接到后面</text></svg></div>
+<ul class="diagram-mobile"><li><strong>输入</strong><span>一段可变长度的 token 上下文，长到预设上限就会被截断。</span></li><li><strong>输出</strong><span>词表里每个可能 token 的概率。</span></li><li><strong>训练</strong><span>已经知道下一个真 token，把这个概率往上推一点。</span></li><li><strong>推理</strong><span>按概率采样，接到上下文里，再预测下一个。</span></li></ul>
+<figcaption>图 3　整场讲座的计算原语：在给定上下文里，为下一个 token 打分。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=870" target="_blank" rel="noopener noreferrer">0:14:30 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1563" target="_blank" rel="noopener noreferrer">0:26:03 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>训练从不要求模型“理解世界”作为显式目标。它只要求：在统计上，把真实语料里的下一词猜得更准。</div>
+<div class="ex"><strong>例子</strong>上面 3% 变 4% 的步进，是他画在屏幕上的教学例子。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1062" target="_blank" rel="noopener noreferrer">0:17:42 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把“概率变高”理解成“它现在确信这是事实”。变高的是“在训练分布里，这个续写更像真实文本”。流畅和正确不是一回事。</div>
+</section>
+
+<section class="chapter" id="ch-net">
+<div class="section-no">05</div>
+<h2>网络内部：旋钮、Transformer，以及原片没展开的地方</h2>
+<p><span class="tag ">讲座原意</span>输入 token 会和网络的<strong>参数 / 权重</strong>一起进入一个巨大的数学表达式。现代网络有数十亿甚至更多参数；一开始它们是随机的，预测也是随机的。训练就是反复更新这些参数，使输出与训练集里的统计模式一致。他把参数比作 DJ 台上的旋钮：拧不同的组合，就会对任意输入序列给出不同的下一词预测。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1213" target="_blank" rel="noopener noreferrer">0:20:13 ↗</a></p>
+<p>他用一个极简式子说明：里面不过是乘、加、指数、除法这类运算。研究架构，是在找既有表达力、又容易优化、还便于并行的表达式，而不是在堆“吓人的数学”。接着他打开一个可视化网站，展示一个约 85,000 参数、名叫 <strong>Transformer</strong> 的网络：token 先被嵌入成向量，再流过层归一化、矩阵乘法、softmax，以及注意力块和多层感知机块。中间数值可以松散地想成“合成神经元的发放率”，但他立刻警告：不要太按生物神经元去想——这些单元非常简单，整份表达式从输入到输出是<strong>无状态、没有记忆</strong>的固定映射。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1389" target="_blank" rel="noopener noreferrer">0:23:09 ↗</a></p>
+<p>然后他明确收住：不打算深讲这些变换的数学细节，也“并不认为那有多重要”。真正要抓住的是——这是一个由固定参数集参数化的数学函数，拧参数会改变预测，训练就是找到一组与数据相符的参数。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1524" target="_blank" rel="noopener noreferrer">0:25:24 ↗</a></p>
+<div class="callout"><span class="tag teach">教学解释</span>原片点到了嵌入、注意力块和 MLP，但没有推导注意力公式。若只需一个工作直觉：注意力让每个位置可以查看上下文里的其它位置并加权混合信息；MLP 再在每个位置上做非线性变换。堆叠多层后，模型能在上下文里做更复杂的组合。这是为了补上下文而写的教学说明，不是讲座推导。</div>
+<div class="mech"><strong>机制</strong>知识并不以“一条条数据库记录”的形式存放。它分布在参数里，只有通过续写才会被调出来。</div>
+<div class="ex"><strong>例子</strong>可视化里那个约 8.5 万参数的小 Transformer，只是为了让你看见信息如何从输入流到下一词概率。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1399" target="_blank" rel="noopener noreferrer">0:23:19 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要因为出现了“注意力”“神经元”这些词，就以为已经理解了实现细节；也不要把无状态的前向计算，想成一个能在权重里“当场记事”的大脑。</div>
+</section>
+
+<section class="chapter" id="ch-infer">
+<div class="section-no">06</div>
+<h2>推理：掷一枚有偏的硬币</h2>
+<p><span class="tag ">讲座原意</span>训练之外，还有一个同样重要的阶段：<strong>推理</strong>，也就是从模型生成新数据。给一个前缀，网络吐出下一词的概率分布；你按这个分布采样——他比喻成掷一枚有偏硬币——得到一个具体 token，接到后面，再问下一个。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1563" target="_blank" rel="noopener noreferrer">0:26:03 ↗</a></p>
+<p>采样是随机的。有时会碰巧复现训练集里的一小段，有时会走到训练集里从未原样出现过的 token，于是很快生成“风格相近、但并非逐字复制”的文本。他称之为对训练数据的 remix，统计性质相似，但并不等同。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1694" target="_blank" rel="noopener noreferrer">0:28:14 ↗</a></p>
+<p>流程上，下载互联网并分词通常只做一次；然后你会训练许多不同设置的网络；一旦得到一组满意的参数，就冻结它们，专门做推理。你和 ChatGPT 对话时，模型可能几个月前就已经训练完毕，<strong>不再发生训练</strong>，只是在补全 token。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1791" target="_blank" rel="noopener noreferrer">0:29:51 ↗</a></p>
+<figure id="fig-train-infer">
+<div class="svgwrap"><svg viewBox="0 0 760 270" role="img" aria-labelledby="训练与推理的分界-t 训练与推理的分界-d" xmlns="http://www.w3.org/2000/svg"><title id="训练与推理的分界-t">训练与推理的分界</title><desc id="训练与推理的分界-d">训练改变参数，推理冻结参数，只在上下文里续写。</desc><rect width="760" height="270" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="30" y="40" width="320" height="200" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="190.0" y="140.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700"></text><rect x="410" y="40" width="320" height="200" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="570.0" y="140.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700"></text><text x="190" y="70" text-anchor="middle" font-size="16" font-weight="700" font-family="system-ui,sans-serif" fill="#155e63">训练</text><text x="570" y="70" text-anchor="middle" font-size="16" font-weight="700" font-family="system-ui,sans-serif" fill="#9a3b1a">推理</text><text x="190" y="110" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">数据已知，标签是“下一个词”</text><text x="190" y="140" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">更新参数（拧旋钮）</text><text x="190" y="170" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">看 loss 是否下降</text><text x="190" y="200" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">可耗时数月、数千台机器</text><text x="570" y="110" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">参数已经固定，不再学习</text><text x="570" y="140" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">只做前向计算并采样</text><text x="570" y="170" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">你和 ChatGPT 聊天就在这里</text><text x="570" y="200" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">同一前缀每次可能不同</text></svg></div>
+<ul class="diagram-mobile"><li><strong>训练</strong><span>根据数据更新参数，目标是让下一词预测更准。</span></li><li><strong>推理</strong><span>参数冻结，只根据当前上下文采样。</span></li><li><strong>使用产品时</strong><span>你看到的生成几乎全是推理，不是现场训练。</span></li><li><strong>随机性</strong><span>同一前缀多次采样，会走到不同的后续。</span></li></ul>
+<figcaption>图 4　“训练时在学，使用时在掷骰子”。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1563" target="_blank" rel="noopener noreferrer">0:26:03 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1829" target="_blank" rel="noopener noreferrer">0:30:29 ↗</a></figcaption>
+</figure>
+
+<p>为把这件事做实，他展示了自己用 llm.c 复现 GPT-2 的训练现场。GPT-2（2019）被他称作“第一次拼出可辨认的现代技术栈”：Transformer，约 16 亿参数（稍后讲到正式发布时，他改口并强调发布的是约 <strong>15 亿</strong> 参数的基座模型），最大上下文 1,024，大约在 1,000 亿 token 上训练。以今天标准，这些都偏小：现代上下文可到几十万甚至号称百万，FineWeb 这类数据已是 15 万亿量级。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1870" target="_blank" rel="noopener noreferrer">0:31:10 ↗</a></p>
+<p>他引用的成本对照是：2019 年训练 GPT-2 估计约 4 万美元；他这次复现大约一天、约 600 美元，而且“还没怎么拼命”，觉得当时已经有望降到约 100 美元。原因主要是数据过滤更精，以及硬件和软件都快了很多。现场每一行是一次更新，每次在约 100 万个 token 上同时改进预测，大约 7 秒一步，计划 32,000 步，合计约 330 亿 token。研究人员盯着的是 loss：越低越好，对应下一词预测更准。每隔 20 步他会做一次推理，看模型胡乱续写得像不像话。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2010" target="_blank" rel="noopener noreferrer">0:33:30 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2118" target="_blank" rel="noopener noreferrer">0:35:18 ↗</a></p>
+<div class="callout note"><span class="tag ">讲座原意</span>这组 600 美元、100 万 token / 7 秒、32,000 步的数字，描述的是他<strong>自己的复现实验</strong>，不是 OpenAI 当年训练 GPT-2 的原始日志。</div>
+<div class="mech"><strong>机制</strong>训练在改旋钮；推理在旋钮固定后采样。随机采样解释了“同一提示，多次回答可以分叉”。</div>
+<div class="ex"><strong>例子</strong>他在讲解里把序列采到一个并非原数据里的 “article”，以说明生成是 remix，不是复读机。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1674" target="_blank" rel="noopener noreferrer">0:27:54 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>讲座几乎没有单独讲温度（temperature）这类采样旋钮。<span class="tag teach">教学解释</span>产品里常见的温度，只是在更“尖”或更“平”的分布之间选择，不宜当成讲座原话。</div>
+</section>
+
+
+<section class="chapter" id="ch-base">
+<div class="section-no">07</div>
+<h2>基座模型：昂贵的自动补全，有损的互联网压缩</h2>
+<p><span class="tag ">讲座原意</span>预训练结束得到的是<strong>基座模型</strong>：互联网文本的 token 模拟器。它还不是助手。问“二加二等于几”，它不会规规矩矩回答“四，还需要什么帮助”，而会把这串字当成前缀，按网页语料的统计往下续。他称之为“非常昂贵的自动补全”。同一前缀每次采样都会走向不同领地，因为它是随机系统，而且每次几乎从零开始。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2603" target="_blank" rel="noopener noreferrer">0:43:23 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2868" target="_blank" rel="noopener noreferrer">0:47:48 ↗</a></p>
+<p>尽管如此，为了把下一词预测好，模型已经在参数里储存了大量关于世界的统计知识。他把 Llama 3.1 的 <strong>4,050 亿</strong> 参数（在约 15 万亿 token 上训练，由 Meta 发布）比作互联网的压缩包：不是无损压缩，而是有损的，留下的是一种 gestalt（总体印象）。常见的内容更容易被“记对”，罕见的内容更不可信，因为信息并不是显式存储的条目，只是模糊的回忆。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3010" target="_blank" rel="noopener noreferrer">0:50:10 ↗</a></p>
+<p>要引出这些知识，需要把提示写成“像文档的开头”。例如用“巴黎十大必看地标如下”去引诱它续写清单。结果可能大致对，但不能当百科全书。他进一步演示：把维基百科《斑马》条目的第一句贴进去，基座模型可以接着把条目写得很像；但若问它训练截止之后的选举，它会生成不同的平行宇宙，而且每次采样都不一样——因为它没有实时记忆，只会按“选举报道通常长什么样”去编。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3034" target="_blank" rel="noopener noreferrer">0:50:34 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3128" target="_blank" rel="noopener noreferrer">0:52:08 ↗</a></p>
+<p>哪怕只有基座模型，也可以用<strong>上下文里的示范</strong>让它扮演助手：先写几轮“人类 / 助手”对话，再提出真正的问题。他甚至让 ChatGPT 帮忙写这样的前缀，然后问“为什么天是蓝的”，模型会按助手口吻谈到瑞利散射。若去掉这些示范、只丢一句问题，基座模型又会乱跑。这已经是在用上下文做工作记忆，但还很脆弱，助手人格并不稳定。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3451" target="_blank" rel="noopener noreferrer">0:57:31 ↗</a></p>
+<p><span class="tag ">讲座原意</span>发布一个基座模型，通常需要两样东西：描述网络如何连接的代码（往往只有几百行），以及那一长串已经调好的参数。价值主要在后者。基座模型很少被单独发布，因为它只是走向助手的第一步。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2656" target="_blank" rel="noopener noreferrer">0:44:16 ↗</a></p>
+<div class="mech"><strong>机制</strong>预训练把互联网压进参数；基座模型会“做梦般”生成网页，而不是回答问题。上下文里的示范可以暂时借来助手外形，但那不是后训练装上的稳定人格。</div>
+<div class="ex"><strong>例子</strong>在 Hyperbolic 上必须明确选择 Llama 3.1 405B 的 <strong>base</strong> 而不是 instruct，才能看到这种“不是助手”的行为。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=2823" target="_blank" rel="noopener noreferrer">0:47:03 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把基座模型偶尔答对“二加二”当成它已经是产品助手；也不要把有损压缩里的模糊回忆，当成可引用的事实库。</div>
+</section>
+
+<section class="chapter" id="ch-sft">
+<div class="section-no">08</div>
+<h2>监督微调：如何把助手装上去</h2>
+<p><span class="tag ">讲座原意</span>要的不是再生成网页，而是多轮对话里的助手：会回答“二加二”，也会在不该帮忙时拒绝。神经网络无法用传统 if-else 直接编程这种行为，只能通过数据来隐式编程。于是把预训练用的互联网文档集<strong>丢掉</strong>，换上一份人类与助手的对话集，继续训练。模型会很快转向新的统计，在推理时模仿标注员在同类情境下会写的回复。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3667" target="_blank" rel="noopener noreferrer">1:01:07 ↗</a></p>
+<p>算力对比很悬殊：预训练在实践中可能大约三个月、数千台机器；后训练往往短得多，他举例大约三小时，因为对话集比互联网小很多。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=3851" target="_blank" rel="noopener noreferrer">1:04:11 ↗</a></p>
+<p>数据从哪里来？经典公开说明来自 InstructGPT：公司雇用承包商（讲座提到 Upwork、Scale AI）按标注说明书撰写提示和“理想助手回复”。说明书要求有帮助、诚实、无害，真实文档可以长达数百页。公开可参考的复现数据集他提到 OpenAssistant。现代数据则大量借助模型起草、再经人编辑，UltraChat 是其中一个例子，话题非常多样。多样性让人格能泛化到从未见过的提示。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4241" target="_blank" rel="noopener noreferrer">1:10:41 ↗</a></p>
+<p>这引出全片最“泄气”也最清醒的一句：你并不是在和一个魔法 AI 说话，而大致是在和一个<strong>平均标注员</strong>的即时模拟说话。这个人往往受过相当训练，代码问题甚至可能来自专家标注；但如果某个问题就在微调集里，你看到的回答很可能接近当时那份“标准答案”。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4641" target="_blank" rel="noopener noreferrer">1:17:21 ↗</a></p>
+<div class="callout"><span class="tag third">第三方解读</span>Understanding Machine 的导读把这一段称为整场讲座的情感中心：助手人格来自受雇写作者和公司说明书，而不是一个内在自我。本篇同意这个读法，但仍以口播为准。</div>
+<div class="mech"><strong>机制</strong>同一套下一词训练，换了对话数据，模型就学会“助手该怎么说话”，包括拒绝。</div>
+<div class="ex"><strong>例子</strong>标注说明书里对“有帮助 / 诚实 / 无害”的优先级，会直接变成产品后来的拒答风格。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4241" target="_blank" rel="noopener noreferrer">1:10:41 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把流畅、有礼貌、会拒绝，自动理解成“它真的理解并认同这些原则”。它首先是在模仿示范的统计形状。</div>
+</section>
+
+
+<section class="chapter" id="ch-halluc">
+<div class="section-no">09</div>
+<h2>幻觉、工具，以及两种完全不同的记忆</h2>
+<p><span class="tag ">讲座原意</span>他从这里进入所谓的模型“心理学”：训练流水线带来的涌现认知效应。第一件是幻觉——模型一本正经地编造。早期助手这个问题很严重，后来有所缓解，但他先要解释它为什么几乎不可避免。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4834" target="_blank" rel="noopener noreferrer">1:20:34 ↗</a></p>
+<p>设想微调集里全是“某某人是谁”的问答：汤姆·克鲁斯、某位参议员、成吉思汗。标注员要么本来知道，要么会去查，然后写出自信、完整的答案。到了测试时，你拿一个他随口编的名字 Orson Kovats 去问。即便网络内部某处“感觉这个名字不熟”，它也往往不会说“我不知道”——因为训练里这类问题都是被自信答完的。它会接过那种腔，给出统计上最像那么回事的猜测。这些系统默认并不联网，他称之为 statistical token tumblers：只是在采样下一个 token。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4877" target="_blank" rel="noopener noreferrer">1:21:17 ↗</a></p>
+<p>演示里，较老的 Falcon 7B Instruct 把这个不存在的人说成美国科幻作家、1950 年代剧中角色、前小联盟球员，每次都不一样。更新的 ChatGPT 在他禁止使用工具时，可以承认自己并不认识这个人；若允许搜索，则会先发出搜索，再根据塞进上下文的网页来引用。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4999" target="_blank" rel="noopener noreferrer">1:23:19 ↗</a></p>
+<p>如何缓解？一条路是教会模型“在自己确实不知道时说不知道”。他举 Meta 在 Llama 3 系列上的做法：用文档生成问答，多次询问模型，再用模型评判对错；若经常答错，就把“我不知道”写进训练。另一条路是工具：模型发出特殊 token，推理程序暂停，去执行搜索，把网页文本塞回上下文，模型再基于这些可见材料作答并引用。只需相对少量的示范对话，模型就能学会在不该仅靠回忆时去检索。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5122" target="_blank" rel="noopener noreferrer">1:25:22 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5687" target="_blank" rel="noopener noreferrer">1:34:47 ↗</a></p>
+<p>由此得到全片最重要的对比之一：<strong>参数里的知识是模糊回忆；上下文窗口里的知识是工作记忆。</strong> 这很像人：很久以前读过的书对不上原文，刚摊在桌上的材料却可以准确引用。实践含义是：让它“总结《傲慢与偏见》第一章”，对名著也许还过得去；把这一章贴进上下文，会可靠得多。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5963" target="_blank" rel="noopener noreferrer">1:39:23 ↗</a></p>
+<figure id="fig-memory">
+<div class="svgwrap"><svg viewBox="0 0 760 310" role="img" aria-labelledby="两种记忆与工具环-t 两种记忆与工具环-d" xmlns="http://www.w3.org/2000/svg"><title id="两种记忆与工具环-t">两种记忆与工具环</title><desc id="两种记忆与工具环-d">参数是模糊回忆，上下文是工作记忆，工具把外部信息贴进后者。</desc><rect width="760" height="310" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="40" width="300" height="120" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="170.0" y="93.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">参数里的知识</text><text x="170.0" y="109.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">模糊的长期记忆 / 有损压缩</text><rect x="440" y="40" width="300" height="120" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="590.0" y="93.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">上下文里的知识</text><text x="590.0" y="109.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">工作记忆，当下看得见</text><text x="380" y="100" text-anchor="middle" font-size="13" font-weight="700" font-family="system-ui,sans-serif" fill="#155e63">不是同一种记忆</text><rect x="20" y="190" width="720" height="90" rx="10" fill="#efe8f4" stroke="#70548a" stroke-width="1.5"/><text x="380.0" y="228.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">工具环：模型发出特殊 token → 程序暂停并检索 → 把结果塞回上下文 → 再继续写</text><text x="380.0" y="244.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">一旦进了上下文，就从“模糊回忆”变成“工作记忆”</text></svg></div>
+<ul class="diagram-mobile"><li><strong>参数</strong><span>像读过很久的书，只剩模糊印象，常见的记得较牢。</span></li><li><strong>上下文</strong><span>像刚摊开在桌上的材料，容易被准确引用。</span></li><li><strong>工具</strong><span>模型决定去搜索或写代码，程序把结果粘贴回上下文。</span></li><li><strong>实践</strong><span>重要原文尽量贴进去，不要只靠它“还记得”。</span></li></ul>
+<figcaption>图 5　讲座后半场最重要的心理模型之一。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5963" target="_blank" rel="noopener noreferrer">1:39:23 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5687" target="_blank" rel="noopener noreferrer">1:34:47 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>幻觉常常不是“坏了的记忆芯片”，而是在模仿“自信作答”的文体。工具并不改写权重，它只是把新证据放进工作记忆。</div>
+<div class="ex"><strong>例子</strong>Orson Kovats 这个不存在的名字，把“风格模仿 vs 事实知道”拆得很清楚。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5011" target="_blank" rel="noopener noreferrer">1:23:31 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要以为模型说“我不知道”就证明它有内省。那通常是后训练里被明确教会、或被工具流程接住的行为。也不要把一次成功的网页引用，理解成参数里已经存了这份网页。</div>
+</section>
+
+<section class="chapter" id="ch-self">
+<div class="section-no">10</div>
+<h2>自我认知是外挂上去的</h2>
+<p><span class="tag ">讲座原意</span>“你是什么模型、谁造了你”这类问题，在他看来有点不像话：这个东西不是人，没有持续存在，它为每次对话启动、处理 token、再关闭，上下文用完就删。没有持久自我。若不去专门编程，它会给出统计上最常见的自我介绍。较老的 Falcon 会自称由 OpenAI 基于 GPT-3 打造——这更可能是因为互联网上充满 ChatGPT 的自述，而不是它真的用了 OpenAI 的内部数据。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6107" target="_blank" rel="noopener noreferrer">1:41:47 ↗</a></p>
+<p>开发者可以覆盖这一点。他举 Allen AI 的 OLMo：在约 100 万段微调对话里，有 <strong>240</strong> 段是写死的自我介绍（“我是 OLMo，由 AI2 开发……”）。用这些对话微调后，模型就会复述它们；若不提供，它大概又会自称某种 ChatGPT。另一种办法是隐藏的<strong>系统消息</strong>：在人类可见的对话开始前，把“你是某某、知识截止于某日”作为 token 放进上下文。你看到空白页，这些 token 其实已经在工作记忆里。两种办法都是外挂的，并不是人那种深层的自我。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6279" target="_blank" rel="noopener noreferrer">1:44:39 ↗</a></p>
+<div class="mech"><strong>机制</strong>身份要么来自微调里的示范，要么来自上下文里看不见的系统消息。它不是模型“记得自己是谁”。</div>
+<div class="ex"><strong>例子</strong>OLMo 的 240 段写死对话，把“自我”还原成了训练数据里的问答对。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6297" target="_blank" rel="noopener noreferrer">1:44:57 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把模型的自我介绍当成家谱证据，也不要因为系统消息能改口，就以为它有了连续人格。</div>
+</section>
+
+<section class="chapter" id="ch-think">
+<div class="section-no">11</div>
+<h2>模型需要 token 来思考</h2>
+<p><span class="tag ">讲座原意</span>这一段讨论模型在解题时的“原生计算能力”。设想要为微调集写一道简单应用题：Emily 买 3 个苹果和 2 个橙子，橙子每个 2 美元，总共 13 美元，苹果多少钱？左右两个答案都写“3 美元”，但其中一个会把模型教坏。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6416" target="_blank" rel="noopener noreferrer">1:46:56 ↗</a></p>
+<p>关键在于：模型严格从左到右、一次一个 token 地工作。每生成一个新 token，上下文都要过一遍网络。这个网络的层数是有限的——他指着演示里大约 3 层的小模型，并说现代网络更像“比如说 100 层左右”。因此每个 token 只能做<strong>大致固定、而且并不很大</strong>的计算（上下文变长会稍贵一点，但直觉上仍应看成每步预算有限）。不能指望它在一次前向里完成任意复杂的跳跃。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6560" target="_blank" rel="noopener noreferrer">1:49:20 ↗</a></p>
+<p>如果标签是“答案是 3 美元”然后才解释，模型必须在写出“3”的那一步把全部算术塞进去；后面的文字只是事后说明，因为答案已经进入上下文。更好的标签是把中间量写出来：橙子共 4 美元，13 减 4 得 9，再得到每个苹果 3 美元。每一步都很容易，先前结果成了工作记忆。他提醒：ChatGPT 慢慢展开式子，“这些不是写给你看的，是写给模型自己的”。若不允许中间步骤，简单数字或许还能蒙对；他把数字改成 23 个苹果和 177 个橙子后，一次性作答就错了，而允许逐步计算后又做对了。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6667" target="_blank" rel="noopener noreferrer">1:51:07 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6819" target="_blank" rel="noopener noreferrer">1:53:39 ↗</a></p>
+<p>即便逐步计算，他也不完全信任“心算”。更稳妥的是让模型调用代码工具，把算术交给 Python 解释器，人还可以检查这段代码。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6958" target="_blank" rel="noopener noreferrer">1:55:58 ↗</a></p>
+<figure id="fig-think">
+<div class="svgwrap"><svg viewBox="0 0 760 270" role="img" aria-labelledby="模型需要 token 来思考-t 模型需要 token 来思考-d" xmlns="http://www.w3.org/2000/svg"><title id="模型需要 token 来思考-t">模型需要 token 来思考</title><desc id="模型需要 token 来思考-d">单步计算量有限，推理必须摊到一串中间 token 上。</desc><rect width="760" height="270" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="30" width="720" height="50" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="55.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">每个新 token 大约只经过有限层计算（讲座举例：现代网络约 100 层量级）</text><rect x="20" y="110" width="340" height="130" rx="10" fill="#f6ece8" stroke="#9a3b1a" stroke-width="1.5"/><text x="190.0" y="168.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">坏示范</text><text x="190.0" y="184.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">立刻写出“答案是 3”再解释</text><rect x="400" y="110" width="340" height="130" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="570.0" y="168.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">好示范</text><text x="570.0" y="184.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">把中间步骤铺在 token 序列里</text><text x="190" y="200" text-anchor="middle" font-size="12" font-family="system-ui,sans-serif" fill="#5a6b6e">答案一旦写出，后面只是事后说明</text><text x="570" y="200" text-anchor="middle" font-size="12" font-family="system-ui,sans-serif" fill="#5a6b6e">每一步只需做一点点计算</text></svg></div>
+<ul class="diagram-mobile"><li><strong>有限计算</strong><span>每个 token 的前向计算层数有限，做不了任意复杂的一步跃迁。</span></li><li><strong>坏标签</strong><span>先给答案再解释，等于要求模型在一个 token 里做完全部算术。</span></li><li><strong>好标签</strong><span>把中间结果写出来，计算被摊到许多容易的小步上。</span></li><li><strong>给用户看？</strong><span>这些步骤主要是写给模型自己的，不是为了排版好看。</span></li></ul>
+<figcaption>图 6　“这些不是写给你看的，是写给模型自己的。”<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6560" target="_blank" rel="noopener noreferrer">1:49:20 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6819" target="_blank" rel="noopener noreferrer">1:53:39 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>就本节的逐步作答示例而言，中间计算是被摊到随后<strong>生成的 token</strong>上的。这些中间推理 token 不一定会展示给用户；模型写出来的解释，也不等于它内部完整的计算过程。把步骤铺开，首先是在分配生成阶段的计算，而不仅仅是文风。</div>
+<div class="ex"><strong>例子</strong>同一道题，禁止中间步骤后在大数字上失败，允许展开后成功。这是现场演示，不是我们另行实测。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6865" target="_blank" rel="noopener noreferrer">1:54:25 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把“请逐步思考”只当成提示技巧；也不要因为看到一长串推理文字，就自动相信每一步算术都对。需要可靠计算时，把它交给工具。</div>
+</section>
+
+
+<section class="chapter" id="ch-jagged">
+<div class="section-no">12</div>
+<h2>拼写、9.11，以及瑞士奶酪式的智力</h2>
+<p><span class="tag ">讲座原意</span>模型还有许多认知缺口，是这种技术的锋利边缘。它们不看字符，只看 token，所以对拼写、取字母一类任务天生吃力。人看见 ubiquitous，可以轻松指出第几个字母；模型可能把它看成三个 token，内部并没有一张清晰的字母表。著名的“strawberry 里有几个 r”曾经反复让模型出丑；到他录制时，模型已经常常能答对三个 r，但这类任务仍不该被默认期望成功。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7272" target="_blank" rel="noopener noreferrer">2:01:12 ↗</a></p>
+<p>计数也是同一类问题：数清一长串点或字母，需要的计算量可能超出单个（或过少的）token 预算。然后是更奇怪的例子：模型有时会判断 9.11 比 9.9 大，并给出一套说辞，稍后又可能改口。他称这件事有点让人挠头，并转述：有团队深入研究过，但<strong>他本人没有读那篇论文</strong>；该团队告诉他，检查激活时，通常与圣经章节标记相关的神经元会被点亮，模型仿佛把 9.11 看成了章节号，在那种排序里 9.11 会排在 9.9 后面。这是讲者对团队说法的转述，不是定论；他也说这件事仍不完全说得通、尚未被完全理解。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7532" target="_blank" rel="noopener noreferrer">2:05:32 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7578" target="_blank" rel="noopener noreferrer">2:06:18 ↗</a></p>
+<p>他用“参差的智力 / 瑞士奶酪”来收束：模型可以在化学、生物这类问题上超过他，却在这类简单比较上突然摔倒。空洞不是整齐地分布在“低难度”一侧，而会随机出现。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7494" target="_blank" rel="noopener noreferrer">2:04:54 ↗</a></p>
+<figure id="fig-cheese">
+<div class="svgwrap"><svg viewBox="0 0 760 320" role="img" aria-labelledby="瑞士奶酪式能力-t 瑞士奶酪式能力-d" xmlns="http://www.w3.org/2000/svg"><title id="瑞士奶酪式能力-t">瑞士奶酪式能力</title><desc id="瑞士奶酪式能力-d">整体很强，但会在无法预知的地方突然出现空洞。</desc><rect width="760" height="320" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="30" y="40" width="700" height="70" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="380.0" y="75.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">整体能力很强：跨很多学科都能给出像样的答案</text><rect x="30" y="130" width="200" height="90" rx="10" fill="#f6ece8" stroke="#9a3b1a" stroke-width="1.5"/><text x="130.0" y="168.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">随机空洞</text><text x="130.0" y="184.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">计数、拼写</text><rect x="260" y="130" width="200" height="90" rx="10" fill="#f6ece8" stroke="#9a3b1a" stroke-width="1.5"/><text x="360.0" y="168.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">随机空洞</text><text x="360.0" y="184.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">9.11 与 9.9</text><rect x="490" y="130" width="240" height="90" rx="10" fill="#f6ece8" stroke="#9a3b1a" stroke-width="1.5"/><text x="610.0" y="168.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">随机空洞</text><text x="610.0" y="184.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">偶发幻觉或算错</text><rect x="30" y="240" width="700" height="50" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="265.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">用法：当工具箱里的工具，检查后再对结果负责</text></svg></div>
+<ul class="diagram-mobile"><li><strong>整体</strong><span>模型在很多专业问题上可以很强。</span></li><li><strong>空洞</strong><span>计数、拆字、简单比较也可能突然失手。</span></li><li><strong>不可完全预测</strong><span>这些空洞不像固定考题，会显得“聪明却离谱”。</span></li><li><strong>用法</strong><span>当工具使用，检查工作，对最终产物负责。</span></li></ul>
+<figcaption>图 8　瑞士奶酪是讲座收尾时反复使用的比喻。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7493" target="_blank" rel="noopener noreferrer">2:04:53 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12373" target="_blank" rel="noopener noreferrer">3:26:13 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>切分把字符焊死在块里；有限的逐步计算不适合精确计数；个别比较还会被训练里的其它模式带走。</div>
+<div class="ex"><strong>例子</strong>strawberry 的 r、9.11 对 9.9，是他用来说明“整体很强、局部突然很笨”的公开案例。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7425" target="_blank" rel="noopener noreferrer">2:03:45 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7532" target="_blank" rel="noopener noreferrer">2:05:32 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要用一道小学题失败，就全面否定模型；也不要用一道专业题成功，就推断它在所有简单题上可靠。</div>
+</section>
+
+<section class="chapter" id="ch-rl">
+<div class="section-no">13</div>
+<h2>强化学习、DeepSeek-R1，以及 AlphaGo 的第 37 手</h2>
+<p><span class="tag ">讲座原意</span>要把最后这段组织起来，他用了上学的类比。教科书里有正文（对应预训练：先广泛接触材料），有例题和详细解法（对应监督微调：专家把步骤写给你看），还有只给最终答案的练习（对应强化学习：你自己做，再对照对错）。监督微调的缺点是：人写的“理想解法”未必是模型容易走的路，因为模型的认知不是人的认知。所以要让模型自己尝试许多条 token 序列，留下对它真正有用的。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7875" target="_blank" rel="noopener noreferrer">2:11:15 ↗</a></p>
+<figure id="fig-school">
+<div class="svgwrap"><svg viewBox="0 0 760 300" role="img" aria-labelledby="上学类比-t 上学类比-d" xmlns="http://www.w3.org/2000/svg"><title id="上学类比-t">上学类比</title><desc id="上学类比-d">预训练像读书，微调像看例题，强化学习像做只有答案的练习。</desc><rect width="760" height="300" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="50" width="230" height="140" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="135.0" y="113.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">教科书正文</text><text x="135.0" y="129.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">预训练：先接触大量材料</text><rect x="265" y="50" width="230" height="140" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="380.0" y="113.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">例题与详解</text><text x="380.0" y="129.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">监督微调：专家写好的解法</text><rect x="510" y="50" width="230" height="140" rx="10" fill="#efe8f4" stroke="#70548a" stroke-width="1.5"/><text x="625.0" y="113.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">只有答案的练习</text><text x="625.0" y="129.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">强化学习：自己摸索再对照</text><rect x="20" y="210" width="720" height="60" rx="10" fill="#fff" stroke="#d6d0c4" stroke-width="1.5"/><text x="380.0" y="240.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">人写的“理想解法”未必是模型容易走的路，所以需要让它自己练</text></svg></div>
+<ul class="diagram-mobile"><li><strong>正文</strong><span>预训练提供广博但不针对解题步骤的材料。</span></li><li><strong>例题</strong><span>监督微调提供人类专家的完整解法。</span></li><li><strong>练习</strong><span>强化学习只给对错，让模型发现对自己有效的 token 序列。</span></li><li><strong>为何需要第三步</strong><span>人不知道哪条推理路径对模型最容易。</span></li></ul>
+<figcaption>图 9　讲座用来组织最后三分之一的类比。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=7875" target="_blank" rel="noopener noreferrer">2:11:15 ↗</a></figcaption>
+</figure>
+
+<p>在可验证领域——数学、代码，对错可以自动判定——做法是：对同一道题采样许多条解答，做对的轨迹被加强，做错的被减弱。模型于是会发现对自己有效的推理过程，而不只是背诵某位标注员的写法。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=8082" target="_blank" rel="noopener noreferrer">2:14:42 ↗</a></p>
+<p>DeepSeek-R1 是他录制前不久公开的例子：这是开放权重模型，任何人可以下载（完整精度未必能在消费级机器上跑）。随着这种训练，模型不仅准确率上升，回答也变长，并出现自发的回看、重算、换一种思路。讲座引用了“等等，这是 aha moment”一类痕迹。他把这称作模型在发现“认知策略”：如何从不同角度操纵问题。没有人把这些行为写成示范，它们是被“答对就奖励”逼出来的。思考模型会先花时间推理，再给答案；他以 OpenAI 的 o1 / o3 系列为例，并说当时的 GPT-4o 等并不是思考模型。需要更强推理时，他会选思考模型，也接受更长的等待。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=8867" target="_blank" rel="noopener noreferrer">2:27:47 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9077" target="_blank" rel="noopener noreferrer">2:31:17 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9437" target="_blank" rel="noopener noreferrer">2:37:17 ↗</a></p>
+<p>他特别说：当时 Gemini 已提供思考模型，<strong>Anthropic 当时还没有</strong>。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9699" target="_blank" rel="noopener noreferrer">2:41:39 ↗</a></p>
+<div class="callout note"><span class="tag y2026">2026 补充</span>“Anthropic 目前不提供思考模型”是 2025 年 2 月的现场判断。此后 Claude 等产品已出现扩展思考一类能力。不要把这句话当成 2026 年的产品事实。Understanding Machine 的导读也提醒：框架仍成立，若干产品细节已经过时。</div>
+<p>强化学习能超越“模仿人类”的上限，并不是新发现。他回到 AlphaGo：先模仿人类棋谱，再靠自我对弈突破，包括对李世石（转录里一度误成 Lisa Dole）的第 37 手——事后看很高明、当时却不像人类会下的棋。开域问题上，类似的“人类从未想过的类比”在原则上是可能的，但当时仍很早期，主要在可验证领域发光。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9728" target="_blank" rel="noopener noreferrer">2:42:08 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9929" target="_blank" rel="noopener noreferrer">2:45:29 ↗</a></p>
+<figure id="fig-rl">
+<div class="svgwrap"><svg viewBox="0 0 760 270" role="img" aria-labelledby="两种强化学习-t 两种强化学习-d" xmlns="http://www.w3.org/2000/svg"><title id="两种强化学习-t">两种强化学习</title><desc id="两种强化学习-d">可验证奖励的强化学习，与偏好奖励的 RLHF；两者都包含强化学习，差别在奖励来源和优化风险。</desc><rect width="760" height="270" fill="#fffaf1"/><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#155e63"/></marker></defs><rect x="20" y="40" width="350" height="200" rx="10" fill="#e7efec" stroke="#155e63" stroke-width="1.5"/><text x="195.0" y="133.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">可验证奖励的 RL</text><text x="195.0" y="149.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">数学、代码等有标准答案</text><rect x="390" y="40" width="350" height="200" rx="10" fill="#f4eadb" stroke="#9a3b1a" stroke-width="1.5"/><text x="565.0" y="133.0" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430" font-weight="700">偏好奖励的 RLHF</text><text x="565.0" y="149.0" text-anchor="middle" font-size="11" font-family="system-ui,sans-serif" fill="#5a6b6e">用模拟器近似人类排序</text><text x="195" y="120" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">采样许多条解答</text><text x="195" y="148" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">对了就加强，错了就减弱</text><text x="195" y="176" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">可出现回看、重算等策略</text><text x="195" y="204" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">理论上可超过模仿上限</text><text x="565" y="120" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">人给若干回答排序</text><text x="565" y="148" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">训练奖励模型来模拟打分</text><text x="565" y="176" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">奖励可被钻空子</text><text x="565" y="204" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#102430">只能跑不长的一小段</text></svg></div>
+<ul class="diagram-mobile"><li><strong>可验证奖励的 RL</strong><span>题目有对错。模型自己尝试，做对的轨迹被加强。</span></li><li><strong>偏好奖励的 RLHF</strong><span>没有标准答案时，用奖励模型模拟人类排序，再对这个模拟器做强化学习。</span></li><li><strong>陷阱</strong><span>奖励模型是有损模拟，优化久了会被钻空子。</span></li><li><strong>讲座判断</strong><span>他因代理奖励可被钻空子，个人评价 RLHF“不太算真正的强化学习”，更像一次小微调；这不是技术分类定义。</span></li></ul>
+<figcaption>图 7　左列是可验证奖励的 RL，右列是偏好奖励的 RLHF；奖励来源和优化风险不同。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=8082" target="_blank" rel="noopener noreferrer">2:14:42 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10388" target="_blank" rel="noopener noreferrer">2:53:08 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11173" target="_blank" rel="noopener noreferrer">3:06:13 ↗</a></figcaption>
+</figure>
+
+<div class="mech"><strong>机制</strong>有标准答案时，奖励可以直接打在结果上，过程可以由模型自己长出来。这与“抄专家的解题步骤”不是同一件事。</div>
+<div class="ex"><strong>例子</strong>R1 轨迹里的停顿和重算，以及 AlphaGo 第 37 手，是他用来说明“发现策略、而不只是复述”的两条证据。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9080" target="_blank" rel="noopener noreferrer">2:31:20 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=9929" target="_blank" rel="noopener noreferrer">2:45:29 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把思考模型多出来的等待，理解成它在权重里临时学习；那主要是在生成更多中间 token，也就是用推理时计算换准确率。也不要把原则上可能出现的“第 37 手”，说成已经在开放领域里被稳定观察到。</div>
+</section>
+
+<section class="chapter" id="ch-rlhf">
+<div class="section-no">14</div>
+<h2>RLHF：没有标准答案时的技巧，以及它的陷阱</h2>
+<p><span class="tag ">讲座原意</span>到此为止，强化都发生在可验证领域。创意写作、总结、讲笑话没有标准答案。他以“写一个关于鹈鹕的笑话”为例：模型可以生成很多笑话，但无法自动判定哪个更好。若每次都请人打分，又太贵，不可扩展。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10108" target="_blank" rel="noopener noreferrer">2:48:28 ↗</a></p>
+<p>于是有强化学习从人类反馈（RLHF，OpenAI 当时的论文，部分作者后来参与创办 Anthropic）。做法是：对人来说，给若干回答<strong>排序</strong>比直接打精确分数更容易，也比自己写一个更好的回答更便宜。用这些排序训练另一个网络——奖励模型——去模仿人类打分；再让主模型对这个奖励模型做优化。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10284" target="_blank" rel="noopener noreferrer">2:51:24 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10357" target="_blank" rel="noopener noreferrer">2:52:37 ↗</a></p>
+<p>经验上，这能改善模型，但有硬限制。优化前几百步，鹈鹕笑话或许会好一点；再继续，表现会从悬崖上掉下去——因为奖励模型只是对人类判断的有损模拟，可以被钻空子。不能像 AlphaGo 那样无限自我对弈直到超越顶尖棋手。他的判断是：RLHF “不太算真正的强化学习”，更接近一次小小的微调。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10949" target="_blank" rel="noopener noreferrer">3:02:29 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11173" target="_blank" rel="noopener noreferrer">3:06:13 ↗</a> 这是他就代理奖励可被钻空子给出的个人评价，不是一条技术分类定义：前面他已经说明，有了人类偏好的模拟器之后，仍然是在对这个模拟器做强化学习；差别在于奖励来自何处、以及还能安全优化多久。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10388" target="_blank" rel="noopener noreferrer">2:53:08 ↗</a></p>
+<div class="mech"><strong>机制</strong>当没有标准答案时，系统优化的是“评分器喜欢什么”，不是“事实上更好”。评分器一被钻空子，主模型就会跟着走偏。</div>
+<div class="ex"><strong>例子</strong>给五个鹈鹕笑话排序，比请人写出一个完美笑话更可行；但若对这个代理目标优化太久，得到的就不是更好的笑话。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=10426" target="_blank" rel="noopener noreferrer">2:53:46 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把“更会说话、更讨人喜欢”自动理解成更诚实或更有能力。RLHF 很擅长改表达，不保证改对事实。也不要把他“不太算真正的强化学习”理解成技术分类上“RLHF 不是强化学习”——RLHF 仍然包含强化学习，差别在奖励来源和优化风险：代理奖励可被钻空子，所以不能像有标准答案那样无限加计算。</div>
+</section>
+
+
+<section class="chapter" id="ch-future">
+<div class="section-no">15</div>
+<h2>接下来可能是什么，以及当时他如何跟上进展</h2>
+<p><span class="tag ">讲座原意</span>对未来，他先谈多模态：到那时为止，讲座几乎全在讲文本，但模型会很快在音频和图像上变得更自然——能听、能说、能看、能画。基本办法并不神秘：把音频频谱切片、把图像切成补丁，都变成 token，再和文本一起放进上下文，用同一套预测下一个符号的方法训练。已经能看到早期工作。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11379" target="_blank" rel="noopener noreferrer">3:09:39 ↗</a></p>
+<p>第二是智能体：当时多数用法仍是把单个任务“端到模型面前”，由人负责把任务串成完整工作。模型还不能在长时间里可靠地自我纠错、把任务连成许多分钟甚至数小时的工作，但这在改善。未来会看到更多需要人监督、偶尔汇报进展的长程智能体。由于模型并非不会错，数字世界里会出现类似工厂里“人机比”的“人对智能体比”，人更多地成为监督者。他还提到模型将更 Invisible 地嵌进工具，以及代表你操作键盘鼠标的计算机使用（当时举了 Operator 这类早期例子）。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11477" target="_blank" rel="noopener noreferrer">3:11:17 ↗</a></p>
+<p>最后是一个研究上的缺口：现在的流程是先训练、再把参数冻结后部署。部署之后，模型不再从自己做过的事情里更新参数，测试时唯一的“学习”是上下文窗口里的 in-context learning。这和人在清醒经验、尤其睡眠中更新参数的方式不同。上下文是有限而珍贵的资源；一旦要处理很长的、带视频的多模态任务，只靠把窗口加长恐怕不够，需要新想法。他把这类方向称为 test time training 一类仍待探索的研究。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11594" target="_blank" rel="noopener noreferrer">3:13:14 ↗</a></p>
+<div class="callout note"><span class="tag y2026">2026 补充</span>讲座说多模态“很快会变得非常原生”，并强调当时还只是开始。到 2026 年，许多消费级产品已经能语音和看图。这验证了他的方向判断，但不应当成他在 2025 年 2 月已经描述了今天某款具体产品。智能体和计算机使用同样仍在快速变化，本篇不把后来的产品细节回填进旧口播。</div>
+<p>如何跟上？他长期使用三个来源：第一，LLM Arena 这类按人类盲评排列的排行榜，当时能看到开源权重模型（如 DeepSeek）冲到很前的位置；但他也说，近几个月这份榜被“玩”得更厉害了，不如以前信任，例如他认为很多人爱用的 Anthropic Sonnet 排在第 14，而使用更少的 Gemini 却很高，所以只能当第一遍筛选，还得在自己的任务上试。第二，Swix and Friends 的 AI News 通讯，几乎隔天更新，上部摘要有人看管。第三，X / Twitter，跟随自己信任的人。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11715" target="_blank" rel="noopener noreferrer">3:15:15 ↗</a></p>
+<p>去哪里用模型？最强的闭源模型走官方应用或 API。开放权重模型可以用 together.ai 等托管，他个人喜欢在 Hyperbolic 上直接对话 Llama 3.1 基座模型。本地则可以用量化、蒸馏后的较小精度，在笔记本电脑上跑“还行”的模型；他常用 LM Studio，尽管嫌界面难看、型号过多。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11915" target="_blank" rel="noopener noreferrer">3:18:35 ↗</a></p>
+<div class="mech"><strong>机制</strong>文本、声音和图像可以被统一成 token 流；但参数一旦冻结，长期记忆不会在使用中继续改写，除非研究出新的测试时训练。</div>
+<div class="ex"><strong>例子</strong>频谱切片和图像补丁，是他用来说明“多模态不必另起一套魔法”的具体路线。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11425" target="_blank" rel="noopener noreferrer">3:10:25 ↗</a></div>
+<div class="pitfall"><strong>误区</strong>不要把 2025 年 2 月排行榜上的名次，当成今天的模型实力图。连他自己当时就已经提醒：榜在被游戏化。</div>
+</section>
+
+<section class="chapter" id="ch-close">
+<div class="section-no">16</div>
+<h2>把聊天框再拆开：总图与用法</h2>
+<p><span class="tag ">讲座原意</span>收尾时他回到起点：在 chatgpt.com 里输入一句话并按下回车，究竟发生了什么？先是预训练得到基座模型，一种对互联网文档的有损模拟；再经监督微调，装上助手人格，成为对标注员的有损模拟；再视任务加上可验证领域的强化学习，或 RLHF 这种“小微调”。生成时，每个 token 仍然只分配到有限计算，所以需要把思考摊开，也仍然会幻觉、会在瑞士奶酪的空洞里突然数不清字母，或说不出 9.11 小于 9.9。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12109" target="_blank" rel="noopener noreferrer">3:21:49 ↗</a> <a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12370" target="_blank" rel="noopener noreferrer">3:26:10 ↗</a></p>
+<p>思考模型让人兴奋，因为原则上它可能在开放领域里出现类似第 37 手的新思路，但当时仍是雏形，主要在数学和代码等可验证处发力。他个人每天使用这些模型几十到上百次，认为它们会创造巨大财富，也坚持列出缺点：即便是强化学习过后的模型，仍会胡编、算错、数错。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12577" target="_blank" rel="noopener noreferrer">3:29:37 ↗</a></p>
+<blockquote>把它们当成工具箱里的工具，不要完全信任。用它们找启发、写初稿、提问，但始终检查、核验，并对自己的工作产物负责。这样你才会在工作里非常成功。<a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=12632" target="_blank" rel="noopener noreferrer">3:30:32 ↗</a></blockquote>
+<div class="table-wrap">
+<table>
+<thead><tr><th>容易混在一起的两件事</th><th>实际差别</th><th>依据</th></tr></thead>
+<tbody>
+<tr><td>参数里的知识 / 上下文里的知识</td><td>前者是模糊的长期回忆，后者是当下的工作记忆。重要材料应贴进上下文。</td><td><a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=5963" target="_blank" rel="noopener noreferrer">1:39:23 ↗</a></td></tr>
+<tr><td>训练 / 推理</td><td>训练改参数；使用产品时通常只在推理，参数冻结，只采样。</td><td><a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=1829" target="_blank" rel="noopener noreferrer">0:30:29 ↗</a></td></tr>
+<tr><td>流畅的文本 / 正确的事实</td><td>模型首先在模仿答案的形状和自信的腔。流畅不保证它知道，更不保证它查过。</td><td><a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=4964" target="_blank" rel="noopener noreferrer">1:22:44 ↗</a></td></tr>
+<tr><td>给用户看的步骤 / 给模型用的步骤</td><td>中间 token 首先是模型自己的计算纸，不是排版装饰。</td><td><a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=6819" target="_blank" rel="noopener noreferrer">1:53:39 ↗</a></td></tr>
+<tr><td>可验证的 RL / RLHF</td><td>前者对着标准答案强化；后者对着可被游戏化的奖励模型，不能无限优化。</td><td><a class="cite" href="https://www.youtube.com/watch?v=7xTGNNLPyMI&amp;t=11173" target="_blank" rel="noopener noreferrer">3:06:13 ↗</a></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+<section class="chapter" id="ch-ext">
+<div class="section-no">17</div>
+<h2>写程序时怎么用这些认识</h2>
+<p><span class="tag ">讲座原意</span>上面多数含义其实已经是给使用者的：把原文放进上下文；让模型把步骤写出来；算术交给代码；把输出当初稿而不是定论；在自己的任务上试模型，而不是只看排行榜。</p>
+<div class="callout ext">
+<p><span class="tag ext">延伸假设</span>下面这一小节不是讲座内容，只是把同一组机制，放到手机终端和实时通信场景里看一眼，供你工作时对照，并不构成实测结论。</p>
+<p>若你在做实时语音或 WebRTC 通话中的助手：讲座里“模型需要 token 来思考”和低延迟轮次之间会直接打架。若产品强迫模型立刻、短促地开口，<strong>并且不允许它在开口前拥有独立的内部思考预算</strong>，才更接近要求它在一次或极少几次前向里跳完难题，失败模式会更接近他演示的“禁止中间步骤”。不能把“先发出的声音”和“思考”绝对等同。更稳妥的产品形状，可能是把“必须马上接话”和“可以在后台展开计算或调用工具”分成两条时间线，而不是指望同一句回复既低延迟又高可靠。</p>
+<p>通话状态、编解码约束、刚刚说过的话、检索到的设备文档，应当被明确放进上下文，当作工作记忆来管理，而不是假设参数“还记得产品手册”。需要事实时走工具，再把结果贴回来；不要把未核验的模型陈述直接接到实时媒体路径上。最后，每 token 的固定计算量和网络 RTT 是两笔不同的延迟预算，不能互相替代，却会叠在同一条用户可感知的等待里。</p>
+</div>
+</section>
+
+<section class="chapter" id="ch-2023">
+<div class="section-no">18</div>
+<h2>与 2023 年短片的简短对照</h2>
+<p><span class="tag ">讲座原意</span>作者在 <a href="https://karpathy.ai/" target="_blank" rel="noopener noreferrer">karpathy.ai</a> 上把 2023 年的 <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer">Intro to Large Language Models</a> 列为更早的、面向一般听众的平行介绍，时长约一小时。</p>
+<p>本篇<strong>没有独立核对</strong>该短片的完整转录或逐段章节，因此不描述它“讲了什么、没讲什么”，也不推测从 2023 到 2025 的演进。短片另有独立报告。若只读本篇，请把 2025 长片当作自足的主线，不要用猜测去补短片里的细节。</p>
+</section>
+
+<section class="chapter" id="ch-sources">
+<div class="section-no">19</div>
+<h2>第三方深读对照，以及全部来源</h2>
+<p>按用户补充，本篇参考了少量高质量第三方导读，用来比较结构和例子，不把它们当作原片字幕或官方来源。它们可以补解释、提醒过时的产品细节，但不能代替对转录的核对。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>材料</th><th>作者 / 出处</th><th>本篇如何使用</th><th>边界</th></tr></thead>
+<tbody>
+<tr><td>Watching Guide</td><td><a href="https://understandingmachine.com/karpathy-deep-dive-llms/companion/" target="_blank" rel="noopener noreferrer">Understanding Machine</a></td><td>四个时段的阅读切法、不该跳过的段落、以及对“RLHF 是代理目标、排行榜会过时、Anthropic 当时无思考模型”等点的提醒，已与转录交叉。</td><td>作者声明该页不能替代看视频。其中关于形式与意义的哲学对读、以及对谄媚问题的延伸，是导读自己的讨论，不是讲座结论。</td></tr>
+<tr><td>讲座摘要</td><td><a href="https://lawrencewu.net/posts/2025-02-24-karpathy-deep-dive-llms/" target="_blank" rel="noopener noreferrer">Lawrence Wu</a>（同一作者也托管了本篇所用的 Whisper 转录页）</td><td>用来对照章节标题和时间戳是否与公开章节表一致。</td><td>是摘要，不是逐字稿；事实仍以转录和原视频为准。</td></tr>
+<tr><td>TL;DR 笔记</td><td><a href="https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr" target="_blank" rel="noopener noreferrer">Anfal Mushtaq</a></td><td>用来核对手稿结构是否漏掉幻觉、两种记忆、工具等主块。</td><td>压缩性很强，个别措辞比讲座更绝对，未单独当作证据。</td></tr>
+<tr><td>中文笔记</td><td><a href="https://alanhou.org/blog/karpathy-deep-dive-llms/" target="_blank" rel="noopener noreferrer">Alan Hou</a></td><td>仅作中文表达对照，确认 9.11 / 9.9 等例子在中文读者中的常见写法。</td><td>篇幅较短，不覆盖全片。</td></tr>
+<tr><td>未采用</td><td>vectorbuilds.dev 上 Vatsal Vora 的详细笔记</td><td>搜索引擎曾摘要到该页，但 2026-11-21 直接抓取返回 HTTP 402（Payment required / DEPLOYMENT_DISABLED），本篇不使用其正文，也不绕过。</td><td>不能凭搜索摘要冒充全文。</td></tr>
+</tbody>
+</table>
+</div>
+<p><span class="tag third">第三方解读</span>三份成功抓到的导读，与转录一致的主干是：基座模型是文档模拟器；助手是标注员的模拟；参数 / 上下文是两种记忆；模型需要 token 思考；可验证奖励的 RL 与偏好奖励的 RLHF 差别在奖励来源和优化风险，而不是把后者排除在强化学习之外。分歧主要在语气和延伸：Understanding Machine 更明确地把讲座放在“泄气的、去神话的”一侧，并补充了 2026 年已变化的产品事实；本篇接受这些提醒，但把延伸论证留在第三方名下。</p>
+<details class="deep-dive"><summary>公开转录与官方材料清单</summary>
+<div class="deep-body">
+<ul class="sources-list">
+<li>主片：<a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer">YouTube · Deep Dive into LLMs like ChatGPT</a>（2025-02-05）</li>
+<li>带时间戳的 Whisper 转录：<a href="https://lawwu.github.io/transcripts/7xTGNNLPyMI.html" target="_blank" rel="noopener noreferrer">lawwu.github.io/transcripts/7xTGNNLPyMI.html</a>；清洁文本页：<a href="https://lawwu.github.io/transcripts/transcript_7xTGNNLPyMI.html" target="_blank" rel="noopener noreferrer">transcript_7xTGNNLPyMI.html</a></li>
+<li>交叉用公开纯文本：<a href="https://ynarwal.github.io/how-llms-work/transcript.txt" target="_blank" rel="noopener noreferrer">ynarwal.github.io/how-llms-work/transcript.txt</a>，与 <a href="https://gist.github.com/dawu76/e8ddeeb342aee9be323c3f96e95e0d47" target="_blank" rel="noopener noreferrer">gist.github.com/dawu76/…</a> 内容一致（自动字幕风格，含 “Chachi PT” 这类识别）</li>
+<li>作者站点对视频的定位：<a href="https://karpathy.ai/" target="_blank" rel="noopener noreferrer">karpathy.ai</a></li>
+<li>FineWeb 数据集卡（核 15 万亿 / 后来的 18.5 万亿）：<a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb" target="_blank" rel="noopener noreferrer">Hugging Face FineWeb</a></li>
+<li>章节表（与转录页一致）：例如 <a href="https://deekoyaai.in/one-shot/deep-dive-into-llms-like-chatgpt-7xtgnnlpymi" target="_blank" rel="noopener noreferrer">DEEKOYA 转载的 24 章目录</a></li>
+</ul>
+<p>获取记录、散列和覆盖表已另行写成研究台账，不构成本页的阅读依赖。</p>
+</div>
+</details>
+<p class="endnote">本页为自包含离线 HTML：样式、脚本和机制图均内嵌。没有远程字体、跟踪或 CDN。只有你点击来源链接时才会联网。正文不包含私人路径、凭证或未公开材料。数学例子均为讲座中的示意或明确标注的教学计算，没有伪称实测。</p>
+</section>
+
+</main>
+</div>
+<footer>
+<p>AI 科技日报 · 深度研究专栏样稿。本页为离线自包含 HTML，仅供用户审阅与后续上线流程使用，不代表已发布到网站。</p>
+</footer>
+<script>
+(function () {
+  "use strict";
+  var expandAll = document.getElementById("expand-all");
+  var collapseAll = document.getElementById("collapse-all");
+  var printBtn = document.getElementById("print-report");
+  function allDetails() { return [].slice.call(document.querySelectorAll("details")); }
+  if (expandAll) expandAll.addEventListener("click", function () {
+    allDetails().forEach(function (d) { d.open = true; });
+  });
+  if (collapseAll) collapseAll.addEventListener("click", function () {
+    allDetails().forEach(function (d) { d.open = false; });
+  });
+  function openForPrint() {
+    allDetails().forEach(function (d) { d.dataset.wasOpen = d.open ? "1" : "0"; d.open = true; });
+  }
+  function restoreAfterPrint() {
+    allDetails().forEach(function (d) {
+      d.open = d.dataset.wasOpen === "1";
+      delete d.dataset.wasOpen;
+    });
+  }
+  window.addEventListener("beforeprint", openForPrint);
+  window.addEventListener("afterprint", restoreAfterPrint);
+  if (printBtn) printBtn.addEventListener("click", function () {
+    openForPrint();
+    window.print();
+  });
+})();
+
+</script>
+</body>
+</html>
