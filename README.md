@@ -18,9 +18,10 @@
 
 ## 深度研究
 
-专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 12 篇：
+专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 13 篇：
 
 - [深度研究专栏首页](research.html)
+- [实时语音 AI，为什么终于能接上话](research-realtime-voice-models.html) — 2026-11-21（模型层全双工、产品矩阵与终端工程 PoC，非实测；与已有协议讲义互补）
 - [大模型如何训练、蒸馏，又如何防止被蒸馏](research-training-distillation.html) — 2026-11-22（源码静态解析与教学复算，非模型实测；防蒸馏不是绝对保证）
 - [AI如何理解连续视频，而不只是几张截图](research-continuous-video.html) — 2026-11-22（Qwen3-VL / StreamingVLM 与 Gemini Live 公开契约边界）
 - [拆解宇树G1：从仿真训练、遥操作到真机控制](research-unitree-g1.html) — 2026-11-22（宇树 G1 主线；NVIDIA Isaac Lab / Physical Intelligence openpi 为训练平台与策略对照）
