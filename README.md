@@ -18,9 +18,10 @@
 
 ## 深度研究
 
-专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 9 篇：
+专题长文专栏，与日报分开计数，不并入日报归档，也不占用日报期号。目前 10 篇：
 
 - [深度研究专栏首页](research.html)
+- [拆解宇树G1：从仿真训练、遥操作到真机控制](research-unitree-g1.html) — 2026-11-22（宇树 G1 主线；NVIDIA Isaac Lab / Physical Intelligence openpi 为训练平台与策略对照）
 - [长任务 Agent 如何可靠接续工作](research-long-running-agents.html) — 2026-11-21（跨会话交接与崩溃恢复）
 - [上下文工程：每一步给模型看什么](research-context-engineering.html) — 2026-11-21（上下文选择、检索与压缩损失）
 - [实时WebRTC深度讲义｜协议、会话、播放与恢复](research-realtime-webrtc.html) — 2026-11-21（协议、会话、播放与恢复）
