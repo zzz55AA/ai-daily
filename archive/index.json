@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+    "id": "issue-20-2026-11-24",
+    "date": "2026-11-24",
+    "year": 2026,
+    "month": 11,
+    "day": 24,
+    "label": "24",
+    "kicker": "第 20 期",
+    "weekday": "星期二",
+    "issue": 20,
+    "kind": "daily",
+    "count": 57,
+    "coverage": "2026年11月24日",
+    "window": "2026年11月24日",
+    "jump": [
+      "2026-11-24"
+    ],
+    "title": "2026年11月24日 星期二",
+    "path": "2026/11/24.html",
+    "summary": "英伟达董事会宣布立即恢复黄仁勋担任总裁兼首席执行官及董事，并称决策过程中获得美国政府高层意见，针对其遭外国情报机构针对的独立调查仍将继续；Anthropic 推出可按策略评审和批准拉取请求的 Claude Ship 测试版，OpenAI 与思科则开源用于在补丁完成前保护 Linux 系统的运行时 Shirudo；智谱发布循环 Transformer 旗舰 GLM-5.4，亚马逊宣布购买 Decart 优化技术（官方未公布价格），CrowdStrike 拟以约 439 亿美元全股票收购 Zscaler。",
+    "highlights": [
+      {
+        "n": "01",
+        "id": "item-i1",
+        "title": "英伟达董事会一致、立即恢复黄仁勋担任总裁兼 CEO 及董事；官方称决策过程中获得美国政府高层意见，针对其遭外国情报机构针对的独立调查仍将继续。"
+      },
+      {
+        "n": "02",
+        "id": "item-t1",
+        "title": "Anthropic 推出 Claude Ship 测试版，可在团队设定的策略下评审、修复并批准 GitHub 拉取请求。"
+      },
+      {
+        "n": "03",
+        "id": "item-t2",
+        "title": "OpenAI 与思科开源 Linux 运行时 Shirudo，用 eBPF「盾」在补丁完成前保护正在运行的系统。"
+      },
+      {
+        "n": "04",
+        "id": "item-r3",
+        "title": "智谱 / z.ai 发布 GLM-5.4，官方称为其首个循环 Transformer 旗舰，28 层权重共享并循环两轮；权重尚未开放。"
+      },
+      {
+        "n": "05",
+        "id": "item-i3",
+        "title": "亚马逊宣布购买 Decart 的优化技术栈并引进创始团队；官方未公布金额，彭博社援引知情人士称约为 75 亿美元。"
+      },
+      {
+        "n": "06",
+        "id": "item-i4",
+        "title": "CrowdStrike 宣布以全股票交易收购 Zscaler，官方估值为约 439 亿美元，预计 2028 财年上半年交割。"
+      },
+      {
+        "n": "07",
+        "id": "item-r2",
+        "title": "DeepMind 用 Gemini 4 智能体团队与 Lean 形式化验证改进量子算法，并称将开源验证过的结果与 Lean 库。"
+      },
+      {
+        "n": "08",
+        "id": "item-d1",
+        "title": "谷歌搜索 AI Mode 的 Personal Intelligence 开始可选择连接 Wallet，Drive 与 Gemini 应用将在未来数周跟进。"
+      }
+    ]
+    },
+    {
     "id": "issue-19-2026-11-23",
     "date": "2026-11-23",
     "year": 2026,
