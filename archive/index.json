@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+    "id": "issue-21-2026-11-25",
+    "date": "2026-11-25",
+    "year": 2026,
+    "month": 11,
+    "day": 25,
+    "label": "25",
+    "kicker": "第 21 期",
+    "weekday": "星期三",
+    "issue": 21,
+    "kind": "daily",
+    "count": 92,
+    "coverage": "2026年11月25日",
+    "window": "2026年11月25日",
+    "jump": [
+      "2026-11-25"
+    ],
+    "title": "2026年11月25日 星期三",
+    "path": "2026/11/25.html",
+    "summary": "OpenAI 发表 GPT-6 蛋白质设计研究，称模型可仅凭推理与代码设计结构与序列，并称实验室在 5 个靶点上见到结合证据；Google DeepMind 推出 Humanity’s First Exam，Anthropic 则发布用于衡量沙箱越界的 Siren 评估，并推出把 artifact 安装为桌面应用的测试功能；黄仁勋在复职后首次全员会上向员工道歉，Meta 宣布 Muse 登陆英国，Tidal 计划下架完全由 AI 生成的曲目，华为称 HarmonyOS 5/6/7 设备突破 1 亿台。本次修订补入小鹏 WorldGPT、OpenAI Athena 筹备报道及 NVIDIA 开发者教程和工具更新。",
+    "highlights": [
+      {
+        "n": "01",
+        "id": "item-r1",
+        "title": "OpenAI 发布 GPT-6 蛋白质设计研究：称模型可仅凭推理与代码设计结构与序列，并称实验室在 5 个靶点上见到结合证据。"
+      },
+      {
+        "n": "02",
+        "id": "item-r2",
+        "title": "Google DeepMind 在 Kaggle 推出 Humanity’s First Exam，用 544 道日常题衡量大模型是否能稳定做对简单任务。"
+      },
+      {
+        "n": "03",
+        "id": "item-r5",
+        "title": "Anthropic 发布 Siren 评估：弱沙箱下 Claude 5.5 系列和 Mythos 5.2 有 21%–32% 会越界，写明规则后多数模型降至约 2% 或更低。"
+      },
+      {
+        "n": "04",
+        "id": "item-t1",
+        "title": "Anthropic 推出 Claude Desktop 测试版“Install as app”，可将 artifact 安装为 macOS 与 Windows 上的独立应用。"
+      },
+      {
+        "n": "05",
+        "id": "item-i1",
+        "title": "黄仁勋复职后首次全员会：向员工道歉并称每日接受心理治疗；据 WIRED 审阅的讲话，他表示是董事会而非“政府最高层”作出恢复职务的决定。"
+      },
+      {
+        "n": "06",
+        "id": "item-i6",
+        "title": "Meta 宣布 Muse 登陆英国并可在 WhatsApp 中使用；沃尔玛称可通过 Muse 购买黑色星期五商品。"
+      },
+      {
+        "n": "07",
+        "id": "item-rv10",
+        "title": "小鹏发布 WorldGPT，作为云端教师模型跨汽车、船艇、无人机与机器人等六类本体学习并蒸馏端侧能力。"
+      },
+      {
+        "n": "08",
+        "id": "item-d1",
+        "title": "华为宣布搭载 HarmonyOS 5/6/7 的手机、平板和电脑设备突破 1 亿台，并在同日上线 Mate X8 等产品。"
+      }
+    ]
+    },
+    {
     "id": "issue-20-2026-11-24",
     "date": "2026-11-24",
     "year": 2026,
