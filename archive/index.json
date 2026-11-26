@@ -2,6 +2,69 @@
   "publication": "AI 科技日报",
   "issues": [
     {
+    "id": "issue-22-2026-11-26",
+    "date": "2026-11-26",
+    "year": 2026,
+    "month": 11,
+    "day": 26,
+    "label": "26",
+    "kicker": "第 22 期",
+    "weekday": "星期四",
+    "issue": 22,
+    "kind": "daily",
+    "count": 57,
+    "coverage": "2026年11月26日",
+    "window": "2026年11月26日",
+    "jump": [
+      "2026-11-26"
+    ],
+    "title": "2026年11月26日 星期四",
+    "path": "2026/11/26.html",
+    "summary": "OpenAI 在公开数学仓库新增一批手稿，称矩阵乘法指数 ω 恰为 9/4，并把它称为原始研究数据而非已完成的同行评审论文；Google Research 目录则新增六篇由 Cogentic 生成的论文，称给出亚指数时间的无条件整数分解等结果，并声明不是 Google 官方产品。Google DeepMind 发布用于质谱解析的 Mass Spec Skills，官方称在 100 条可检索谱图上加技能后精确匹配约 97%；Anthropic 回顾将 Messages API 迁至 Rust，称每请求 CPU 约降 70%。Sam Altman 称 OpenAI 正在小范围测试 Private Inference。另有报道称标普考虑下调英伟达信用评级，FCC 批准 SpaceX 太空数据中心卫星计划，以及纽约州限制人工智能聊天玩具。本次修订补入小鹏图灵具身智能架构与 IRON、蔚来 NWM 3.0 与 NOMI 4.0、Nothing 即将推出的 AI 耳机，以及 NVFP4 Attention、Hugging Face 与 GitHub 官方教程等窗内更新。",
+    "highlights": [
+      {
+        "n": "01",
+        "id": "item-r1",
+        "title": "OpenAI 在 math 仓库新增一批手稿，称矩阵乘法指数 ω 恰为 9/4；官方将其称为原始研究数据，而非已完成的同行评审论文。"
+      },
+      {
+        "n": "02",
+        "id": "item-r2",
+        "title": "Google Research 目录新增六篇 Cogentic 论文，称给出亚指数时间的无条件整数分解等结果，并声明这不是 Google 官方产品。"
+      },
+      {
+        "n": "03",
+        "id": "item-r3",
+        "title": "Google DeepMind 发布 Mass Spec Skills：官方称在 100 条可检索谱图上，加技能后精确匹配约 97%，无工具时低于 4%。"
+      },
+      {
+        "n": "04",
+        "id": "item-t1",
+        "title": "Anthropic 发文回顾将 Messages API 迁至 Rust：官方称每请求 CPU 约降 70%，首 token 中位时间约降 20%。"
+      },
+      {
+        "n": "05",
+        "id": "item-p1",
+        "title": "Sam Altman 称 OpenAI 正与小范围客户测试 Private Inference，属 Private Intelligence 的最新能力。"
+      },
+      {
+        "n": "06",
+        "id": "item-i1",
+        "title": "报道称标普全球考虑下调英伟达信用评级，理由包括治理薄弱、缺少继任规划和“关键人物风险”。"
+      },
+      {
+        "n": "07",
+        "id": "item-i2",
+        "title": "报道称美国联邦通信委员会批准 SpaceX“Starmind”计划，授权部署最多 100 万颗搭载人工智能芯片的卫星。"
+      },
+      {
+        "n": "08",
+        "id": "item-i4",
+        "title": "报道称纽约州签署法案，五年内禁止在该州制造、分销和销售内置人工智能聊天机器人的玩具。"
+      }
+    ]
+    },
+    {
     "id": "issue-21-2026-11-25",
     "date": "2026-11-25",
     "year": 2026,
